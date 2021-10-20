@@ -17,6 +17,11 @@ public class Usuario {
     @Column (name="nombre_usuario", nullable = false, length = 25, unique = true)
     private String nombreUsuario;
 
+
+    @Size( max=100, message = "La descripcion de usuario debe tener como maximo 100 caracteres")
+    @Column (name="descripcion_usuario", length = 100)
+    private String descripcionUsuario;
+
     @NotNull
     @Email(message = "Formato incorrecto del correo electrónico")
     @Column (name="correo", nullable = false)
