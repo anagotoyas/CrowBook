@@ -95,9 +95,18 @@
 		{
 			"name": "Eliminar Usuario",
 			"request": {
-				"method": "GET",
+				"method": "DELETE",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "{{base_url}}/usuarios/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"usuarios",
+						"1"
+					]
+				}
 			},
 			"response": []
 		},
@@ -108,7 +117,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n   \r\n    \"usuario\": 4,\r\n    \"nombreHistoria\": \"Buruos\",\r\n    \"imagenPortada\": \"httdceg\",\r\n    \"descripcionHistoria\":\"Habia uad\" ,\r\n    \"cantidadResenas\": 5,\r\n    \"calificacionTotal\": 7\r\n}",
+					"raw": "{\r\n   \r\n    \"usuario\": {\r\n        \"idUsuario\": 3\r\n    } ,\r\n    \"nombreHistoria\": \"Buruos\",\r\n    \"imagenPortada\": \"httdceg\",\r\n    \"descripcionHistoria\":\"Habia uad\" ,\r\n    \"cantidadResenas\": 5,\r\n    \"calificacionTotal\": 7\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -122,6 +131,85 @@
 					],
 					"path": [
 						"historias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar Historia",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idHistoria\": 2,\r\n    \"usuario\": {\r\n        \"idUsuario\": 3},\r\n    \"nombreHistoria\": \"Lizarzaburu y sus amigos\",\r\n    \"imagenPortada\": \"httdceg\",\r\n    \"descripcionHistoria\":\"Habia uad\" ,\r\n    \"cantidadResenas\": 5,\r\n    \"calificacionTotal\": 7\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/historias",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"historias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Historias",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/historias",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"historias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Historia por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/historias/2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"historias",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar Historias por ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/historias/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"historias",
+						"1"
 					]
 				}
 			},
@@ -151,7 +239,7 @@
 	"variable": [
 		{
 			"key": "base_url",
-			"value": "http://localhost:80"
+			"value": "http://localhost:8020"
 		}
 	]
 }

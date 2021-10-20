@@ -12,7 +12,7 @@ public class Historia {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer idHistoria;
 
-    @NotNull
+
     @ManyToOne
     @JoinColumn(name="usuario_historia", nullable = false,
             foreignKey = @ForeignKey(name="FK_usuario_historia"))
