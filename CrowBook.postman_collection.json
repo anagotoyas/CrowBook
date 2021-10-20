@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombreUsuario\": \"Pedro\",\r\n    \"correo\": \"pedro123@gmail.com\",\r\n    \"contrasenaUsuario\": \"pedro123\",\r\n    \"cantidadCrowCoins\":\"0\" ,\r\n    \"esMiembro\": \"0\"\r\n}",
+					"raw": "{\r\n    \"nombreUsuario\": \"Carla\",\r\n    \"correo\": \"carla123@gmail.com\",\r\n    \"contrasenaUsuario\": \"carla123\",\r\n    \"cantidadCrowCoins\":\"0\" ,\r\n    \"esMiembro\": \"false\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -38,7 +38,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"idUsuario\":1,\r\n    \"nombreUsuario\": \"Pedro Juan\",\r\n    \"correo\": \"pedro123@gmail.com\",\r\n    \"contrasenaUsuario\": \"pedro123\",\r\n    \"cantidadCrowCoins\":\"0\" ,\r\n    \"esMiembro\": \"false\"\r\n\r\n}",
+					"raw": "{\r\n    \"idUsuario\":1,\r\n    \"nombreUsuario\": \"Pedro\",\r\n    \"correo\": \"pedro123@gmail.com\",\r\n    \"contrasenaUsuario\": \"pedro123\",\r\n    \"cantidadCrowCoins\":\"0\" ,\r\n    \"esMiembro\": \"false\"\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -80,13 +80,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/usuarios/2",
+					"raw": "{{base_url}}/usuarios/3",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
 						"usuarios",
-						"2"
+						"3"
 					]
 				}
 			},
@@ -98,6 +98,32 @@
 				"method": "GET",
 				"header": [],
 				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Historia",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \r\n    \"usuario\": 4,\r\n    \"nombreHistoria\": \"Buruos\",\r\n    \"imagenPortada\": \"httdceg\",\r\n    \"descripcionHistoria\":\"Habia uad\" ,\r\n    \"cantidadResenas\": 5,\r\n    \"calificacionTotal\": 7\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/historias",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"historias"
+					]
+				}
 			},
 			"response": []
 		}
