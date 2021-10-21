@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Table(name="usuarios")
@@ -37,6 +38,9 @@ public class Usuario {
 
     @Column (name="es_miembro", nullable = false)
     private boolean esMiembro;
+
+    @OneToMany(mappedBy ="usuario", cascade ={CascadeType.ALL})
+    private List<Historia> historias;
 
     public Integer getIdUsuario() {
         return idUsuario;

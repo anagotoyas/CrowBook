@@ -1,7 +1,9 @@
 package com.crowbook.controller;
 
 import com.crowbook.model.Capitulo;
+
 import com.crowbook.services.CapituloService;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,5 +27,9 @@ public class CapituloController {
     public ResponseEntity<Capitulo> agregarCapitulo(@Valid @RequestBody Capitulo capitulo){
         Capitulo capituloNew=  capituloService.agregarCapitulo(capitulo);
         return new ResponseEntity<Capitulo>(capituloNew, HttpStatus.CREATED);
+
     }
+
+
 }
+

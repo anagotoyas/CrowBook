@@ -3,6 +3,7 @@ package com.crowbook.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Table(name="historias")
@@ -39,6 +40,9 @@ public class Historia {
     @NotNull
     @Column (name="calificacion_total", nullable = false)
     private int calificacionTotal;
+
+    @OneToMany(mappedBy= "historia", cascade ={CascadeType.ALL})
+    private List<Capitulo> capitulo;
 
     public Integer getIdHistoria() {
         return idHistoria;
