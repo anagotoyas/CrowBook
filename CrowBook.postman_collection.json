@@ -98,13 +98,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/usuarios/5",
+					"raw": "{{base_url}}/usuarios/4",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
 						"usuarios",
-						"5"
+						"4"
 					]
 				}
 			},
@@ -117,7 +117,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n   \r\n    \"usuario\": {\r\n        \"idUsuario\": 4\r\n    } ,\r\n    \"nombreHistoria\": \"AA\",\r\n    \"imagenPortada\": \"httdceg\",\r\n    \"descripcionHistoria\":\"Habia uad\" ,\r\n    \"cantidadResenas\": 5,\r\n    \"calificacionTotal\": 7\r\n}",
+					"raw": "{\r\n   \r\n    \"usuario\": {\r\n        \"idUsuario\": 1\r\n    } ,\r\n    \"nombreHistoria\": \"AA\",\r\n    \"imagenPortada\": \"httdceg\",\r\n    \"descripcionHistoria\":\"Habia uad\" ,\r\n    \"cantidadResenas\": 5,\r\n    \"calificacionTotal\": 7\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -236,6 +236,111 @@
 					],
 					"path": [
 						"capitulos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Reseñas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \r\n    \"usuario\": {\r\n        \"idUsuario\": 1\r\n    } ,\r\n    \"historia\": {\r\n        \"idHistoria\": 6\r\n    } ,\r\n    \"comentarioResena\":\"Me encanto la Historia\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/resenas",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"resenas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar Reseña",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idResena\": 1,\r\n    \"usuario\": {\r\n        \"idUsuario\": 1},\r\n        \"historia\": {\r\n        \"idHistoria\": 6},\r\n    \"comentarioResena\":\"Es una historia muy divertida\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/resenas",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"resenas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Reseñas por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/resenas/2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"resenas",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Reseñas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/resenas",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"resenas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar Reseñas por ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/resenas/2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"resenas",
+						"2"
 					]
 				}
 			},
