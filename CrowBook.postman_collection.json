@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "fa334391-a1f8-49ef-bb44-8d3ac24042d7",
+		"_postman_id": "f67ff474-a11f-4cb9-9f45-c90000ec57a9",
 		"name": "CrowBook",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -341,6 +341,32 @@
 					"path": [
 						"resenas",
 						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Comentario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \r\n    \"usuario\": {\r\n        \"idUsuario\": 1\r\n    } ,\r\n    \"capitulo\": {\r\n        \"idCapitulo\": 2\r\n    } ,\r\n    \"comentarioCapitulo\":\"Me encanto la Historia\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/comentarios",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"comentarios"
 					]
 				}
 			},
