@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "fa334391-a1f8-49ef-bb44-8d3ac24042d7",
+		"_postman_id": "3599fd95-dcd7-492b-859c-f1c43b4c87a0",
 		"name": "CrowBook",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombreUsuario\": \"Maria\",\r\n    \"correo\": \"maria@gmail.com\",\r\n    \"contrasenaUsuario\": \"maria123\",\r\n    \"cantidadCrowCoins\":\"0\" ,\r\n    \"esMiembro\": \"false\"\r\n}",
+					"raw": "{\r\n    \"nombreUsuario\": \"Carla\",\r\n    \"correo\": \"carla123@gmail.com\",\r\n    \"contrasenaUsuario\": \"carla123\",\r\n    \"cantidadCrowCoins\":\"0\" ,\r\n    \"esMiembro\": \"false\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -98,13 +98,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/usuarios/5",
+					"raw": "{{base_url}}/usuarios/1",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
 						"usuarios",
-						"5"
+						"1"
 					]
 				}
 			},
@@ -117,7 +117,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n   \r\n    \"usuario\": {\r\n        \"idUsuario\": 4\r\n    } ,\r\n    \"nombreHistoria\": \"AA\",\r\n    \"imagenPortada\": \"httdceg\",\r\n    \"descripcionHistoria\":\"Habia uad\" ,\r\n    \"cantidadResenas\": 5,\r\n    \"calificacionTotal\": 7\r\n}",
+					"raw": "{\r\n   \r\n    \"usuario\": {\r\n        \"idUsuario\": 3\r\n    } ,\r\n    \"nombreHistoria\": \"Buruos\",\r\n    \"imagenPortada\": \"httdceg\",\r\n    \"descripcionHistoria\":\"Habia uad\" ,\r\n    \"cantidadResenas\": 5,\r\n    \"calificacionTotal\": 7\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -185,13 +185,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/historias/1",
+					"raw": "{{base_url}}/historias/2",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
 						"historias",
-						"1"
+						"2"
 					]
 				}
 			},
@@ -216,13 +216,13 @@
 			"response": []
 		},
 		{
-			"name": "Agregar Capítulo",
+			"name": "Crear Reseñas",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"historia\": {\r\n        \"idHistoria\": 5\r\n    },\r\n    \"nombreCapitulo\": \"Capitulo 1\",\r\n    \"fechaPublicacion\": \"20-10-2021\",\r\n    \"contenidoCapitulo\": \"habia una vez truz\",\r\n    \"calificacion\": 20,\r\n    \"cantidadComentarios\": 5\r\n\r\n}",
+					"raw": "{\r\n   \r\n    \"usuario\": {\r\n        \"idUsuario\": 1\r\n    } ,\r\n    \"historia\": {\r\n        \"idHistoria\": 7\r\n    } ,\r\n    \"comentarioResena\":\"Me encanto la Historia\" \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -230,12 +230,91 @@
 					}
 				},
 				"url": {
-					"raw": "{{base_url}}/capitulos",
+					"raw": "{{base_url}}/resenas",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
-						"capitulos"
+						"resenas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar Reseña",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idResena\": 2,\r\n    \"usuario\": {\r\n        \"idUsuario\": 3},\r\n        \"historia\": {\r\n        \"idHistoria\": 1},\r\n    \"comentarioResena\":\"Es una historia muy divertida\" ,\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/resenas",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"resenas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Reseñas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/resenas",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"resenas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Reseñas por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/resenas/2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"resenas",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar Reseñas por ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/resenas/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"resenas",
+						"1"
 					]
 				}
 			},
