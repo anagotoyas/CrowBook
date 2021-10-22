@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f67ff474-a11f-4cb9-9f45-c90000ec57a9",
+		"_postman_id": "27e107bc-05aa-4387-ba8f-bbe9764c1c39",
 		"name": "CrowBook",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -143,7 +143,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"idHistoria\": 2,\r\n    \"usuario\": {\r\n        \"idUsuario\": 3},\r\n    \"nombreHistoria\": \"Lizarzaburu y sus amigos\",\r\n    \"imagenPortada\": \"httdceg\",\r\n    \"descripcionHistoria\":\"Habia uad\" ,\r\n    \"cantidadResenas\": 5,\r\n    \"calificacionTotal\": 7\r\n}",
+					"raw": "{\r\n    \"idHistoria\": 1,\r\n    \"usuario\": {\r\n        \"idUsuario\": 1},\r\n    \"nombreHistoria\": \"Lizarzaburu y sus amigos\",\r\n    \"imagenPortada\": \"httdceg\",\r\n    \"descripcionHistoria\":\"Habia uad\" ,\r\n    \"cantidadResenas\": 5,\r\n    \"calificacionTotal\": 7\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -222,7 +222,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"historia\": {\r\n        \"idHistoria\": 5\r\n    },\r\n    \"nombreCapitulo\": \"Capitulo 1\",\r\n    \"fechaPublicacion\": \"20-10-2021\",\r\n    \"contenidoCapitulo\": \"habia una vez truz\",\r\n    \"calificacion\": 20,\r\n    \"cantidadComentarios\": 5\r\n\r\n}",
+					"raw": "{\r\n    \"historia\": {\r\n        \"idHistoria\": 1\r\n    },\r\n    \"nombreCapitulo\": \"Capitulo 1\",\r\n    \"fechaPublicacion\": \"20-10-2021\",\r\n    \"contenidoCapitulo\": \"HABÍA una vez truz\",\r\n    \"calificacion\": 20,\r\n    \"cantidadComentarios\": 2\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -242,13 +242,92 @@
 			"response": []
 		},
 		{
+			"name": "Modificar Capítulo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idCapitulo\":1,\r\n    \"historia\": {\r\n        \"idHistoria\": 1\r\n    },\r\n    \"nombreCapitulo\": \"Capitulo 1\",\r\n    \"fechaPublicacion\": \"-\",\r\n    \"contenidoCapitulo\": \"AaAaAaAaA\",\r\n    \"calificacion\": 12,\r\n    \"cantidadComentarios\": 0\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/capitulos",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"capitulos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Capítulo por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/capitulos/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"capitulos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Capítulos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/capitulos",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"capitulos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar Capítulo por ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/capitulos/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"capitulos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Crear Reseñas",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n   \r\n    \"usuario\": {\r\n        \"idUsuario\": 1\r\n    } ,\r\n    \"historia\": {\r\n        \"idHistoria\": 6\r\n    } ,\r\n    \"comentarioResena\":\"Me encanto la Historia\" \r\n}",
+					"raw": "{\r\n   \r\n    \"usuario\": {\r\n        \"idUsuario\": 1\r\n    } ,\r\n    \"historia\": {\r\n        \"idHistoria\": 1\r\n    } ,\r\n    \"comentarioResena\":\"Me encanto la Historia\" \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -353,7 +432,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n   \r\n    \"usuario\": {\r\n        \"idUsuario\": 1\r\n    } ,\r\n    \"capitulo\": {\r\n        \"idCapitulo\": 2\r\n    } ,\r\n    \"comentarioCapitulo\":\"Me encanto la Historia\" \r\n}",
+					"raw": "{\r\n   \r\n    \"usuario\": {\r\n        \"idUsuario\": 1\r\n    } ,\r\n    \"capitulo\": {\r\n        \"idCapitulo\": 1\r\n    } ,\r\n    \"comentarioCapitulo\":\"Me encanto la Historia\" \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -373,7 +452,68 @@
 			"response": []
 		},
 		{
-			"name": "Borrar Comentario",
+			"name": "Modificar Comentario",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idComentario\":1,\r\n    \"usuario\": {\r\n        \"idUsuario\": 1\r\n    } ,\r\n    \"capitulo\": {\r\n        \"idCapitulo\": 1\r\n    } ,\r\n    \"comentarioCapitulo\":\"Que gran historia la verdad.\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/comentarios",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"comentarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Comentario por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/comentarios/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"comentarios",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Comentarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/comentarios",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"comentarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar Comentario por ID",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -414,7 +554,7 @@
 	"variable": [
 		{
 			"key": "base_url",
-			"value": "http://localhost:8020"
+			"value": "http://localhost:8090"
 		}
 	]
 }
