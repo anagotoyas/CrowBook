@@ -1,6 +1,7 @@
 package com.crowbook.services.impl;
 
 import com.crowbook.model.Capitulo;
+import com.crowbook.model.Resena;
 import com.crowbook.repositories.CapituloRepository;
 import com.crowbook.services.CapituloService;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,10 @@ public class CapituloServiceImpl implements CapituloService {
         return capituloRepository.save(capitulo);
     }
 
+    @Override
+    public Capitulo modificarCapitulo(Capitulo capitulo){
+        return capituloRepository.save(capitulo);
+    }
 
 
 

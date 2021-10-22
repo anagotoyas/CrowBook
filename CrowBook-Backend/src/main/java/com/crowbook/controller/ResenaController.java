@@ -34,6 +34,7 @@ public class ResenaController {
         Resena resena = resenaService.obtenerResenaPorIdResena(idResena);
 
         return new ResponseEntity<Resena>(resena, HttpStatus.OK);
+        
     }
 
     @PostMapping

@@ -1,9 +1,14 @@
 package com.crowbook.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Entity
@@ -25,7 +30,8 @@ public class Capitulo {
     private String nombreCapitulo;
 
     @Column(name = "fecha_publicacion", nullable = false)
-    private String fechaPublicacion;
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss[.SSS][.SS][.S]")
+    private LocalDateTime fechaPublicacion;
 
     @NotNull
     @Size(min = 2, message = "El contenido del capítulo debe tener como mínimo 2 caracteres")
@@ -64,11 +70,11 @@ public class Capitulo {
         this.nombreCapitulo = nombreCapitulo;
     }
 
-    public String getFechaPublicacion() {
+    public LocalDateTime getFechaPublicacion() {
         return fechaPublicacion;
     }
 
-    public void setFechaPublicacion(String fechaPublicacion) {
+    public void setFechaPublicacion(LocalDateTime fechaPublicacion) {
         this.fechaPublicacion = fechaPublicacion;
     }
 
