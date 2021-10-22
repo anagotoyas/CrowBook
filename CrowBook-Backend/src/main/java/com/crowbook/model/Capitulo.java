@@ -20,7 +20,7 @@ public class Capitulo {
     private Integer idCapitulo;
 
     @ManyToOne
-    @JoinColumn(name = "capitulo_historia",
+    @JoinColumn(name = "id_historia",
             foreignKey = @ForeignKey(name = "FK_capitulo_historia"))
     private Historia historia;
 
@@ -30,13 +30,16 @@ public class Capitulo {
     private String nombreCapitulo;
 
     @Column(name = "fecha_publicacion", nullable = false)
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss[.SSS][.SS][.S]")
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime fechaPublicacion;
 
     @NotNull
     @Size(min = 2, message = "El contenido del capítulo debe tener como mínimo 2 caracteres")
     @Column(name = "contenido_capitulo", nullable = false)
     private String contenidoCapitulo;
+
+    @OneToMany(mappedBy= "capitulo", cascade ={CascadeType.ALL})
+    private List<Comentario> comentario;
 
     @NotNull
     @Column(name = "calificacion", nullable = false)

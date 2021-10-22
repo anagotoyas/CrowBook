@@ -17,11 +17,11 @@ public class Comentario {
     private Integer idComentario;
 
     @ManyToOne
-    @JoinColumn(name = "usuario_capitulo", nullable = false, foreignKey = @ForeignKey(name = "FK_usuario_capitulo"))
+    @JoinColumn(name = "id_usuario", nullable = false, foreignKey = @ForeignKey(name = "FK_usuario_capitulo"))
     private Usuario usuario;
 
     @ManyToOne
-    @JoinColumn(name = "capitulo_comentario", nullable = false, foreignKey = @ForeignKey(name = "FK_capitulo_comentario"))
+    @JoinColumn(name = "id_capitulo", nullable = false, foreignKey = @ForeignKey(name = "FK_capitulo_comentario"))
     private Capitulo capitulo;
 
     @NotNull

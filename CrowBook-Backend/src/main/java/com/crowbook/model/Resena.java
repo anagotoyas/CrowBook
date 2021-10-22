@@ -14,12 +14,12 @@ public class Resena {
 
 
     @ManyToOne
-    @JoinColumn(name="usuario_historia", nullable = false,
+    @JoinColumn(name="id_usuario", nullable = false,
             foreignKey = @ForeignKey(name="FK_usuario_historia"))
     private Usuario usuario;
 
     @ManyToOne
-    @JoinColumn(name="historia_resena", nullable = false,
+    @JoinColumn(name="id_historia", nullable = false,
             foreignKey = @ForeignKey(name="FK_historia_resena"))
     private Historia historia;
 

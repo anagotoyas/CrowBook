@@ -10,39 +10,44 @@ import java.util.List;
 public class Historia {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idHistoria;
 
 
     @ManyToOne
-    @JoinColumn(name="usuario_historia", nullable = false,
-            foreignKey = @ForeignKey(name="FK_usuario_historia"))
+    @JoinColumn(name = "id_usuario", nullable = false,
+            foreignKey = @ForeignKey(name = "FK_usuario_historia"))
     private Usuario usuario;
 
     @NotNull
-    @Size(min=2, max=25, message = "El nombre de la historia debe tener como mínimo 2 caracteres")
-    @Column (name="nombre_historia", nullable = false, length = 25)
+    @Size(min = 2, max = 25, message = "El nombre de la historia debe tener como mínimo 2 caracteres")
+    @Column(name = "nombre_historia", nullable = false, length = 25)
     private String nombreHistoria;
 
 
-    @Column(name="imagen_portada", nullable = true)
+    @Column(name = "imagen_portada", nullable = true)
     private String imagenPortada;
 
     @NotNull
-    @Size( max=500, message = "La descripcion de la historia debe tener como maximo 500 caracteres")
-    @Column (name="descripcion_historia", nullable = false, length = 500)
+    @Size(max = 500, message = "La descripcion de la historia debe tener como maximo 500 caracteres")
+    @Column(name = "descripcion_historia", nullable = false, length = 500)
     private String descripcionHistoria;
 
     @NotNull
-    @Column (name="cantidad_resenas", nullable = false)
+    @Column(name = "cantidad_resenas", nullable = false)
     private int cantidadResenas;
 
     @NotNull
-    @Column (name="calificacion_total", nullable = false)
+    @Column(name = "calificacion_total", nullable = false)
     private int calificacionTotal;
 
-    @OneToMany(mappedBy= "historia", cascade ={CascadeType.ALL})
+    @OneToMany(mappedBy = "historia", cascade = {CascadeType.ALL})
     private List<Capitulo> capitulo;
+
+    @ManyToOne
+    @JoinColumn(name = "id_categoria", nullable = false,
+            foreignKey = @ForeignKey(name = "FK_id_categoria"))
+    private Categoria categoria;
 
     public Integer getIdHistoria() {
         return idHistoria;
@@ -98,5 +103,21 @@ public class Historia {
 
     public void setCalificacionTotal(int calificacionTotal) {
         this.calificacionTotal = calificacionTotal;
+    }
+
+    public List<Capitulo> getCapitulo() {
+        return capitulo;
+    }
+
+    public void setCapitulo(List<Capitulo> capitulo) {
+        this.capitulo = capitulo;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 }
