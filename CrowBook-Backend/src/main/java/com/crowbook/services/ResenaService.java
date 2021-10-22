@@ -11,4 +11,6 @@ public interface ResenaService {
     Resena obtenerResenaPorIdResena(Integer idResena);
 
     void eliminarResena(Integer idResena);
+
+
 }
