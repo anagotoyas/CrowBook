@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "fa334391-a1f8-49ef-bb44-8d3ac24042d7",
+		"_postman_id": "3a48ed3e-d32d-479c-9d28-ceb99ed0fd27",
 		"name": "CrowBook",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -117,7 +117,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n   \r\n    \"usuario\": {\r\n        \"idUsuario\": 1\r\n    } ,\r\n    \"nombreHistoria\": \"AA\",\r\n    \"imagenPortada\": \"httdceg\",\r\n    \"descripcionHistoria\":\"Habia uad\" ,\r\n    \"cantidadResenas\": 5,\r\n    \"calificacionTotal\": 7\r\n}",
+					"raw": "{\r\n   \r\n    \"usuario\": {\r\n        \"idUsuario\": 1\r\n    } ,\r\n    \"nombreHistoria\": \"Buru y sus amigos\",\r\n    \"imagenPortada\": \"httdcegjpg\",\r\n    \"descripcionHistoria\":\"Habia un niño muy travieso llamado Buru, un día salió y se perdió.\" ,\r\n    \"cantidadResenas\": 2,\r\n    \"calificacionTotal\": 5\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -222,7 +222,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"historia\": {\r\n        \"idHistoria\": 5\r\n    },\r\n    \"nombreCapitulo\": \"Capitulo 1\",\r\n    \"fechaPublicacion\": \"20-10-2021\",\r\n    \"contenidoCapitulo\": \"habia una vez truz\",\r\n    \"calificacion\": 20,\r\n    \"cantidadComentarios\": 5\r\n\r\n}",
+					"raw": "{\r\n    \"historia\": {\r\n        \"idHistoria\": 15\r\n    },\r\n    \"nombreCapitulo\": \"Capitulo 1\",\r\n    \"fechaPublicacion\": \"20-10-2021\",\r\n    \"contenidoCapitulo\": \"habia una vez truz\",\r\n    \"calificacion\": 20,\r\n    \"cantidadComentarios\": 5\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -248,7 +248,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n   \r\n    \"usuario\": {\r\n        \"idUsuario\": 1\r\n    } ,\r\n    \"historia\": {\r\n        \"idHistoria\": 6\r\n    } ,\r\n    \"comentarioResena\":\"Me encanto la Historia\" \r\n}",
+					"raw": "{\r\n   \r\n    \"usuario\": {\r\n        \"idUsuario\": 1\r\n    } ,\r\n    \"historia\": {\r\n        \"idHistoria\": 15\r\n    } ,\r\n    \"comentarioResena\":\"Me encanto la historia de Buru y sus amigos\" \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -299,13 +299,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/resenas/2",
+					"raw": "{{base_url}}/resenas/1",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
 						"resenas",
-						"2"
+						"1"
 					]
 				}
 			},
@@ -334,13 +334,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/resenas/2",
+					"raw": "{{base_url}}/resenas/1",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
 						"resenas",
-						"2"
+						"1"
 					]
 				}
 			},
