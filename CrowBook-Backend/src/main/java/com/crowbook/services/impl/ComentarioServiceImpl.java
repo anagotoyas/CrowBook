@@ -20,4 +20,10 @@ public class ComentarioServiceImpl implements ComentarioService {
     public Comentario crearComentario(Comentario comentario) {
         return comentarioRepository.save(comentario);
     }
+
+    @Override
+    public void eliminarComentario(Integer idComentario) {
+        comentarioRepository.deleteById(idComentario);
+    }
+
 }

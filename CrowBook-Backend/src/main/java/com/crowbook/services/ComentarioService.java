@@ -4,5 +4,6 @@ import com.crowbook.model.Comentario;
 
 public interface ComentarioService {
     Comentario crearComentario(Comentario comentario);
+    void eliminarComentario(Integer idComentario);
 }
 

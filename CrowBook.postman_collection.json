@@ -371,6 +371,24 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Borrar Comentario",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/comentarios/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"comentarios",
+						"1"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [

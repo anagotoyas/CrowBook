@@ -2,6 +2,7 @@ package com.crowbook.services.impl;
 
 import com.crowbook.model.Resena;
 import com.crowbook.repositories.ResenaRepository;
+
 import com.crowbook.services.ResenaService;
 import org.springframework.stereotype.Service;
 
@@ -22,11 +23,13 @@ public class ResenaServiceImpl implements ResenaService {
     }
 
     @Override
+
     public Resena modificarResena(Resena resena) {
         return resenaRepository.save(resena);
     }
 
     @Override
+
     public List<Resena> listarResena() {
         return resenaRepository.findAll();
     }
@@ -40,6 +43,7 @@ public class ResenaServiceImpl implements ResenaService {
     public void eliminarResena(Integer idResena) {
         resenaRepository.deleteById(idResena);
     }
-
 }
+
+
 

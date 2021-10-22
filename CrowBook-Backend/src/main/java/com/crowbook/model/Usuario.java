@@ -40,7 +40,7 @@ public class Usuario {
     private boolean esMiembro;
 
     @OneToMany(mappedBy ="usuario", cascade ={CascadeType.ALL})
-    private List<Historia> historias;
+    private List<Historia> historia;
 
     public Integer getIdUsuario() {
         return idUsuario;
