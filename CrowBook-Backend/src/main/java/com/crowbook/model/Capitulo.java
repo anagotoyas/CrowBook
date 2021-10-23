@@ -45,6 +45,10 @@ public class Capitulo {
     @Column(name = "cantidad_comentarios", nullable = false)
     private int cantidadComentarios;
 
+
+    @OneToMany(mappedBy ="capitulo", cascade ={CascadeType.ALL})
+    private List<Comentario> comentario;
+
     public Integer getIdCapitulo() {
         return idCapitulo;
     }

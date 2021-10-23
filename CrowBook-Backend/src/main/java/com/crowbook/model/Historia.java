@@ -41,8 +41,6 @@ public class Historia {
     @Column(name = "calificacion_total", nullable = false)
     private int calificacionTotal;
 
-
-
     @ManyToOne
     @JoinColumn(name = "id_categoria", nullable = false,
             foreignKey = @ForeignKey(name = "FK_id_categoria"))
@@ -51,7 +49,7 @@ public class Historia {
     @OneToMany(mappedBy ="historia", cascade ={CascadeType.ALL})
     private List<Capitulo> capitulo;
 
-    @OneToMany(mappedBy= "historia", cascade ={CascadeType.ALL})
+    @OneToMany(mappedBy ="historia", cascade ={CascadeType.ALL})
     private List<Resena> resena;
 
     public Integer getIdHistoria() {
@@ -118,19 +116,5 @@ public class Historia {
         this.categoria = categoria;
     }
 
-    public List<Capitulo> getCapitulo() {
-        return capitulo;
-    }
 
-    public void setCapitulo(List<Capitulo> capitulo) {
-        this.capitulo = capitulo;
-    }
-
-    public List<Resena> getResena() {
-        return resena;
-    }
-
-    public void setResena(List<Resena> resena) {
-        this.resena = resena;
-    }
 }
