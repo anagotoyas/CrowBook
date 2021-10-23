@@ -3,6 +3,7 @@ package com.crowbook.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -51,6 +52,12 @@ public class Historia {
 
     @OneToMany(mappedBy ="historia", cascade ={CascadeType.ALL})
     private List<Resena> resena;
+
+    @ManyToMany(mappedBy ="historia", cascade ={CascadeType.ALL})
+    private List<Biblioteca> biblioteca;
+
+    @ManyToMany(mappedBy ="historia", cascade ={CascadeType.ALL})
+    private List<Favorito> favorito;
 
     public Integer getIdHistoria() {
         return idHistoria;

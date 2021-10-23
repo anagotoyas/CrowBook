@@ -14,7 +14,7 @@ public class Biblioteca {
 
     @OneToOne
     @JoinColumn(name = "usuario_biblioteca",
-            foreignKey = @ForeignKey(name = "FK_usuario_biblioteca"))
+            foreignKey = @ForeignKey(name = "FK_usuario_biblioteca"), nullable=false)
     private Usuario usuario;
 
     @ManyToMany

@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Entity
-@Table(name="capitulo")
+@Table(name="capitulos")
 public class Capitulo {
 
     @Id

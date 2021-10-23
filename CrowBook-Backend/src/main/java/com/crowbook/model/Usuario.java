@@ -13,6 +13,7 @@ public class Usuario {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer idUsuario;
 
+
     @NotNull
     @Size(min=3, max=25, message = "El nombre de usuario debe tener como mínimo 3 caracteres")
     @Column (name="nombre_usuario", nullable = false, length = 25, unique = true)
@@ -25,7 +26,7 @@ public class Usuario {
 
     @NotNull
     @Email(message = "Formato incorrecto del correo electrónico")
-    @Column (name="correo", nullable = false)
+    @Column (name="correo", nullable = false, unique = true)
     private String correo;
 
     @NotNull
@@ -47,6 +48,14 @@ public class Usuario {
 
     @OneToMany(mappedBy ="usuario", cascade ={CascadeType.ALL})
     private List<PaqueteCrowCoin> paqueteCrowCoins;
+
+    @OneToOne(mappedBy="usuario")
+    private Biblioteca biblioteca;
+
+    @OneToOne(mappedBy="usuario")
+    private Biblioteca favorito;
+
+
 
     public Integer getIdUsuario() {
         return idUsuario;
