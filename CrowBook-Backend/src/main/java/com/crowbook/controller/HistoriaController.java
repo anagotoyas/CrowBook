@@ -1,5 +1,6 @@
 package com.crowbook.controller;
 
+import com.crowbook.model.Categoria;
 import com.crowbook.model.Historia;
 
 import com.crowbook.services.HistoriaService;
@@ -28,11 +29,13 @@ public class HistoriaController {
         return new ResponseEntity<List<Historia>> (historia, HttpStatus.CREATED);
     }
 
+
     @GetMapping("/{idHistoria}")
     public ResponseEntity<Historia> obtenerHistoriaPorIdHistoria(@PathVariable("idHistoria") Integer idHistoria){
         Historia historia=historiaService.obtenerHistoriaPorIdHistoria(idHistoria);
         return new ResponseEntity<Historia>(historia, HttpStatus.OK);
     }
+
 
     @PostMapping
     public ResponseEntity<Historia> registrarHistoria(@Valid @RequestBody Historia historia){

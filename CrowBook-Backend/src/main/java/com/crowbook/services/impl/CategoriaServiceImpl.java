@@ -1,9 +1,7 @@
 package com.crowbook.services.impl;
 
 import com.crowbook.model.Categoria;
-import com.crowbook.model.Comentario;
 import com.crowbook.repositories.CategoriaRepository;
-import com.crowbook.repositories.ComentarioRepository;
 import com.crowbook.services.CategoriaService;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +30,7 @@ public class CategoriaServiceImpl implements CategoriaService {
     public List<Categoria> listarCategorias() {
         return categoriaRepository.findAll();
     }
+
 
     @Override
     public Categoria obtenerCategoriaPorIdCategoria(Integer idCategoria) {

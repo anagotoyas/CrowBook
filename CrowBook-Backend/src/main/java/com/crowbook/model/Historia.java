@@ -41,13 +41,15 @@ public class Historia {
     @Column(name = "calificacion_total", nullable = false)
     private int calificacionTotal;
 
-    @OneToMany(mappedBy = "historia", cascade = {CascadeType.ALL})
-    private List<Capitulo> capitulo;
+
 
     @ManyToOne
     @JoinColumn(name = "id_categoria", nullable = false,
             foreignKey = @ForeignKey(name = "FK_id_categoria"))
     private Categoria categoria;
+
+    @OneToMany(mappedBy= "historia", cascade ={CascadeType.ALL})
+    private List<Resena> resena;
 
     public Integer getIdHistoria() {
         return idHistoria;
@@ -105,13 +107,6 @@ public class Historia {
         this.calificacionTotal = calificacionTotal;
     }
 
-    public List<Capitulo> getCapitulo() {
-        return capitulo;
-    }
-
-    public void setCapitulo(List<Capitulo> capitulo) {
-        this.capitulo = capitulo;
-    }
 
     public Categoria getCategoria() {
         return categoria;

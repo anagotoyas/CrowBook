@@ -1,6 +1,8 @@
 package com.crowbook.controller;
 
 import com.crowbook.model.Categoria;
+import com.crowbook.model.Historia;
+import com.crowbook.model.Resena;
 import com.crowbook.services.CategoriaService;
 import com.crowbook.services.HistoriaService;
 import org.springframework.http.HttpStatus;
@@ -27,6 +29,7 @@ public class CategoriaController {
         return new ResponseEntity<List<Categoria>> (categoria, HttpStatus.CREATED);
     }
 
+
     @GetMapping("/{idCategoria}")
     public ResponseEntity<Categoria> obtenerCategoriaPorIdCategoria(@PathVariable("idCategoria") Integer idCategoria){
         Categoria categoria=categoriaService.obtenerCategoriaPorIdCategoria(idCategoria);
@@ -42,8 +45,9 @@ public class CategoriaController {
     @PutMapping
     public ResponseEntity<Categoria> modificarCategoria(@Valid @RequestBody Categoria categoria){
         Categoria categoriaUpdate=  categoriaService.modificarCategoria(categoria);
-        return new ResponseEntity<Categoria>(categoriaUpdate, HttpStatus.CREATED);
+        return  new ResponseEntity<Categoria>(categoriaUpdate, HttpStatus.CREATED);
     }
+
 
     @DeleteMapping("/{idCategoria}")
     public ResponseEntity<Void> eliminarCategoria(@PathVariable ("idCategoria") Integer idCategoria){

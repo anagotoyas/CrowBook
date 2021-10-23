@@ -1,5 +1,6 @@
 package com.crowbook.services.impl;
 
+import com.crowbook.model.Categoria;
 import com.crowbook.model.Historia;
 import com.crowbook.repositories.HistoriaRepository;
 
@@ -32,6 +33,8 @@ public class HistoriaServiceImpl implements HistoriaService {
         return historiaRepository.findAll();
     }
 
+
+
     @Override
     public Historia obtenerHistoriaPorIdHistoria(Integer idHistoria) {
         return historiaRepository.findById(idHistoria).orElse(new Historia());
@@ -41,4 +44,6 @@ public class HistoriaServiceImpl implements HistoriaService {
     public void eliminarHistoria(Integer idHistoria) {
         historiaRepository.deleteById(idHistoria);
     }
+
+
 }

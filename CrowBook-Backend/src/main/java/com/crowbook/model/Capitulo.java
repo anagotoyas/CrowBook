@@ -29,8 +29,10 @@ public class Capitulo {
     @Column(name = "nombre_capitulo", nullable = false, length = 25)
     private String nombreCapitulo;
 
+    @NotNull
     @Column(name = "fecha_publicacion", nullable = false)
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss[.SSS][.SS][.S]")
+
     private LocalDateTime fechaPublicacion;
 
     @NotNull

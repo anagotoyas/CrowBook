@@ -1,5 +1,6 @@
 package com.crowbook.services;
 
+import com.crowbook.model.Categoria;
 import com.crowbook.model.Historia;
 import java.util.List;
 
