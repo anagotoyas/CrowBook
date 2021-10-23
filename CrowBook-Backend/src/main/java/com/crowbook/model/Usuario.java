@@ -42,6 +42,12 @@ public class Usuario {
     @OneToMany(mappedBy ="usuario", cascade ={CascadeType.ALL})
     private List<Historia> historia;
 
+    @OneToOne(mappedBy="usuario")
+    private Membresia membresia;
+
+    @OneToMany(mappedBy ="usuario", cascade ={CascadeType.ALL})
+    private List<PaqueteCrowCoin> paqueteCrowCoins;
+
     public Integer getIdUsuario() {
         return idUsuario;
     }
@@ -89,4 +95,5 @@ public class Usuario {
     public void setEsMiembro(boolean esMiembro) {
         this.esMiembro = esMiembro;
     }
+
 }

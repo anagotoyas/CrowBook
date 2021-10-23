@@ -12,7 +12,6 @@ public class Resena {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer idResena;
 
-
     @ManyToOne
     @JoinColumn(name="id_usuario", nullable = false,
             foreignKey = @ForeignKey(name="FK_usuario_historia"))
@@ -28,6 +27,8 @@ public class Resena {
     @Size(min=7, max=500, message = "Tú opinión o comentario de la historia debe tener como minimo 7 caracteres o maximo 500 caracteres")
     @Column (name="comentario_Resena", nullable = false, length = 500)
     private String comentarioResena;
+
+    
 
     public Integer getIdResena() {
         return idResena;
