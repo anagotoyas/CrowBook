@@ -36,6 +36,11 @@ public class HistoriaController {
         return new ResponseEntity<Historia>(historia, HttpStatus.OK);
     }
 
+    @GetMapping("/buscarPorNombre")
+    public ResponseEntity<List<Historia>> buscarHistoriaPorNombre(@RequestParam String nombreHistoria){
+        List<Historia> historiaN=historiaService.buscarHistoriaPorNombre(nombreHistoria);
+        return new ResponseEntity<List<Historia>>(historiaN, HttpStatus.OK);
+    }
 
     @PostMapping
     public ResponseEntity<Historia> registrarHistoria(@Valid @RequestBody Historia historia){

@@ -41,6 +41,12 @@ public class HistoriaServiceImpl implements HistoriaService {
     }
 
     @Override
+    public List<Historia> buscarHistoriaPorNombre(String nombreHistoria) {
+        List<Historia> historiasN = historiaRepository.buscarHistoriaPorNombre(nombreHistoria);
+        return historiasN;
+    }
+
+    @Override
     public void eliminarHistoria(Integer idHistoria) {
         historiaRepository.deleteById(idHistoria);
     }
