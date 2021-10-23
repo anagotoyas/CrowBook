@@ -48,6 +48,9 @@ public class Historia {
             foreignKey = @ForeignKey(name = "FK_id_categoria"))
     private Categoria categoria;
 
+    @OneToMany(mappedBy ="historia", cascade ={CascadeType.ALL})
+    private List<Capitulo> capitulo;
+
     @OneToMany(mappedBy= "historia", cascade ={CascadeType.ALL})
     private List<Resena> resena;
 
@@ -107,12 +110,27 @@ public class Historia {
         this.calificacionTotal = calificacionTotal;
     }
 
-
     public Categoria getCategoria() {
         return categoria;
     }
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public List<Capitulo> getCapitulo() {
+        return capitulo;
+    }
+
+    public void setCapitulo(List<Capitulo> capitulo) {
+        this.capitulo = capitulo;
+    }
+
+    public List<Resena> getResena() {
+        return resena;
+    }
+
+    public void setResena(List<Resena> resena) {
+        this.resena = resena;
     }
 }

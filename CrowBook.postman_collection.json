@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombreUsuario\": \"Maria\",\r\n    \"correo\": \"maria@gmail.com\",\r\n    \"contrasenaUsuario\": \"maria123\",\r\n    \"cantidadCrowCoins\":\"0\" ,\r\n    \"esMiembro\": \"false\"\r\n}",
+					"raw": "{\r\n    \"nombreUsuario\": \"Mario\",\r\n    \"correo\": \"mario@gmail.com\",\r\n    \"contrasenaUsuario\": \"mario123\",\r\n    \"cantidadCrowCoins\":\"0\" ,\r\n    \"esMiembro\": \"false\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -38,7 +38,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"idUsuario\":1,\r\n    \"nombreUsuario\": \"Pedro\",\r\n    \"correo\": \"pedro123@gmail.com\",\r\n    \"contrasenaUsuario\": \"pedro123\",\r\n    \"cantidadCrowCoins\":\"0\" ,\r\n    \"esMiembro\": \"false\"\r\n\r\n}",
+					"raw": "{\r\n    \"idUsuario\":2,\r\n    \"nombreUsuario\": \"Pedro\",\r\n    \"correo\": \"pedro123@gmail.com\",\r\n    \"contrasenaUsuario\": \"pedro123\",\r\n    \"cantidadCrowCoins\":\"0\" ,\r\n    \"esMiembro\": \"false\"\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -80,13 +80,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/usuarios/1",
+					"raw": "{{base_url}}/usuarios/3",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
 						"usuarios",
-						"1"
+						"3"
 					]
 				}
 			},
@@ -98,13 +98,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/usuarios/1",
+					"raw": "{{base_url}}/usuarios/2",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
 						"usuarios",
-						"1"
+						"2"
 					]
 				}
 			},
@@ -117,7 +117,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombreCategoria\": \"Terror\"\r\n}",
+					"raw": "{\r\n    \"nombreCategoria\": \"Drama\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -203,13 +203,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/categoria/1",
+					"raw": "{{base_url}}/categorias/4",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
-						"categoria",
-						"1"
+						"categorias",
+						"4"
 					]
 				}
 			},
@@ -222,7 +222,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n   \r\n    \"usuario\": {\r\n        \"idUsuario\": 1\r\n    } ,\r\n    \"nombreHistoria\": \"Buru y sus amigos\",\r\n    \"imagenPortada\": \"buru.png\",\r\n    \"descripcionHistoria\":\"Había una vez un niño llamado Buru\" ,\r\n    \"cantidadResenas\": 0,\r\n    \"calificacionTotal\": 0,\r\n    \"categoria\":{\r\n        \"idCategoria\": 1\r\n    } \r\n}",
+					"raw": "{\r\n   \r\n    \"usuario\": {\r\n        \"idUsuario\": 3\r\n    } ,\r\n    \"nombreHistoria\": \"Buru y sus gatos\",\r\n    \"imagenPortada\": \"buru.png\",\r\n    \"descripcionHistoria\":\"Había una vez un niño llamado Buru\" ,\r\n    \"cantidadResenas\": 0,\r\n    \"calificacionTotal\": 0,\r\n    \"categoria\":{\r\n        \"idCategoria\": 1\r\n    } \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -248,7 +248,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"idHistoria\": 2,\r\n    \"usuario\": {\r\n        \"idUsuario\": 1},\r\n    \"nombreHistoria\": \"buru y sus amigos caen\",\r\n    \"imagenPortada\": \"httdceg\",\r\n    \"descripcionHistoria\":\"Habia uad\" ,\r\n    \"cantidadResenas\": 5,\r\n    \"calificacionTotal\": 7,\r\n    \"categoria\":{\r\n        \"idCategoria\": 1\r\n    } \r\n}",
+					"raw": "{\r\n    \"idHistoria\": 7,\r\n    \"usuario\": {\r\n        \"idUsuario\": 3},\r\n    \"nombreHistoria\": \"buru y sus perros\",\r\n    \"imagenPortada\": \"httdceg\",\r\n    \"descripcionHistoria\":\"Habia uad\" ,\r\n    \"cantidadResenas\": 5,\r\n    \"calificacionTotal\": 7,\r\n    \"categoria\":{\r\n        \"idCategoria\": 1\r\n    } \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -290,13 +290,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/historias/2",
+					"raw": "{{base_url}}/historias/7",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
 						"historias",
-						"2"
+						"7"
 					]
 				}
 			},
@@ -327,7 +327,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"historia\": {\r\n        \"idHistoria\": 2\r\n    },\r\n    \"nombreCapitulo\": \"Capitulo 1\",\r\n    \"fechaPublicacion\": \"2021-10-22T20:38:23\",\r\n    \"contenidoCapitulo\": \"Había una vez\",\r\n    \"calificacion\": 0,\r\n    \"cantidadComentarios\": 0\r\n\r\n}",
+					"raw": "{\r\n    \"historia\": {\r\n        \"idHistoria\": 1\r\n    },\r\n    \"nombreCapitulo\": \"Capitulo 1\",\r\n    \"fechaPublicacion\": \"2021-10-22T20:38:23\",\r\n    \"contenidoCapitulo\": \"Había una vez\",\r\n    \"calificacion\": 0,\r\n    \"cantidadComentarios\": 0\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -353,7 +353,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"idCapitulo\":1,\r\n    \"historia\": {\r\n        \"idHistoria\": 1\r\n    },\r\n    \"nombreCapitulo\": \"Capitulo 1\",\r\n    \"fechaPublicacion\": \"-\",\r\n    \"contenidoCapitulo\": \"AaAaAaAaA\",\r\n    \"calificacion\": 12,\r\n    \"cantidadComentarios\": 0\r\n\r\n}",
+					"raw": "{\r\n    \"idCapitulo\":5,\r\n    \"historia\": {\r\n        \"idHistoria\": 8\r\n    },\r\n    \"nombreCapitulo\": \"Capitulo 1:n\",\r\n    \"fechaPublicacion\": \"2021-10-23T03:06:42\",\r\n    \"contenidoCapitulo\": \"AaAaAaAaA\",\r\n    \"calificacion\": 12,\r\n    \"cantidadComentarios\": 0\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -378,13 +378,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/capitulos/1",
+					"raw": "{{base_url}}/capitulos/5",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
 						"capitulos",
-						"1"
+						"5"
 					]
 				}
 			},
@@ -432,7 +432,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n   \r\n    \"usuario\": {\r\n        \"idUsuario\": 2\r\n    } ,\r\n    \"historia\": {\r\n        \"idHistoria\": 3\r\n    } ,\r\n    \"comentarioResena\":\"Me encanto la Historia\" \r\n}",
+					"raw": "{\r\n   \r\n    \"usuario\": {\r\n        \"idUsuario\": 3\r\n    } ,\r\n    \"historia\": {\r\n        \"idHistoria\": 8\r\n    } ,\r\n    \"comentarioResena\":\"Me encanto la Historia\" \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -458,7 +458,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"idResena\": 1,\r\n    \"usuario\": {\r\n        \"idUsuario\": 1},\r\n        \"historia\": {\r\n        \"idHistoria\": 6},\r\n    \"comentarioResena\":\"Es una historia muy divertida\" \r\n}",
+					"raw": "{\r\n    \"idResena\": 3,\r\n    \"usuario\": {\r\n        \"idUsuario\": 3},\r\n        \"historia\": {\r\n        \"idHistoria\": 8},\r\n    \"comentarioResena\":\"Es una historia muy divertida\" \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -563,7 +563,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"idComentario\":1,\r\n    \"usuario\": {\r\n        \"idUsuario\": 1\r\n    } ,\r\n    \"capitulo\": {\r\n        \"idCapitulo\": 1\r\n    } ,\r\n    \"comentarioCapitulo\":\"Que gran historia la verdad.\" \r\n}",
+					"raw": "{\r\n    \"idComentario\":2,\r\n    \"usuario\": {\r\n        \"idUsuario\": 3\r\n    } ,\r\n    \"capitulo\": {\r\n        \"idCapitulo\": 4\r\n    } ,\r\n    \"comentarioCapitulo\":\"Que gran historia la verdad.\" \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -588,13 +588,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/comentarios/1",
+					"raw": "{{base_url}}/comentarios/3",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
 						"comentarios",
-						"1"
+						"3"
 					]
 				}
 			},

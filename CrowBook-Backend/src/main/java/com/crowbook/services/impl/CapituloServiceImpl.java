@@ -18,27 +18,26 @@ public class CapituloServiceImpl implements CapituloService {
 
     @Override
     public Capitulo agregarCapitulo(Capitulo capitulo) {
-        return capituloRepository.save(capitulo);
+        return null;
     }
 
     @Override
     public Capitulo modificarCapitulo(Capitulo capitulo) {
-        return capituloRepository.save(capitulo);
+        return null;
     }
 
     @Override
     public List<Capitulo> listarCapitulo() {
-        return capituloRepository.findAll();
+        return null;
     }
 
     @Override
     public Capitulo obtenerCapituloPorIdCapitulo(Integer idCapitulo) {
-        return capituloRepository.findById(idCapitulo).orElse(new Capitulo());
+        return null;
     }
 
     @Override
     public void eliminarCapitulo(Integer idCapitulo) {
-        capituloRepository.deleteById(idCapitulo);
-    }
 
+    }
 }
