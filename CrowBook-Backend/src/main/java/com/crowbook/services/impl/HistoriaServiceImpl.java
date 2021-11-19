@@ -2,6 +2,7 @@ package com.crowbook.services.impl;
 
 import com.crowbook.model.Categoria;
 import com.crowbook.model.Historia;
+import com.crowbook.model.Usuario;
 import com.crowbook.repositories.HistoriaRepository;
 
 import com.crowbook.services.HistoriaService;
@@ -44,6 +45,18 @@ public class HistoriaServiceImpl implements HistoriaService {
     public List<Historia> buscarHistoriaPorNombre(String nombreHistoria) {
         List<Historia> historiasN = historiaRepository.buscarHistoriaPorNombre(nombreHistoria);
         return historiasN;
+    }
+
+    @Override
+    public List<Historia> listarHistoriaPorCategoria(Categoria categoria) {
+        List<Historia> historiasC = historiaRepository.listarHistoriaPorCategoria(categoria);
+        return historiasC;
+    }
+
+    @Override
+    public List<Historia> buscarHistoriaPorIdUsuario(Usuario usuario) {
+        List<Historia> usuarioId = historiaRepository.buscarHistoriaPorIdUsuario(usuario);
+        return usuarioId;
     }
 
     @Override

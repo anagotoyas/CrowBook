@@ -3,6 +3,7 @@ package com.crowbook.controller;
 import com.crowbook.model.Categoria;
 import com.crowbook.model.Historia;
 
+import com.crowbook.model.Usuario;
 import com.crowbook.services.HistoriaService;
 
 import org.springframework.http.HttpStatus;
@@ -40,6 +41,18 @@ public class HistoriaController {
     public ResponseEntity<List<Historia>> buscarHistoriaPorNombre(@RequestParam String nombreHistoria){
         List<Historia> historiaN=historiaService.buscarHistoriaPorNombre(nombreHistoria);
         return new ResponseEntity<List<Historia>>(historiaN, HttpStatus.OK);
+    }
+
+    @GetMapping("/listarPorCategoria")
+    public ResponseEntity<List<Historia>> listarHistoriaPorCategoria(@RequestParam Categoria categoria){
+        List<Historia> historiaC=historiaService.listarHistoriaPorCategoria(categoria);
+        return new ResponseEntity<List<Historia>>(historiaC, HttpStatus.OK);
+    }
+
+    @GetMapping("/buscarPorIdUsuario")
+    public ResponseEntity<List<Historia>> buscarHistoriaPorIdUsuario(@RequestParam Usuario usuario){
+        List<Historia> usuarioid=historiaService.buscarHistoriaPorIdUsuario(usuario);
+        return new ResponseEntity<List<Historia>>(usuarioid, HttpStatus.OK);
     }
 
     @PostMapping

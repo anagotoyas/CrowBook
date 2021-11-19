@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "fe4673a9-ce36-4d98-90f7-c6c10bb39b38",
+		"_postman_id": "191a1fbd-3e37-46b5-b24b-8fde44f1b4c3",
 		"name": "CrowBook",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -297,6 +297,72 @@
 					"path": [
 						"historias",
 						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Historia por Nombre",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/historias/7",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"historias",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Historias por Categoria",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/historias/listarPorCategoria?categoria=2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"historias",
+						"listarPorCategoria"
+					],
+					"query": [
+						{
+							"key": "categoria",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Historias Por ID Usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/historias/buscarPorIdUsuario?usuario=2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"historias",
+						"buscarPorIdUsuario"
+					],
+					"query": [
+						{
+							"key": "usuario",
+							"value": "2"
+						}
 					]
 				}
 			},
