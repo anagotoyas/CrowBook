@@ -18,9 +18,9 @@ public class Favorito {
     private Usuario usuario;
 
     @ManyToMany
-    @JoinTable(name = "historia_favorito",
-            foreignKey = @ForeignKey(name = "FK_historia_favorito"))
-    List<Historia> historia = new ArrayList<>();
+    @JoinTable(name = "favorito_historia", joinColumns = @JoinColumn(name = "id_favorito"),
+            inverseJoinColumns = @JoinColumn(name = "id_historia"))
+    private List<Historia> historias_favorito = new ArrayList<>();
 
     public Integer getIdFavorito() {
         return idFavorito;
@@ -38,11 +38,21 @@ public class Favorito {
         this.usuario = usuario;
     }
 
-    public List<Historia> getHistoria() {
-        return historia;
+    public List<Historia> getHistorias_favorito() {
+        return historias_favorito;
     }
 
-    public void setHistoria(List<Historia> historia) {
-        this.historia = historia;
+    public void setHistorias_favorito(List<Historia> historias_favorito) {
+        this.historias_favorito = historias_favorito;
+    }
+
+    public void agregarHistoriaFavorito(Historia historia){
+        historias_favorito.add(historia);
+    }
+
+    public void eliminarHistoriaFavorito(Historia historia){
+
+        historias_favorito.remove(historia);
+
     }
 }

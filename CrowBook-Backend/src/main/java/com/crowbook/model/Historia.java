@@ -1,5 +1,7 @@
 package com.crowbook.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -53,11 +55,14 @@ public class Historia {
     @OneToMany(mappedBy ="historia", cascade ={CascadeType.ALL})
     private List<Resena> resena;
 
-    @ManyToMany(mappedBy ="historia", cascade ={CascadeType.ALL})
-    private List<Biblioteca> biblioteca;
+    @JsonIgnore
+    @ManyToMany(mappedBy = "historias_biblioteca")
+    private List<Biblioteca> bibliotecas = new ArrayList<>();
 
-    @ManyToMany(mappedBy ="historia", cascade ={CascadeType.ALL})
-    private List<Favorito> favorito;
+    @JsonIgnore
+    @ManyToMany(mappedBy = "historias_favorito")
+    private List<Favorito> favoritos = new ArrayList<>();
+
 
     public Integer getIdHistoria() {
         return idHistoria;
