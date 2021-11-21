@@ -5,8 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name="historias")
@@ -56,12 +55,13 @@ public class Historia {
     private List<Resena> resena;
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "historias_biblioteca")
-    private List<Biblioteca> bibliotecas = new ArrayList<>();
+    @ManyToMany(mappedBy = "biblioteca")
+    private Set<Usuario> bibliotecas = new LinkedHashSet<>();
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "historias_favorito")
-    private List<Favorito> favoritos = new ArrayList<>();
+    @ManyToMany(mappedBy = "favorito")
+    private List<Usuario> favoritos = new ArrayList<>();
+
 
 
     public Integer getIdHistoria() {

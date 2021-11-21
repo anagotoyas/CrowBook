@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "eeffb4fd-4e28-4341-8d76-bc7cdc61c697",
+		"_postman_id": "d9db0684-eae7-48e8-96de-cc2eec1b94a4",
 		"name": "CrowBook",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombreUsuario\": \"Kai\",\r\n    \"correo\": \"kaii@gmail.com\",\r\n    \"contrasenaUsuario\": \"kk123\",\r\n    \"cantidadCrowCoins\":\"0\" ,\r\n    \"esMiembro\": \"false\"\r\n}",
+					"raw": "{\r\n    \"nombreUsuario\": \"pedro\",\r\n    \"correo\": \"pedro@gmail.com\",\r\n    \"contrasenaUsuario\": \"kk123\",\r\n    \"cantidadCrowCoins\":\"0\" ,\r\n    \"esMiembro\": \"false\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -222,7 +222,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n   \r\n    \"usuario\": {\r\n        \"idUsuario\": 1\r\n    } ,\r\n    \"nombreHistoria\": \"Buru y sus perros\",\r\n    \"imagenPortada\": \"burumorido.png\",\r\n    \"descripcionHistoria\":\"Había una vez un niño llamado Buru q lloró y murió\" ,\r\n    \"cantidadResenas\": 0,\r\n    \"calificacionTotal\": 0,\r\n    \"categoria\":{\r\n        \"idCategoria\": 1\r\n    } \r\n}",
+					"raw": "{\r\n   \r\n    \"usuario\": {\r\n        \"idUsuario\": 2\r\n    } ,\r\n    \"nombreHistoria\": \"Burus y sus loro\",\r\n    \"imagenPortada\": \"burumorido.png\",\r\n    \"descripcionHistoria\":\"Había una vez un niño llamado Buru q lloró y murió\" ,\r\n    \"cantidadResenas\": 0,\r\n    \"calificacionTotal\": 0,\r\n    \"categoria\":{\r\n        \"idCategoria\": 1\r\n    } \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -671,14 +671,14 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{base_url}}/bibliotecas/1/historias/1",
+					"raw": "{{base_url}}/usuarios/1/biblioteca/1",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
-						"bibliotecas",
+						"usuarios",
 						"1",
-						"historias",
+						"biblioteca",
 						"1"
 					]
 				}
@@ -691,15 +691,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/bibliotecas/2/historias/1",
+					"raw": "{{base_url}}/usuarios/1/biblioteca/5",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
-						"bibliotecas",
-						"2",
-						"historias",
-						"1"
+						"usuarios",
+						"1",
+						"biblioteca",
+						"5"
 					]
 				}
 			},
@@ -790,14 +790,14 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/favoritos/1/historias/2",
+					"raw": "{{base_url}}/usuarios/1/favorito/2",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
-						"favoritos",
+						"usuarios",
 						"1",
-						"historias",
+						"favorito",
 						"2"
 					]
 				}
@@ -810,15 +810,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/favoritos/1/historias/1",
+					"raw": "{{base_url}}/usuarios/1/favorito/3",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
-						"favoritos",
+						"usuarios",
 						"1",
-						"historias",
-						"1"
+						"favorito",
+						"3"
 					]
 				}
 			},
@@ -872,6 +872,92 @@
 					"path": [
 						"favoritos",
 						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Historias por Id Usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/historias/buscarPorIdUsuario?usuario=2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"historias",
+						"buscarPorIdUsuario"
+					],
+					"query": [
+						{
+							"key": "usuario",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Historias por Id Categoria",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/historias/listarPorCategoria?categoria=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"historias",
+						"listarPorCategoria"
+					],
+					"query": [
+						{
+							"key": "categoria",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Biblioteca por Id Usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/usuarios/2/biblioteca",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"usuarios",
+						"2",
+						"biblioteca"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ver Favorito por Id Usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/usuarios/2/favorito",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"usuarios",
+						"2",
+						"favorito"
 					]
 				}
 			},

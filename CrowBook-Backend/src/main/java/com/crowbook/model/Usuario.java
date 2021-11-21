@@ -1,61 +1,69 @@
 package com.crowbook.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name="usuarios")
 public class Usuario {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idUsuario;
 
 
     @NotNull
-    @Size(min=3, max=25, message = "El nombre de usuario debe tener como mínimo 3 caracteres")
-    @Column (name="nombre_usuario", nullable = false, length = 25, unique = true)
+    @Size(min = 3, max = 25, message = "El nombre de usuario debe tener como mínimo 3 caracteres")
+    @Column(name = "nombre_usuario", nullable = false, length = 25, unique = true)
     private String nombreUsuario;
 
 
-    @Size( max=100, message = "La descripcion de usuario debe tener como maximo 100 caracteres")
-    @Column (name="descripcion_usuario", length = 100)
+    @Size(max = 100, message = "La descripcion de usuario debe tener como maximo 100 caracteres")
+    @Column(name = "descripcion_usuario", length = 100)
     private String descripcionUsuario;
 
     @NotNull
     @Email(message = "Formato incorrecto del correo electrónico")
-    @Column (name="correo", nullable = false, unique = true)
+    @Column(name = "correo", nullable = false, unique = true)
     private String correo;
 
     @NotNull
-    @Size(min=6, max=25, message = "La contraseña debe tener como mínimo 6 caracteres")
-    @Column (name="contrasena_usuario", nullable = false, length = 25)
+    @Size(min = 6, max = 25, message = "La contraseña debe tener como mínimo 6 caracteres")
+    @Column(name = "contrasena_usuario", nullable = false, length = 25)
     private String contrasenaUsuario;
 
-    @Column (name="cantidad_crowcoins")
+    @Column(name = "cantidad_crowcoins")
     private int cantidadCrowCoins;
 
-    @Column (name="es_miembro", nullable = false)
+    @Column(name = "es_miembro", nullable = false)
     private boolean esMiembro;
 
-    @OneToMany(mappedBy ="usuario", cascade ={CascadeType.ALL})
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @OneToMany(mappedBy = "usuario", cascade = {CascadeType.ALL})
     private List<Historia> historia;
 
-    @OneToOne(mappedBy="usuario")
+    @OneToOne(mappedBy = "usuario")
     private Membresia membresia;
 
-    @OneToMany(mappedBy ="usuario", cascade ={CascadeType.ALL})
+    @OneToMany(mappedBy = "usuario", cascade = {CascadeType.ALL})
     private List<PaqueteCrowCoin> paqueteCrowCoins;
 
-    @OneToOne(mappedBy="usuario")
-    private Biblioteca biblioteca;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ManyToMany
+    @JoinTable(name = "bibliotecas", joinColumns = @JoinColumn(name = "id_biblioteca"),
+            inverseJoinColumns = @JoinColumn(name = "id_historia"))
+    Set<Historia> biblioteca = new LinkedHashSet<>();
 
-    @OneToOne(mappedBy="usuario")
-    private Biblioteca favorito;
-
-
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ManyToMany
+    @JoinTable(name = "favoritos", joinColumns = @JoinColumn(name = "id_favorito"),
+            inverseJoinColumns = @JoinColumn(name = "id_historia"))
+    Set<Historia> favorito = new LinkedHashSet<>();
 
     public Integer getIdUsuario() {
         return idUsuario;
@@ -71,6 +79,14 @@ public class Usuario {
 
     public void setNombreUsuario(String nombreUsuario) {
         this.nombreUsuario = nombreUsuario;
+    }
+
+    public String getDescripcionUsuario() {
+        return descripcionUsuario;
+    }
+
+    public void setDescripcionUsuario(String descripcionUsuario) {
+        this.descripcionUsuario = descripcionUsuario;
     }
 
     public String getCorreo() {
@@ -105,4 +121,64 @@ public class Usuario {
         this.esMiembro = esMiembro;
     }
 
+    public List<Historia> getHistoria() {
+        return historia;
+    }
+
+    public void setHistoria(List<Historia> historia) {
+        this.historia = historia;
+    }
+
+    public Membresia getMembresia() {
+        return membresia;
+    }
+
+    public void setMembresia(Membresia membresia) {
+        this.membresia = membresia;
+    }
+
+    public List<PaqueteCrowCoin> getPaqueteCrowCoins() {
+        return paqueteCrowCoins;
+    }
+
+    public void setPaqueteCrowCoins(List<PaqueteCrowCoin> paqueteCrowCoins) {
+        this.paqueteCrowCoins = paqueteCrowCoins;
+    }
+
+    public Set<Historia> getBiblioteca() {
+        return biblioteca;
+    }
+
+    public void setBiblioteca(Set<Historia> biblioteca) {
+        this.biblioteca = biblioteca;
+    }
+
+    public Set<Historia> getFavorito() {
+        return favorito;
+    }
+
+    public void setFavorito(Set<Historia> favorito) {
+        this.favorito = favorito;
+    }
+
+    public void agregarHistoriaBiblioteca(Historia historia) {
+        biblioteca.add(historia);
+    }
+
+    public void agregarHistoriaFavorito(Historia historia) {
+        favorito.add(historia);
+    }
+
+    public void eliminarHistoriaBiblioteca(Historia historia) {
+
+        biblioteca.remove(historia);
+
+
+    }
+    public void eliminarHistoriaFavorito(Historia historia) {
+
+        favorito.remove(historia);
+
+
+    }
 }

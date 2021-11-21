@@ -1,5 +1,6 @@
 package com.crowbook.services.impl;
 
+import com.crowbook.model.Historia;
 import com.crowbook.model.Usuario;
 import com.crowbook.repositories.UsuarioRepository;
 import com.crowbook.services.UsuarioService;
@@ -42,4 +43,6 @@ public class UsuarioServiceImpl implements UsuarioService {
         usuarioRepository.deleteById(idUsuario);
 
     }
+
+
 }

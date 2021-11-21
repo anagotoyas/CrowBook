@@ -1,5 +1,6 @@
 package com.crowbook.services;
 
+import com.crowbook.model.Historia;
 import com.crowbook.model.Usuario;
 
 import java.util.List;
@@ -12,4 +13,5 @@ public interface UsuarioService {
     Usuario obtenerUsuarioPorIdUsuario(Integer idUsuario);
 
     void eliminarUsuario(Integer idUsuario);
+
 }
