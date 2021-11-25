@@ -152,29 +152,5 @@ public class Usuario {
         this.favorito = favorito;
     }
 
-    public void agregarHistoriaBiblioteca(Historia historia) {
-        biblioteca.add(historia);
-    }
 
-    public void agregarHistoriaFavorito(Historia historia) {
-        favorito.add(historia);
-    }
-
-    public void eliminarHistoriaBiblioteca(Historia historia) {
-
-        biblioteca.remove(historia);
-
-
-    }
-    public void eliminarHistoriaFavorito(Historia historia) {
-
-        favorito.remove(historia);
-
-
-    }
-    public void comprarCrowCoins(PaqueteCrowCoin paquete) {
-
-        float compra=paquete.getCantidadCoinsPaquete();
-        cantidadCrowCoins+=compra;
-    }
 }

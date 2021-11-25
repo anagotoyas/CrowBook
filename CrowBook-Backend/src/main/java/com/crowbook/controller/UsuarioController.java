@@ -67,7 +67,7 @@ public class UsuarioController {
     public Usuario agregarHistoriaBiblioteca(@PathVariable Integer idUsuario, @PathVariable Integer idHistoria) {
         Historia historiaN = historiaRepository.findById(idHistoria).get();
         Usuario usuarioN = usuarioRepository.findById(idUsuario).get();
-        usuarioN.agregarHistoriaBiblioteca(historiaN);
+        usuarioService.agregarHistoriaBiblioteca(usuarioN,historiaN);
         return usuarioRepository.save(usuarioN);
 
     }
@@ -75,7 +75,7 @@ public class UsuarioController {
     public Usuario agregarHistoriaFavorito(@PathVariable Integer idUsuario, @PathVariable Integer idHistoria) {
         Historia historiaN = historiaRepository.findById(idHistoria).get();
         Usuario usuarioN = usuarioRepository.findById(idUsuario).get();
-        usuarioN.agregarHistoriaFavorito(historiaN);
+        usuarioService.agregarHistoriaFavorito(usuarioN,historiaN);
         return usuarioRepository.save(usuarioN);
 
     }
@@ -83,7 +83,7 @@ public class UsuarioController {
     public Usuario eliminarHistoriaBiblioteca(@PathVariable Integer idUsuario, @PathVariable Integer idHistoria) {
         Historia historiaN = historiaRepository.findById(idHistoria).get();
         Usuario usuarioN = usuarioRepository.findById(idUsuario).get();
-        usuarioN.eliminarHistoriaBiblioteca(historiaN);
+        usuarioService.eliminarHistoriaBiblioteca(usuarioN,historiaN);
         return usuarioRepository.save(usuarioN);
 
     }
@@ -91,7 +91,7 @@ public class UsuarioController {
     public Usuario eliminarHistoriaFavorito(@PathVariable Integer idUsuario, @PathVariable Integer idHistoria) {
         Historia historiaN = historiaRepository.findById(idHistoria).get();
         Usuario usuarioN = usuarioRepository.findById(idUsuario).get();
-        usuarioN.eliminarHistoriaFavorito(historiaN);
+        usuarioService.eliminarHistoriaFavorito(usuarioN,historiaN);
         return usuarioRepository.save(usuarioN);
 
     }
@@ -107,14 +107,16 @@ public class UsuarioController {
         return usuario.getFavorito();
 
     }
+
     @PutMapping("/{idUsuario}/coins/{idPaquete}")
     public Usuario comprarCrowCoins(@PathVariable Integer idUsuario, @PathVariable Integer idPaquete) {
         PaqueteCrowCoin paqueteN = paqueteRepository.findById(idPaquete).get();
         Usuario usuarioN = usuarioRepository.findById(idUsuario).get();
-        usuarioN.comprarCrowCoins(paqueteN);
+        usuarioService.comprarCrowCoins(usuarioN, paqueteN);
         return usuarioRepository.save(usuarioN);
 
     }
+
 
 
 }
