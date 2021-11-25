@@ -50,8 +50,7 @@ public class Usuario {
     @OneToOne(mappedBy = "usuario")
     private Membresia membresia;
 
-    @OneToMany(mappedBy = "usuario", cascade = {CascadeType.ALL})
-    private List<PaqueteCrowCoin> paqueteCrowCoins;
+
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToMany
@@ -137,14 +136,6 @@ public class Usuario {
         this.membresia = membresia;
     }
 
-    public List<PaqueteCrowCoin> getPaqueteCrowCoins() {
-        return paqueteCrowCoins;
-    }
-
-    public void setPaqueteCrowCoins(List<PaqueteCrowCoin> paqueteCrowCoins) {
-        this.paqueteCrowCoins = paqueteCrowCoins;
-    }
-
     public Set<Historia> getBiblioteca() {
         return biblioteca;
     }
@@ -180,5 +171,10 @@ public class Usuario {
         favorito.remove(historia);
 
 
+    }
+    public void comprarCrowCoins(PaqueteCrowCoin paquete) {
+
+        float compra=paquete.getCantidadCoinsPaquete();
+        cantidadCrowCoins+=compra;
     }
 }

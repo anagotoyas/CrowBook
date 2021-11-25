@@ -636,32 +636,6 @@
 			"response": []
 		},
 		{
-			"name": "Crear Biblioteca",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"usuario\": {\r\n        \"idUsuario\": 3\r\n    }\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{base_url}}/bibliotecas",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"bibliotecas"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Agregar Historia a Biblioteca",
 			"request": {
 				"method": "PUT",
@@ -706,85 +680,6 @@
 			"response": []
 		},
 		{
-			"name": "Listar Bibliotecas",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base_url}}/bibliotecas",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"bibliotecas"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Obtener Biblioteca por ID",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base_url}}/bibliotecas/1",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"bibliotecas",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Eliminar Biblioteca por ID",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "{{base_url}}/bibliotecas/2",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"bibliotecas",
-						"2"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Crear Favorito",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"usuario\": {\r\n        \"idUsuario\": 3\r\n    }\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{base_url}}/favoritos",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"favoritos"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Agregar Historia a Favorito",
 			"request": {
 				"method": "PUT",
@@ -819,59 +714,6 @@
 						"1",
 						"favorito",
 						"3"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Listar Favoritos",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base_url}}/favoritos",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"favoritos"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Obtener Favorito por ID",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{base_url}}/favoritos/1",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"favoritos",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Eliminar Favorito por ID",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "{{base_url}}/favoritos/2",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"favoritos",
-						"2"
 					]
 				}
 			},
@@ -958,6 +800,113 @@
 						"usuarios",
 						"2",
 						"favorito"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Paquete CrowCoins",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \r\n    \"precioPaquete\": 9,\r\n    \"cantidadCoinsPaquete\": 24\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/paquetes",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"paquetes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar Paquete CrowCoin",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"idPaquete\":2,\r\n    \"precioPaquete\": 3,\r\n    \"cantidadCoinsPaquete\": 4\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/paquetes",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"paquetes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Paquete CrowCoins",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/paquetes/2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"paquetes",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Compra CrowCoins",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/usuarios/2/coins/2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"usuarios",
+						"2",
+						"coins",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar paquetes CrowCoins",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/paquetes",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"paquetes"
 					]
 				}
 			},

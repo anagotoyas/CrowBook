@@ -2,8 +2,10 @@ package com.crowbook.controller;
 
 
 import com.crowbook.model.Historia;
+import com.crowbook.model.PaqueteCrowCoin;
 import com.crowbook.model.Usuario;
 import com.crowbook.repositories.HistoriaRepository;
+import com.crowbook.repositories.PaqueteCrowCoinRepository;
 import com.crowbook.repositories.UsuarioRepository;
 import com.crowbook.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,8 @@ public class UsuarioController {
     private HistoriaRepository historiaRepository;
     @Autowired
     private UsuarioRepository usuarioRepository;
+    @Autowired
+    private PaqueteCrowCoinRepository paqueteRepository;
 
     public UsuarioController(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
@@ -101,6 +105,14 @@ public class UsuarioController {
     public Set<Historia> obtenerFavoritoPorIdUsuario(@PathVariable("idUsuario") Integer idUsuario) {
         Usuario usuario = usuarioService.obtenerUsuarioPorIdUsuario(idUsuario);
         return usuario.getFavorito();
+
+    }
+    @PutMapping("/{idUsuario}/coins/{idPaquete}")
+    public Usuario comprarCrowCoins(@PathVariable Integer idUsuario, @PathVariable Integer idPaquete) {
+        PaqueteCrowCoin paqueteN = paqueteRepository.findById(idPaquete).get();
+        Usuario usuarioN = usuarioRepository.findById(idUsuario).get();
+        usuarioN.comprarCrowCoins(paqueteN);
+        return usuarioRepository.save(usuarioN);
 
     }
 

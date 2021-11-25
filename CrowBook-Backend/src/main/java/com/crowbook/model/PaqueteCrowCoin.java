@@ -3,7 +3,7 @@ package com.crowbook.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="paquetescrowcoin")
+@Table(name="paquetescrowcoins")
 public class PaqueteCrowCoin {
 
     @Id
@@ -16,10 +16,7 @@ public class PaqueteCrowCoin {
     @Column (name="cantidad_coins_paquete", nullable = false)
     private int cantidadCoinsPaquete;
 
-    @ManyToOne
-    @JoinColumn(name="usuario_paquetescrowcoin",
-            foreignKey = @ForeignKey(name="FK_usuario_paquetecrowcoin"))
-    private Usuario usuario;
+
 
     public void comprarPaqueteCoins(Usuario usuario){ }
 
