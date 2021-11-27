@@ -876,6 +876,23 @@
 			"response": []
 		},
 		{
+			"name": "Listar paquetes CrowCoins",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/paquetes",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"paquetes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Compra CrowCoins",
 			"request": {
 				"method": "PUT",
@@ -896,17 +913,21 @@
 			"response": []
 		},
 		{
-			"name": "Listar paquetes CrowCoins",
+			"name": "Donar CrowCoins",
 			"request": {
-				"method": "GET",
+				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/paquetes",
+					"raw": "{{base_url}}/usuarios/2/1/donar/25",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
-						"paquetes"
+						"usuarios",
+						"2",
+						"1",
+						"donar",
+						"25"
 					]
 				}
 			},

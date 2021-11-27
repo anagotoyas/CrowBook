@@ -117,6 +117,17 @@ public class UsuarioController {
 
     }
 
+    @PutMapping("/{idUsuario1}/{idUsuario2}/donar/{coins}")
+    public Usuario donarCrowCoins(@PathVariable Integer idUsuario1, @PathVariable Integer idUsuario2, @PathVariable Integer coins) {
+
+        Usuario usuarioEmisor = usuarioRepository.findById(idUsuario1).get();
+        Usuario usuarioReceptor = usuarioRepository.findById(idUsuario2).get();
+        usuarioService.donarCrowCoins(usuarioEmisor, usuarioReceptor, coins);
+        return usuarioRepository.save(usuarioEmisor);
+
+
+    }
+
 
 
 }

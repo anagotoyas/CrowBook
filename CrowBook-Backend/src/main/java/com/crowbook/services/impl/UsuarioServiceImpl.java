@@ -80,5 +80,16 @@ public class UsuarioServiceImpl implements UsuarioService {
         usuario.setCantidadCrowCoins(total);
     }
 
+    @Override
+    public void donarCrowCoins(Usuario usuario1, Usuario usuario2, Integer coins) {
 
+        int coins1=usuario1.getCantidadCrowCoins();
+        int coins2= usuario2.getCantidadCrowCoins();
+        if (coins1>=coins){
+            int coins1_f=coins1-coins;
+            usuario1.setCantidadCrowCoins(coins1_f);
+            int coins2_f=coins2+coins;
+            usuario2.setCantidadCrowCoins(coins2_f);
+        }
+}
 }

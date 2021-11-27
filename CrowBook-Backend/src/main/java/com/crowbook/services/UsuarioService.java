@@ -23,5 +23,5 @@ public interface UsuarioService {
      void eliminarHistoriaFavorito(Usuario usuario, Historia historia) ;
 
     void comprarCrowCoins(Usuario usuario,PaqueteCrowCoin paquete);
-
+    void donarCrowCoins(Usuario usuario1, Usuario usuario2, Integer coins);
 }
