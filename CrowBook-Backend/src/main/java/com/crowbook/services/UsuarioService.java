@@ -1,5 +1,6 @@
 package com.crowbook.services;
 
+import com.crowbook.model.Donacion;
 import com.crowbook.model.Historia;
 import com.crowbook.model.PaqueteCrowCoin;
 import com.crowbook.model.Usuario;
@@ -22,6 +23,8 @@ public interface UsuarioService {
      void eliminarHistoriaBiblioteca(Usuario usuario, Historia historia) ;
      void eliminarHistoriaFavorito(Usuario usuario, Historia historia) ;
 
-    void comprarCrowCoins(Usuario usuario,PaqueteCrowCoin paquete);
-    void donarCrowCoins(Usuario usuario1, Usuario usuario2, Integer coins);
+
+
+
+
 }

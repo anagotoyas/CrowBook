@@ -1,0 +1,20 @@
+<mat-toolbar class="navbar">
+    <img src="https://i.imgur.com/yORP3KF.png" style="max-width:10%" alt="Logo">
+
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon>account_circle</mat-icon> Buru
+    </button>
+
+    
+  
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)=signOut()>
+        <mat-icon>logout</mat-icon> Cerrar sesión
+      </button>
+    </mat-menu>
+</mat-toolbar>
+  
+  <router-outlet></router-outlet>
+
+  
+  

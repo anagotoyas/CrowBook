@@ -6,6 +6,8 @@ import com.crowbook.model.Usuario;
 import com.crowbook.repositories.HistoriaRepository;
 
 import com.crowbook.services.HistoriaService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -58,7 +60,10 @@ public class HistoriaServiceImpl implements HistoriaService {
         List<Historia> usuarioId = historiaRepository.buscarHistoriaPorIdUsuario(usuario);
         return usuarioId;
     }
-
+    @Override
+    public Page<Historia> index(Pageable pageable) {
+        return historiaRepository.findAll(pageable);
+    }
     @Override
     public void eliminarHistoria(Integer idHistoria) {
         historiaRepository.deleteById(idHistoria);

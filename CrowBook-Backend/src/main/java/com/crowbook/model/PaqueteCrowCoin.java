@@ -1,6 +1,7 @@
 package com.crowbook.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="paquetescrowcoins")
@@ -16,7 +17,8 @@ public class PaqueteCrowCoin {
     @Column (name="cantidad_coins_paquete", nullable = false)
     private int cantidadCoinsPaquete;
 
-
+    @OneToMany(mappedBy ="paqueteComprado", cascade ={CascadeType.ALL})
+    private List<Compra> compra;
 
     public void comprarPaqueteCoins(Usuario usuario){ }
 

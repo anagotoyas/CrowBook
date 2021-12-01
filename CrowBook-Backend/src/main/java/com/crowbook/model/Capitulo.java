@@ -9,6 +9,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -28,10 +29,16 @@ public class Capitulo {
     @Column(name = "nombre_capitulo", nullable = false, length = 25)
     private String nombreCapitulo;
 
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    @Temporal (TemporalType.TIMESTAMP)
     @Column(name = "fecha_publicacion", nullable = false)
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss[.SSS][.SS][.S]")
-    private LocalDateTime fechaPublicacion;
+    private Date fechaPublicacion;
 
+
+    @PrePersist
+    private void Creacion(){
+        fechaPublicacion=new Date();
+    }
     @NotNull
     @Size(min = 2, message = "El contenido del capítulo debe tener como mínimo 2 caracteres")
     @Column(name = "contenido_capitulo", nullable = false)
@@ -73,11 +80,11 @@ public class Capitulo {
         this.nombreCapitulo = nombreCapitulo;
     }
 
-    public LocalDateTime getFechaPublicacion() {
+    public Date getFechaPublicacion() {
         return fechaPublicacion;
     }
 
-    public void setFechaPublicacion(LocalDateTime fechaPublicacion) {
+    public void setFechaPublicacion(Date fechaPublicacion) {
         this.fechaPublicacion = fechaPublicacion;
     }
 

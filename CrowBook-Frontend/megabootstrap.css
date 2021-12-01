@@ -1,0 +1,16 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/grid";
+
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/utilities/api";
+
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap');
+
+.banner{
+    font-family: 'Signika', sans-serif;
+}

@@ -50,7 +50,8 @@ public class Usuario {
     @OneToOne(mappedBy = "usuario")
     private Membresia membresia;
 
-
+    @OneToMany(mappedBy ="usuario", cascade ={CascadeType.ALL})
+    private List<Compra> compra;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToMany

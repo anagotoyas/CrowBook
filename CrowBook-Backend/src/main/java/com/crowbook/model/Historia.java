@@ -1,5 +1,6 @@
 package com.crowbook.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -22,8 +23,8 @@ public class Historia {
     private Usuario usuario;
 
     @NotNull
-    @Size(min = 2, max = 25, message = "El nombre de la historia debe tener como mínimo 2 caracteres")
-    @Column(name = "nombre_historia", nullable = false, length = 25)
+    @Size(min = 2, max = 100, message = "El nombre de la historia debe tener como mínimo 2 caracteres")
+    @Column(name = "nombre_historia", nullable = false, length = 100)
     private String nombreHistoria;
 
 
@@ -42,6 +43,17 @@ public class Historia {
     @NotNull
     @Column(name = "calificacion_total", nullable = false)
     private int calificacionTotal;
+
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    @Temporal (TemporalType.TIMESTAMP)
+    @Column(name = "fecha_publicacion", nullable = false)
+    private Date fechaPublicacion;
+
+
+    @PrePersist
+    private void Creacion(){
+        fechaPublicacion=new Date();
+    }
 
     @ManyToOne
     @JoinColumn(name = "id_categoria", nullable = false,
@@ -62,7 +74,13 @@ public class Historia {
     @ManyToMany(mappedBy = "favorito")
     private List<Usuario> favoritos = new ArrayList<>();
 
+    public Date getFechaPublicacion() {
+        return fechaPublicacion;
+    }
 
+    public void setFechaPublicacion(Date fechaPublicacion) {
+        this.fechaPublicacion = fechaPublicacion;
+    }
 
     public Integer getIdHistoria() {
         return idHistoria;

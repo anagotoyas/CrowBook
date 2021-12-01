@@ -6,6 +6,8 @@ import com.crowbook.model.Historia;
 import com.crowbook.model.Usuario;
 import com.crowbook.services.HistoriaService;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +30,11 @@ public class HistoriaController {
     public ResponseEntity<List<Historia>> listarHistoria(){
         List<Historia> historia=historiaService.listarHistoria();
         return new ResponseEntity<List<Historia>> (historia, HttpStatus.CREATED);
+    }
+    @GetMapping("/pageable")
+    public ResponseEntity<Page<Historia>> index(Pageable pageable) {
+        Page<Historia> historias = historiaService.index(pageable);
+        return new ResponseEntity<Page<Historia>>(historias, HttpStatus.OK);
     }
 
 

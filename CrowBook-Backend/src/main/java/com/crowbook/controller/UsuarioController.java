@@ -1,9 +1,11 @@
 package com.crowbook.controller;
 
 
+import com.crowbook.model.Donacion;
 import com.crowbook.model.Historia;
 import com.crowbook.model.PaqueteCrowCoin;
 import com.crowbook.model.Usuario;
+import com.crowbook.repositories.DonacionRepository;
 import com.crowbook.repositories.HistoriaRepository;
 import com.crowbook.repositories.PaqueteCrowCoinRepository;
 import com.crowbook.repositories.UsuarioRepository;
@@ -28,6 +30,8 @@ public class UsuarioController {
     private UsuarioRepository usuarioRepository;
     @Autowired
     private PaqueteCrowCoinRepository paqueteRepository;
+    @Autowired
+    private DonacionRepository donacionRepository;
 
     public UsuarioController(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
@@ -108,25 +112,7 @@ public class UsuarioController {
 
     }
 
-    @PutMapping("/{idUsuario}/coins/{idPaquete}")
-    public Usuario comprarCrowCoins(@PathVariable Integer idUsuario, @PathVariable Integer idPaquete) {
-        PaqueteCrowCoin paqueteN = paqueteRepository.findById(idPaquete).get();
-        Usuario usuarioN = usuarioRepository.findById(idUsuario).get();
-        usuarioService.comprarCrowCoins(usuarioN, paqueteN);
-        return usuarioRepository.save(usuarioN);
 
-    }
-
-    @PutMapping("/{idUsuario1}/{idUsuario2}/donar/{coins}")
-    public Usuario donarCrowCoins(@PathVariable Integer idUsuario1, @PathVariable Integer idUsuario2, @PathVariable Integer coins) {
-
-        Usuario usuarioEmisor = usuarioRepository.findById(idUsuario1).get();
-        Usuario usuarioReceptor = usuarioRepository.findById(idUsuario2).get();
-        usuarioService.donarCrowCoins(usuarioEmisor, usuarioReceptor, coins);
-        return usuarioRepository.save(usuarioEmisor);
-
-
-    }
 
 
 

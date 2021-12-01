@@ -1,5 +1,6 @@
 package com.crowbook.services.impl;
 
+import com.crowbook.model.Donacion;
 import com.crowbook.model.Historia;
 import com.crowbook.model.PaqueteCrowCoin;
 import com.crowbook.model.Usuario;
@@ -71,25 +72,6 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 
     }
-    @Override
-    public void comprarCrowCoins(Usuario usuario,PaqueteCrowCoin paquete) {
 
-        int compra=paquete.getCantidadCoinsPaquete();
-        int coins= usuario.getCantidadCrowCoins();
-        int total=compra+coins;
-        usuario.setCantidadCrowCoins(total);
-    }
 
-    @Override
-    public void donarCrowCoins(Usuario usuario1, Usuario usuario2, Integer coins) {
-
-        int coins1=usuario1.getCantidadCrowCoins();
-        int coins2= usuario2.getCantidadCrowCoins();
-        if (coins1>=coins){
-            int coins1_f=coins1-coins;
-            usuario1.setCantidadCrowCoins(coins1_f);
-            int coins2_f=coins2+coins;
-            usuario2.setCantidadCrowCoins(coins2_f);
-        }
-}
 }
