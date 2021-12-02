@@ -23,4 +23,6 @@ public interface HistoriaService {
     public Page<Historia> index(Pageable pageable) ;
 
     void eliminarHistoria(Integer idHistoria);
+
+    List<Historia>fetchHistoria(Usuario usuario);
 }

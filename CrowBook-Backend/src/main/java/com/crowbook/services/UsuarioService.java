@@ -23,8 +23,7 @@ public interface UsuarioService {
      void eliminarHistoriaBiblioteca(Usuario usuario, Historia historia) ;
      void eliminarHistoriaFavorito(Usuario usuario, Historia historia) ;
 
-
-
+     Usuario fetchUserByNombreyContra(String nombreUsuario, String contrasenaUsuario);
 
 
 }

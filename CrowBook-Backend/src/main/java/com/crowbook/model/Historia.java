@@ -23,8 +23,8 @@ public class Historia {
     private Usuario usuario;
 
     @NotNull
-    @Size(min = 2, max = 100, message = "El nombre de la historia debe tener como mínimo 2 caracteres")
-    @Column(name = "nombre_historia", nullable = false, length = 100)
+    @Size(min = 2, max = 25, message = "El nombre de la historia debe tener como mínimo 2 caracteres")
+    @Column(name = "nombre_historia", nullable = false, length = 25)
     private String nombreHistoria;
 
 

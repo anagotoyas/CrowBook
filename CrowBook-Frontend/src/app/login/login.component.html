@@ -1,0 +1,17 @@
+<html>
+
+<body>
+    <div class="login-box">
+        <img class="logo" src="https://i.imgur.com/UZORtIY.png" alt="CrowBook">
+        <form #loginform="ngForm" (ngSubmit)="loginUser()">
+           
+            <input type="text" name="user" [(ngModel)]="usuario.nombreUsuario" class="form-control" placeholder="Nombre de usuario" required autofocus>
+            <input type="password" name="contrasena" [(ngModel)]="usuario.contrasenaUsuario" class="form-control" placeholder="Contraseña">
+            
+            <input type="submit" value="Ingresar" required >
+        </form>
+        <p>¿No tienes una cuenta?</p>
+        <a ><button>Regístrate</button></a>
+    </div>
+</body>
+</html>

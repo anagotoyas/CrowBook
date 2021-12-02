@@ -2,41 +2,33 @@
     flex: 0 0 1000px;
 }
 
-.container{
-    font-family: 'Signika', sans-serif;
-    padding: 30px;
-    margin-top:30px;
-    margin-left: 50px;
-    margin-right: 50px;
-    background-color: #F3F3F3;
-    border-radius: 25px;
+.example-card {
+    max-width: 400px;
+  }
 
+.container {
+  padding: 50px;
 }
 
-h1{
-    font-weight: bold;
-    display: inline-block;
-}
-.icono{
-    padding-left: 30px;
-}
-
-.row{
+  .card-wrapper {
     display: flex;
-}
-.col-1{
-    flex: 90%;
-}
-.col-2{
-    flex: 10%;
-}
+    gap: 1rem;
+  }
 
-
-mat-form-field{
+  table {
     width: 100%;
-}
-
-table{
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
     width: 100%;
-    border-radius: 50px;
-}
+  }
+  
+  td, th {
+    width: 25%;
+  }
+
+  #ver-boton {
+    box-shadow: 0.3;
+  }
+  

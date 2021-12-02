@@ -69,5 +69,8 @@ public class HistoriaServiceImpl implements HistoriaService {
         historiaRepository.deleteById(idHistoria);
     }
 
-
+    @Override
+    public List<Historia> fetchHistoria(Usuario usuario) {
+        return historiaRepository.findByUsuario(usuario);
+    }
 }

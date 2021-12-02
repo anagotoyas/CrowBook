@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombreUsuario\": \"pedro\",\r\n    \"correo\": \"pedro@gmail.com\",\r\n    \"contrasenaUsuario\": \"kk123\",\r\n    \"cantidadCrowCoins\":\"0\" ,\r\n    \"esMiembro\": \"false\"\r\n}",
+					"raw": "{\r\n    \"nombreUsuario\": \"pedra\",\r\n    \"correo\": \"pedra@gmail.com\",\r\n    \"contrasenaUsuario\": \"kk123\",\r\n    \"cantidadCrowCoins\":\"0\" ,\r\n    \"esMiembro\": \"false\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -269,6 +269,23 @@
 		},
 		{
 			"name": "Listar Historias",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/historias",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"historias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Historias Paginación",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -895,18 +912,15 @@
 		{
 			"name": "Compra CrowCoins",
 			"request": {
-				"method": "PUT",
+				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "{{base_url}}/usuarios/2/coins/2",
+					"raw": "{{base_url}}/compras",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
-						"usuarios",
-						"2",
-						"coins",
-						"2"
+						"compras"
 					]
 				}
 			},
@@ -915,19 +929,102 @@
 		{
 			"name": "Donar CrowCoins",
 			"request": {
-				"method": "PUT",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"emisor\": {\r\n    \"idUsuario\": 1\r\n},\r\n    \"receptor\": {\r\n    \"idUsuario\": 2\r\n},\r\n\"cantidadCoinsDonacion\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "{{base_url}}/usuarios/2/1/donar/25",
+					"raw": "{{base_url}}/donacion",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"donacion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Log innnnnnnnnnnnnnnn",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/usuarios/signin",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
 						"usuarios",
-						"2",
-						"1",
-						"donar",
-						"25"
+						"signin"
+					],
+					"query": [
+						{
+							"key": "nombreUsuario",
+							"value": "pedro",
+							"disabled": true
+						},
+						{
+							"key": "contrasenaUsuario",
+							"value": "kk123",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ver historias por objeto usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"idUsuario\": 1,\r\n        \"nombreUsuario\": \"maria\",\r\n        \"descripcionUsuario\": null,\r\n        \"correo\": \"maria@gmail.com\",\r\n        \"contrasenaUsuario\": \"kk123\",\r\n        \"cantidadCrowCoins\": 0,\r\n        \"esMiembro\": false,\r\n        \"membresia\": null\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/historias/stories",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"historias",
+						"stories"
+					],
+					"query": [
+						{
+							"key": "nombreUsuario",
+							"value": "pedro",
+							"disabled": true
+						},
+						{
+							"key": "contrasenaUsuario",
+							"value": "kk123",
+							"disabled": true
+						}
 					]
 				}
 			},
@@ -957,7 +1054,7 @@
 	"variable": [
 		{
 			"key": "base_url",
-			"value": "http://localhost:8090"
+			"value": "http://localhost:8092/crowbook/v1"
 		}
 	]
 }

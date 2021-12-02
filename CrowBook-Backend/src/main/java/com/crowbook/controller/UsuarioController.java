@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 @RestController
@@ -54,6 +55,21 @@ public class UsuarioController {
         Usuario usuarioNew = usuarioService.registrarUsuario(usuario);
         return new ResponseEntity<Usuario>(usuarioNew, HttpStatus.CREATED);
     }
+    @PostMapping("/login")
+    @CrossOrigin(origins = "http://localhost:4200/signin")
+    public Usuario signIn (@Valid @RequestBody Usuario user) throws Exception{
+        String nombreUsuario= user.getNombreUsuario();
+        String contrasenaUsuario= user.getContrasenaUsuario();
+        Usuario userObj=null;
+        if (nombreUsuario !=null && contrasenaUsuario!= null){
+            userObj=usuarioService.fetchUserByNombreyContra(nombreUsuario,contrasenaUsuario);
+        }
+        if(userObj==null){
+            throw new Exception("malas credenciales");
+        }
+        return  userObj;
+    }
+
 
     @PutMapping
     public ResponseEntity<Usuario> modificarUsuario(@Valid @RequestBody Usuario usuario) {

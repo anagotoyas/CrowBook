@@ -1,8 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Historia } from '../historia.model';
-import { HistoriaService } from '../historia.service';
+import { Historia } from '../../historias/shared/historia.model';
+import { HistoriaService } from '../../historias/shared/historia.service';
+
+
 
 @Component({
   selector: 'app-form-historia',
@@ -15,7 +17,7 @@ export class FormHistoriaComponent implements OnInit {
   @Input() historia: Historia = new Historia();
   @Output() onSubmit: EventEmitter<any> = new EventEmitter();
 
-  usuarios=[{idUsuario: 1}]
+  usuarios=[{idUsuario:sessionStorage.getItem('idUsuario' ) }]
 
   categoriasid = [
     {idCategoria: 1, nombreCategoria: "Drama"},

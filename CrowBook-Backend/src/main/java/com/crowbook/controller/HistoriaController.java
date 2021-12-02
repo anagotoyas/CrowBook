@@ -67,6 +67,14 @@ public class HistoriaController {
         Historia historiaNew=  historiaService.registrarHistoria(historia);
         return new ResponseEntity<Historia>(historiaNew, HttpStatus.CREATED);
     }
+    @PostMapping("/stories")
+    @CrossOrigin(origins = "http://localhost:4200/usuarios/historias")
+    public ResponseEntity<List<Historia>>  buscarPorUsuario (@Valid @RequestBody Usuario user) throws Exception{
+
+        List<Historia> h= historiaService.fetchHistoria(user);
+        return new ResponseEntity<List<Historia>>(h, HttpStatus.OK);
+
+    }
 
     @PutMapping
     public ResponseEntity<Historia> modificarHistoria(@Valid @RequestBody Historia historia){

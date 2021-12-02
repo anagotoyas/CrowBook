@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { HttpClient } from '@angular/common/http';
 import { AuthRoutingModule } from './auth-routing.module';
+import { environment } from 'src/environments/environment';
 
 
 @NgModule({
@@ -11,4 +13,13 @@ import { AuthRoutingModule } from './auth-routing.module';
     AuthRoutingModule
   ]
 })
-export class AuthModule { }
+export class AuthModule {
+  private apiBase: string = environment.apiBase;
+
+  constructor(private http: HttpClient){
+
+    }
+    
+    
+    
+}

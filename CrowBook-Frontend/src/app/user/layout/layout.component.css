@@ -13,3 +13,8 @@ button{
     font-size:16px;
     margin-right: 30px;
 }
+mat-form-field{
+    top: 10px;
+    width: 50%;
+    font-size: 14px;
+}

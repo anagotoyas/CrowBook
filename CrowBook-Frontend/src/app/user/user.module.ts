@@ -6,16 +6,21 @@ import { ListarHistoriaComponent } from './historias/listar-historia/listar-hist
 import { CrearHistoriaComponent } from './historias/crear-historia/crear-historia.component';
 import { LayoutComponent } from './layout/layout.component';
 import { MaterialModule } from '../material/material.module';
+import { FormHistoriaComponent } from './shared/form-historia/form-historia.component';
+import { VerMisHistoriasComponent } from './historias/ver-mis-historias/ver-mis-historias.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FormHistoriaComponent } from './historias/shared/form-historia/form-historia.component';
+import { VerHistoriaComponent } from './historias/ver-historia/ver-historia.component';
 
 
 @NgModule({
   declarations: [
     ListarHistoriaComponent,
+    VerMisHistoriasComponent,
     CrearHistoriaComponent,
     LayoutComponent,
-    FormHistoriaComponent
+    FormHistoriaComponent,
+    VerMisHistoriasComponent,
+    VerHistoriaComponent
   ],
   imports: [
     CommonModule,

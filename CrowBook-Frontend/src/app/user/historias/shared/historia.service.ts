@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Historia } from './historia.model';
-
+import { Usuario } from 'src/app/usuario';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +13,22 @@ export class HistoriaService {
 
   constructor(private http: HttpClient) { }
 
-  getAllHistorias() {
+  getAllHistorias(){
     return this.http.get<Historia[]>(`${this.apiBase}/historias`);
   }
-
-  create(historia: Historia) {
-    return this.http.post(`${this.apiBase}/historias`, historia);
+  /*
+  getMisHistorias(usuario: Usuario): Observable<Usuario[]>{
+    return this.http.post<Usuario[]>(`${this.apiBase}/historias/stories`, usuario)
+  }*/
+  getMisHistorias(id: string){
+    return this.http.get<any>(`${this.apiBase}/historias/buscarPorIdUsuario?usuario=${id}`);
   }
+  create(historia: Historia) {
+    return this.http.post(`${this.apiBase}/historias`,historia );
+    
+  }
+  getHistoriaPorId(id: number){
+    return this.http.get<Historia>(`${this.apiBase}/historias/${id}`)
+  }
+
 }

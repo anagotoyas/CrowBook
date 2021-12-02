@@ -1,11 +1,11 @@
 package com.crowbook.services.impl;
 
-import com.crowbook.model.Donacion;
 import com.crowbook.model.Historia;
-import com.crowbook.model.PaqueteCrowCoin;
 import com.crowbook.model.Usuario;
 import com.crowbook.repositories.UsuarioRepository;
+
 import com.crowbook.services.UsuarioService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,8 +16,12 @@ public class UsuarioServiceImpl implements UsuarioService {
     private final UsuarioRepository usuarioRepository;
 
 
+
+
     public UsuarioServiceImpl(UsuarioRepository usuarioRepository){
         this.usuarioRepository=usuarioRepository;
+
+
     }
 
 
@@ -71,6 +75,12 @@ public class UsuarioServiceImpl implements UsuarioService {
         usuario.getFavorito().remove(historia);
 
 
+    }
+
+
+    @Override
+    public Usuario fetchUserByNombreyContra(String nombreUsuario, String contrasenaUsuario){
+        return usuarioRepository.findByNombreUsuarioAndContrasenaUsuario(nombreUsuario, contrasenaUsuario);
     }
 
 
