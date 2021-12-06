@@ -1,5 +1,3 @@
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-
 <form
 (ngSubmit)="save()"
 autocomplete="off"
@@ -13,9 +11,8 @@ autocomplete="off"
         matInput #nombreInput
         type="text"
         maxlength="100"
-        placeholder="Nombre-historia"
-        formControlName="nombreHistoria"
-        [(ngModel)]="historia.nombreHistoria"
+        placeholder="Nombre-Capitulo"
+        formControlName="nombreCapitulo"
         />
         <mat-hint align="end">{{nombreInput.value?.length || 0}}/100</mat-hint>
 
@@ -32,33 +29,25 @@ autocomplete="off"
 
     <BR>
     <mat-form-field appearance="outline" class="d-block">
-        <mat-label>Contenido del Capitulo</mat-label>
-        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-        <script type="text/javascript">
-        tinymce.init({
-            selector: '#MiEditor'
-        });
-        </script>
-        <textarea id="MiEditor"
+        <mat-label>Contenido de Capitulo</mat-label>
+        <textarea
         matInput #descripcionInput
-        maxlength="9999"
-        formControlName="descripcionHistoria"
+        maxlength="3500"
+        formControlName="contenidoCapitulo"
         row="5"
         ></textarea>
-        <mat-hint align="end">{{descripcionInput.value?.length || 0}}</mat-hint>
+        <mat-hint align="end">{{descripcionInput.value?.length || 0}}/3500</mat-hint>
 
-        <!-- <mat-error *ngIf="form.descripcionHistoria.hasError('required')">
+        <!--<mat-error *ngIf="form.descripcionHistoria.hasError('required')">
             Este campo es obligatorio
         </mat-error>
         <mat-error *ngIf="form.controls.descripcionHistoria.hasError('maxlength')">
             Debe tener 500 caracteres como máximo
-        </mat-error> -->
+        </mat-error>-->
     </mat-form-field>
     <BR>
 
-    
-
-    <button mat-button routerLink="/user/historias">Cancelar</button>
+    <button mat-button routerLink="/user/capitulos">Cancelar</button>
     <button
     mat-raised-button
     color="primary"

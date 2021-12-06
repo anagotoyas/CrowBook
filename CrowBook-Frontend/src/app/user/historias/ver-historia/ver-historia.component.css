@@ -20,16 +20,15 @@ body {
       align-items: center;
       justify-content: center;
     }
+
   
     .mat-card {
-   
       border-radius: 1rem;
       box-shadow: 0 1rem 1rem rgba(88, 88, 88, 0.2);
       display: flex;	
-      margin: 1.5rem;
+      margin: -11.5rem;
       overflow: hidden;
-      width: 36rem;
-      height: 25rem;
+      height: 26rem;
     }
   
     .left-column {	
@@ -81,5 +80,13 @@ body {
       display: flex;
         flex-direction: column;
         justify-content: space-between;
-      
+    }
+
+    .capitulos-column {
+      width: 100%;  
+      background: rgb(255, 255, 255);
+    }
+
+    table {
+      width: 100%;
     }

@@ -69,7 +69,7 @@ export class FormHistoriaComponent implements OnInit {
     });
   }
 
-  save(){
+  save() {
     this.onSubmit.emit(this.form.value);
   }
 }

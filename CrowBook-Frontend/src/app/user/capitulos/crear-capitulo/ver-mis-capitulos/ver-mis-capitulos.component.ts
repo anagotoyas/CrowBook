@@ -14,7 +14,7 @@ export class VerMisHistoriasComponent implements OnInit {
   public prueba: Array<any> = [];
   
   
-  displayedColumns2: string[] = ['id', 'nombre', 'fecha','visualizar', 'modificar', 'eliminar'];
+  displayedColumns2: string[] = ['id', 'nombre','categoria', 'fecha', 'capitulos', 'modificar', 'eliminar'];
   dataSource2: MatTableDataSource<Historia>;
   constructor(private historiaService: HistoriaService, private route: ActivatedRoute) { }
 
@@ -53,18 +53,9 @@ export class VerMisHistoriasComponent implements OnInit {
     this.dataSource2.filter = value.trim().toLowerCase();
   }
 
-  deleteHistoria(idHistoria:number){
-    console.log(idHistoria)
-    const ok = confirm('¿Estás seguro de eliminar la Historia?');
-    if(ok){
-      this.historiaService.deleteHistoria(idHistoria).subscribe(()=> {
-        this.getMisHistorias(idHistoria);
-        window.location.reload();
-      });
-    }
-  }
+  eliminar(id:number){
 
-  
+  }
  
 
 }

@@ -8,7 +8,14 @@ export class Historia {
     calificacionTotal: number;
     fechaPublicacion: string;
     categoria: Object;
-    
+}
 
-  }
+export class Capitulo {
+    id: number;
+    idHistoria: number;
+    nombreCapitulo: string;
+    contenidoCapitulo: string;
+    cantidadComentarios: number;
+    calificacion: number;
+}
   

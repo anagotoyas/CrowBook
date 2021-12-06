@@ -11,7 +11,6 @@ import { HistoriaService } from '../shared/historia.service';
 })
 
 export class CrearHistoriaComponent implements OnInit {
-
   constructor(public historiaService: HistoriaService, private router: Router) { }
 
   ngOnInit(): void {}
