@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Categoria } from '../../historias/shared/categoria.model';
+import { CategoriaService } from '../../historias/shared/categoria.service';
 import { Historia } from '../../historias/shared/historia.model';
 import { HistoriaService } from '../../historias/shared/historia.service';
 
@@ -19,22 +21,26 @@ export class FormHistoriaComponent implements OnInit {
 
   usuarios=[{idUsuario:sessionStorage.getItem('idUsuario' ) }]
 
-  categoriasid = [
-    {idCategoria: 1, nombreCategoria: "Drama"},
-    {idCategoria: 2, nombreCategoria: "Terror"},
-    {idCategoria: 3, nombreCategoria: "Suspenso"},
-  ];
+  categoriasid: Categoria [];
 
   constructor(
     private historiaService: HistoriaService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private categoriaService: CategoriaService
   ) {}
+  getAllCategorias(){
+    this.categoriaService.getAllCategorias().subscribe((data)=>{
+      this.categoriasid=data;
+    });
+  }
+
     
   ngOnInit(): void {
+    this.getAllCategorias();
     this.form = this.formBuilder.group({
       usuario:[
-        this.historia.usuario = {idUsuario: 1}
+        this.historia.usuario = {idUsuario: sessionStorage.getItem('idUsuario' )}
       ],
       nombreHistoria: [
         this.historia.nombreHistoria, 

@@ -17,6 +17,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSelectModule} from '@angular/material/select';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatListModule} from '@angular/material/list';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [],

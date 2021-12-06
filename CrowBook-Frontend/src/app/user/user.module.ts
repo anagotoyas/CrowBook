@@ -7,9 +7,11 @@ import { CrearHistoriaComponent } from './historias/crear-historia/crear-histori
 import { LayoutComponent } from './layout/layout.component';
 import { MaterialModule } from '../material/material.module';
 import { FormHistoriaComponent } from './shared/form-historia/form-historia.component';
+import { FormModificarComponent } from './shared/form-modificar/form-modificar.component';
 import { VerMisHistoriasComponent } from './historias/ver-mis-historias/ver-mis-historias.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { VerHistoriaComponent } from './historias/ver-historia/ver-historia.component';
+import { ModificarHistoriaComponent } from './historias/modificar-historia/modificar-historia.component';
 
 
 @NgModule({
@@ -19,8 +21,10 @@ import { VerHistoriaComponent } from './historias/ver-historia/ver-historia.comp
     CrearHistoriaComponent,
     LayoutComponent,
     FormHistoriaComponent,
+    FormModificarComponent,
     VerMisHistoriasComponent,
-    VerHistoriaComponent
+    VerHistoriaComponent,
+    ModificarHistoriaComponent
   ],
   imports: [
     CommonModule,

@@ -6,7 +6,7 @@ import { CrearHistoriaComponent } from './historias/crear-historia/crear-histori
 import { ListarHistoriaComponent } from './historias/listar-historia/listar-historia.component';
 import { VerMisHistoriasComponent } from './historias/ver-mis-historias/ver-mis-historias.component';
 import { VerHistoriaComponent } from './historias/ver-historia/ver-historia.component';
-
+import {ModificarHistoriaComponent} from './historias/modificar-historia/modificar-historia.component';
 
 const routes: Routes = [
   {
@@ -23,9 +23,11 @@ const routes: Routes = [
         component: CrearHistoriaComponent,
       },
      
+     
       
     ]
   },
+  
   {
     path: 'historias',
     component: LayoutComponent,
@@ -34,9 +36,16 @@ const routes: Routes = [
         path: 'ver-mis-historias',
         component: VerMisHistoriasComponent,
       },
+      {
+        path: 'ver-mis-historias/:idy/edit',
+         component: ModificarHistoriaComponent,
+      },
+       
       
     ]
   },
+  
+    
   {
     path: '',
     component: LayoutComponent,
@@ -46,13 +55,19 @@ const routes: Routes = [
         component: ListarHistoriaComponent,
         
       },
+      
       {
         path: 'historias/:id/ver/:idx',
         component: VerHistoriaComponent,
-      }
+      },
+      
+    
       
     ]
   },
+
+  
+
   
   
 ];

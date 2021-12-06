@@ -53,9 +53,18 @@ export class VerMisHistoriasComponent implements OnInit {
     this.dataSource2.filter = value.trim().toLowerCase();
   }
 
-  eliminar(id:number){
-
+  deleteHistoria(idHistoria:number){
+    console.log(idHistoria)
+    const ok = confirm('¿Estás seguro de eliminar la Historia?');
+    if(ok){
+      this.historiaService.deleteHistoria(idHistoria).subscribe(()=> {
+        this.getMisHistorias(idHistoria);
+        window.location.reload();
+      });
+    }
   }
+
+  
  
 
 }

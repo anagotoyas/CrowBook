@@ -25,10 +25,18 @@ export class HistoriaService {
   }
   create(historia: Historia) {
     return this.http.post(`${this.apiBase}/historias`,historia );
-    
   }
   getHistoriaPorId(id: number){
     return this.http.get<Historia>(`${this.apiBase}/historias/${id}`)
+  }
+  getHistoriaPorId2(id: number){
+    return this.http.get<Historia[]>(`${this.apiBase}/historias/${id}`)
+  }
+  edit(historia: Historia) {
+    return this.http.put(`${this.apiBase}/historias`,historia );
+  }
+  deleteHistoria(idHistoria: number) {
+    return this.http.delete<Historia>(`${this.apiBase}/historias/${idHistoria}`)
   }
 
 }
