@@ -47,3 +47,4 @@ export class ListarHistoriaComponent implements OnInit {
   
     }
 }
+

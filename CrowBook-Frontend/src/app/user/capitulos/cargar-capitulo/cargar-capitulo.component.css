@@ -1,0 +1,87 @@
+body {
+    font-family: Signika;
+  }
+  
+    section {
+      height: 90vh;
+  
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .container{
+      max-width: 800px;
+      width: 100%;
+      margin:auto;
+  
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .mat-card {
+      border-radius: 1rem;
+      box-shadow: 0 1rem 1rem rgba(88, 88, 88, 0.2);
+      display: flex;	
+      margin: 1.5rem;
+      overflow: hidden;
+      height: 25rem;
+    }
+  
+    .left-column {	
+      padding: 1rem;
+      display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+  
+  
+    .example-button-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+  
+    }
+  
+    .example-button-row button {
+      font-size: 16px;
+      font-family: Signika;
+      font-weight: bold;
+    }
+  
+    #title-historia {
+      font-size: 26px;
+      margin-bottom: 10px;
+      font-weight: bolder;
+      
+    }
+    h4 {
+      font-family: Signika;
+      opacity: 0.9;
+      font-size: 14px;
+    }
+  
+    .left-column img {
+      height: 90vh;
+      width: 100%;
+  
+      border-radius: 1rem;
+   
+  
+    }
+  
+    .right-column {
+      padding: 30px;
+      width: 80%;
+      display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+  
+    .capitulos-column {
+      width: 100%;  
+      background: rgb(255, 255, 255);
+    }

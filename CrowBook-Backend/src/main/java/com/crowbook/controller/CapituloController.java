@@ -1,6 +1,7 @@
 package com.crowbook.controller;
 
 import com.crowbook.model.Capitulo;
+import com.crowbook.model.Historia;
 
 import com.crowbook.services.CapituloService;
 
@@ -25,6 +26,12 @@ public class CapituloController {
     public ResponseEntity<List<Capitulo>> listarCapitulo(){
         List<Capitulo> capitulo=capituloService.listarCapitulo();
         return new ResponseEntity<List<Capitulo>> (capitulo, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/listarPorHistoria")
+    public ResponseEntity<List<Capitulo>> listarCapitulosPorHistoria(@RequestParam Historia historia){
+        List<Capitulo> capituloH=capituloService.listarCapitulosPorHistoria(historia);
+        return new ResponseEntity<List<Capitulo>>(capituloH, HttpStatus.OK);
     }
 
     @GetMapping("/{idCapitulo}")

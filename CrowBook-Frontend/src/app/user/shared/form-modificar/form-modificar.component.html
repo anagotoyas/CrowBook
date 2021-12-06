@@ -1,8 +1,8 @@
 <form
-(ngSubmit)="save()"
+(ngSubmit)="update()"
 autocomplete="off"
-[formGroup]="form"
-#frmLibro="ngForm"
+[formGroup]="form2"
+#frmLibro2="ngForm"
 >
     
     <mat-form-field appearance="outline" class="d-block">
@@ -13,19 +13,11 @@ autocomplete="off"
         maxlength="100"
         placeholder="Nombre-historia"
         formControlName="nombreHistoria"
-        [(ngModel)]="historia.nombreHistoria"
+        required [(ngModel)]="historia.nombreHistoria"
         />
         <mat-hint align="end">{{nombreInput.value?.length || 0}}/100</mat-hint>
 
-        <!--<mat-error *ngIf="form.get('nombreHistoria').hasError('required')">//
-            Este campo es obligatorio
-        </mat-error>
-        <mat-error *ngIf="form.controls.nombreHistoria.hasError('minlength')">
-            Debe tener al menos 2 caracteres
-        </mat-error>
-        <mat-error *ngIf="form.controls.nombreHistoria.hasError('maxlength')">
-            Debe tener 100 caracteres como máximo
-        </mat-error>-->
+       
     </mat-form-field>
 
     <BR>
@@ -35,22 +27,20 @@ autocomplete="off"
         matInput #descripcionInput
         maxlength="500"
         formControlName="descripcionHistoria"
+        required [(ngModel)]="historia.descripcionHistoria"
         row="5"
         ></textarea>
         <mat-hint align="end">{{descripcionInput.value?.length || 0}}/500</mat-hint>
 
-        <!-- <mat-error *ngIf="form.descripcionHistoria.hasError('required')">
-            Este campo es obligatorio
-        </mat-error>
-        <mat-error *ngIf="form.controls.descripcionHistoria.hasError('maxlength')">
-            Debe tener 500 caracteres como máximo
-        </mat-error> -->
+      
     </mat-form-field>
     <BR>
 
     <mat-form-field appearance="outline">
         <mat-label>Elije la categoría</mat-label>
-        <mat-select formControlName="categoria" name="categoria">
+        <mat-select [(ngModel)]="nombreCategoria" formControlName="categoria" name="categoria">
+             
+           
         <mat-option *ngFor="let categoria of categoriasid" [value]="categoria">
             {{categoria.nombreCategoria}}
         </mat-option>
@@ -58,12 +48,13 @@ autocomplete="off"
     </mat-form-field>
     <BR>
 
-    <button mat-button routerLink="/user/historias">Cancelar</button>
+    <button mat-button routerLink="/user/historias/ver-mis-historias">Cancelar</button>
+    
     <button
     mat-raised-button
     color="primary"
     type="submit"
     class="ms-2"
-    [disabled]="frmLibro.invalid"
+    [disabled]="frmLibro2.invalid"
     >Guardar</button>
 </form>

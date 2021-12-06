@@ -1,0 +1,34 @@
+.customWidthClass{
+    flex: 0 0 1000px;
+}
+
+.example-card {
+    max-width: 400px;
+  }
+
+.container {
+  padding: 50px;
+}
+
+  .card-wrapper {
+    display: flex;
+    gap: 1rem;
+  }
+
+  table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+
+  #ver-boton {
+    box-shadow: 0.3;
+  }
+  

@@ -1,43 +1,79 @@
 <section>
-    <div class="container">
-      <mat-card class="example-card"  *ngIf="dataSource">
-        <div class="left-column">
-          <img mat-card-lg-image src="https://i.ibb.co/yXXX4v8/Group-165.png" >
-        </div>
-        <div class="right-column">
-            <mat-card-title-group >
-    
-              <mat-card-title id="title-historia">{{dataSource.nombreHistoria}}
-                <h4>Escrito por <a href="#" style="font-weight: bold; display: inline-block; margin-top: 5px; margin-bottom: 0px; color: #000; font-family: Signika;">{{user.nombreUsuario}}</a></h4>
-                <div class="example-button-row" >
-                  <button mat-raised-button >Comenzar a leer</button>  
-                  <button mat-icon-button color="primary">
-                    <mat-icon>library_add</mat-icon>
-                  </button>
-                </div>
-                
-              </mat-card-title>
+  <div class="container">
+    <mat-card class="example-card"  *ngIf="dataSource">
+      <div class="left-column">
+        <img mat-card-lg-image src="https://i.ibb.co/yXXX4v8/Group-165.png" >
+      </div>
+      <div class="right-column">
+          <mat-card-title-group >
+  
+            <mat-card-title id="title-historia">{{dataSource.nombreHistoria}}
+              <h4>Escrito por <a href="#" style="font-weight: bold; display: inline-block; margin-top: 5px; margin-bottom: 0px; color: #000; font-family: Signika;">{{user.nombreUsuario}}</a></h4>
+              <div class="example-button-row" >
+                <button mat-raised-button >Comenzar a leer</button>  
+                <button mat-icon-button color="primary">
+                  <mat-icon>library_add</mat-icon>
+                </button>
+              </div>
               
-              <mat-card-subtitle>
-                  {{dataSource.descripcionHistoria}}
-                </mat-card-subtitle>
-            </mat-card-title-group>
-        <mat-card-content>
-          <mat-chip-list aria-label="Fish selection">
-          <mat-chip>
-            {{nombreCategoria.nombreCategoria}}
-          </mat-chip>
-        </mat-chip-list>
-        </mat-card-content>
-      
-    </div>
-    </mat-card>
-    </div>
-    
-      <mat-selection-list [multiple]="false" *ngFor="let element of capitulo; let i = index" >
-        <mat-list-option >
-          {{capitulo.nombreCapitulo}}
-        </mat-list-option>
-      </mat-selection-list>
-    </section>
-    
+            </mat-card-title>
+            
+            <mat-card-subtitle>
+                {{dataSource.descripcionHistoria}}
+              </mat-card-subtitle>
+          </mat-card-title-group>
+      <mat-card-content>
+        <mat-chip-list aria-label="Fish selection">
+        <mat-chip>
+          {{nombreCategoria.nombreCategoria}}
+        </mat-chip>
+      </mat-chip-list>
+      </mat-card-content>
+  </div>
+
+  <div class="capitulos-column">
+
+    <table
+      mat-table
+      [dataSource]="dataSource2"
+      matSort
+      class="mat-elevation-z8"
+    >
+              <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef>Nro_cap</th>
+                  <td mat-cell *matCellDef="let element"> {{element.idCapitulo}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="nombre">
+                  <th mat-header-cell *matHeaderCellDef>Nombre</th>
+                  <td mat-cell *matCellDef="let element"> {{element.nombreCapitulo}} </td>
+              </ng-container>
+              <ng-container matColumnDef="modificar">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Ojito</th>
+                <td mat-cell *matCellDef="let row">
+                  <button mat-button><mat-icon>visibility</mat-icon></button>
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="eliminar">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Eliminar</th>
+                <td mat-cell *matCellDef="let row">
+                  <button mat-button><mat-icon>delete</mat-icon></button>
+                </td>
+              </ng-container>
+              
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+      </div>
+
+  </mat-card>
+  </div>
+  
+    <mat-selection-list [multiple]="false" *ngFor="let element of capitulo; let i = index" >
+      <mat-list-option >
+        {{capitulo.nombreCapitulo}}
+      </mat-list-option>
+    </mat-selection-list>
+  </section>

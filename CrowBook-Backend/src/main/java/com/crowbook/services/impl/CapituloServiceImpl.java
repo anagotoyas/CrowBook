@@ -4,6 +4,7 @@ import com.crowbook.model.Capitulo;
 import com.crowbook.repositories.CapituloRepository;
 import com.crowbook.services.CapituloService;
 import org.springframework.stereotype.Service;
+import com.crowbook.model.Historia;
 
 import java.util.List;
 
@@ -39,6 +40,12 @@ public class CapituloServiceImpl implements CapituloService {
     @Override
     public void eliminarCapitulo(Integer idCapitulo) {
         capituloRepository.deleteById(idCapitulo);
+    }
+
+    @Override
+    public List<Capitulo> listarCapitulosPorHistoria(Historia historia) {
+        List<Capitulo> capitulos = capituloRepository.listarCapitulosPorHistoria(historia);
+        return capitulos;
     }
 
 }

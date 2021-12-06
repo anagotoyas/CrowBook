@@ -18,6 +18,7 @@ export class VerMisHistoriasComponent implements OnInit {
   dataSource2: MatTableDataSource<Historia>;
   constructor(private historiaService: HistoriaService, private route: ActivatedRoute) { }
 
+  
   ngOnInit(): void {
 /*
     this.route.paramMap.subscribe((paramMap: any) => {
@@ -53,9 +54,19 @@ export class VerMisHistoriasComponent implements OnInit {
     this.dataSource2.filter = value.trim().toLowerCase();
   }
 
-  eliminar(id:number){
-
+  deleteHistoria(idHistoria:number){
+    console.log(idHistoria)
+    const ok = confirm('¿Estás seguro de eliminar la Historia?');
+    if(ok){
+      this.historiaService.deleteHistoria(idHistoria).subscribe(()=> {
+        this.getMisHistorias(idHistoria);
+        window.location.reload();
+      });
+    }
   }
+
+  
  
 
 }
+

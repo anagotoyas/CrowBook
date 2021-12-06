@@ -1,34 +1,33 @@
 .customWidthClass{
-    flex: 0 0 1000px;
+  flex: 0 0 1000px;
 }
 
 .example-card {
-    max-width: 400px;
-  }
-
-.container {
-  padding: 50px;
+  max-width: 400px;
 }
 
-  .card-wrapper {
-    display: flex;
-    gap: 1rem;
-  }
+.container {
+padding: 50px;
+}
 
-  table {
-    width: 100%;
-  }
-  
-  .mat-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
-  
-  td, th {
-    width: 25%;
-  }
+.card-wrapper {
+  display: flex;
+  gap: 1rem;
+}
 
-  #ver-boton {
-    box-shadow: 0.3;
-  }
-  
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
+#ver-boton {
+  box-shadow: 0.3;
+}

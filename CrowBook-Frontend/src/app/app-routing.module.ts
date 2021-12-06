@@ -4,6 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { ListarHistoriaComponent } from './user/historias/listar-historia/listar-historia.component';
 import { VerMisHistoriasComponent } from './user/historias/ver-mis-historias/ver-mis-historias.component';
 import { VerHistoriaComponent } from './user/historias/ver-historia/ver-historia.component';
+import { ModificarHistoriaComponent} from './user/historias/modificar-historia/modificar-historia.component';
+
 
 const routes: Routes = [
   { 
@@ -32,7 +34,10 @@ const routes: Routes = [
     path: 'user/historias/ver/:idx',
     component: VerHistoriaComponent
   },
-  
+  {
+    path: 'user/historias/ver-mis-historias/:idy/edit',
+    component: ModificarHistoriaComponent
+  },
   
   
 

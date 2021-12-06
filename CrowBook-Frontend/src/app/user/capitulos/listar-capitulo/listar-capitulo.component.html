@@ -1,0 +1,116 @@
+<div class="container2" style="margin: 50px;">
+    <div class="row2">
+      <div class="col-11">
+        <h1>Mis Capitulos</h1><mat-icon class="icono"></mat-icon>
+      </div>
+      <div class="col-1">
+
+      
+          <button mat-raised-button color="primary" routerLink="/user/capitulos/crear/"> <!---{{id.Historia}}-->
+            Nuevo Capitulo
+          </button>
+      
+
+      </div>
+    </div>
+  
+    <div class="example-header" >
+      <mat-form-field appearance="fill">
+        <input
+          matInput
+          (keyup)="applyFilter($event.target.value)"
+          placeholder="Buscar capitulo"
+        />
+      </mat-form-field>
+    </div>
+  
+    <section>
+      <div class="mis_capitulos_list" >
+        <table
+          mat-table
+          [dataSource]="dataSource"
+          matSort
+          class="mat-elevation-z8"
+          class="w-200"
+        
+        >
+          <ng-container matColumnDef="id" style="margin-left: 100px;">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header >ID</th>
+            <td mat-cell *matCellDef="let element">{{ element.idCapitulo }}</td>
+          </ng-container>
+  
+          <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre Capitulo</th>
+            <td mat-cell *matCellDef="let element">{{ element.nombreCapitulo }}</td>
+          </ng-container>
+  
+  
+          <ng-container matColumnDef="fecha">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>FechaPublicacion</th>
+              <td mat-cell *matCellDef="let element">{{ element.fechaPublicacion }}</td>
+          </ng-container>
+  
+          <!--<ng-container matColumnDef="visualizar">
+            <th mat-header-cell *matHeaderCellDefmat-sort-header>Ver Contenido</th>
+            <td mat-cell *matCellDef="let element">
+              <button
+                id="ver-boton" 
+                mat-icon-button
+                color="primary"
+                [routerLink]="['cargar',element.idCapitulo ]"
+              >
+              <mat-icon>visibility</mat-icon>
+              </button>
+            </td>
+          </ng-container> -->
+
+          <ng-container matColumnDef="visualizar">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Ver Contenido</th>
+            <td mat-cell *matCellDef="let element">
+              <button mat-menu-item  routerLink="/user/capitulos/1/cargar/{{element.idCapitulo}}">
+                <mat-icon>listar</mat-icon>
+              </button>
+          
+            </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="modificar">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Modificar</th>
+            <td mat-cell *matCellDef="let element">
+              <button mat-button id="Ver-boton" mat-icon-button [routerLink]="[element.idCapitulo,'modificar']"><mat-icon>border_color</mat-icon></button>
+            </td>                                                             
+          </ng-container>
+  
+          <ng-container matColumnDef="eliminar">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Eliminar</th>
+            <td mat-cell *matCellDef="let element">
+              <button mat-button (click)="eliminar(element.idCapitulo)"><mat-icon>delete</mat-icon></button> 
+            </td>
+          </ng-container>
+          
+  
+          <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef>Acciones</th>
+            <td mat-cell *matCellDef="let element">
+              <button
+                mat-button
+                color="primary"
+                [routerLink]="[element.id, 'editar']"
+              >
+                <mat-icon>ballot</mat-icon>
+              </button>
+
+              <button mat-button color="primary" (click)="eliminar(element.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns2"></tr>
+        </table>
+      </div>
+    </section>
+  </div>

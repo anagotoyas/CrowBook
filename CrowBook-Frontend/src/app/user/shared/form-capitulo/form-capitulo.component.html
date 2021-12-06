@@ -1,0 +1,47 @@
+<form
+(ngSubmit)="save()"
+autocomplete="off"
+[formGroup]="form"
+#frmLibro3="ngForm"
+>
+    
+    <mat-form-field appearance="outline" class="d-block">
+      
+        <mat-label>Nombre de Capitulo</mat-label>
+        <input
+        matInput #nombreInput
+        type="text"
+        maxlength="100"
+        placeholder="Nombre-Capitulo"
+        formControlName="nombreCapitulo"
+        [(ngModel)]="capitulo.nombreCapitulo"
+        />
+        <mat-hint align="end">{{nombreInput.value?.length || 0}}/100</mat-hint>
+
+    </mat-form-field>
+
+
+    <BR>
+        
+
+    <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Contenido de Capitulo</mat-label>
+        <textarea
+        matInput #contenidoInput
+        maxlength="3500"
+        formControlName="contenidoCapitulo"
+        row="5"
+        ></textarea>
+        <mat-hint align="end">{{contenidoInput.value?.length || 0}}/3500</mat-hint>
+    </mat-form-field>
+    <BR>
+
+    <button mat-button routerLink="/user/capitulos/listar-capitulo">Cancelar</button>
+    <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    class="ms-2"
+    [disabled]="frmLibro3.invalid"
+    >Guardar</button>
+</form>
