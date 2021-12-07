@@ -1,8 +1,8 @@
 <section *ngIf="dataSource" >
     <td mat-cell *matCellDef="let element">{{ element.usuario.idUsuario }}</td>
     <div class="container2" *ngIf="dataSource2" >
-    <button mat-flat-button color="accent"  routerLink="/user/historias/{{idUsuario}}/ver/{{ dataSource2.idHistoria }}" ><mat-icon>arrow_back_ios</mat-icon></button>
-    <!--  <td mat-cell *matCellDef="let element">{{ element.nombreHistoria }}</td> 
+    <button mat-flat-button color="accent"  routerLink="/user/historias/{{idUsuario}}/ver/1" ><mat-icon>arrow_back_ios</mat-icon></button>
+    <!--  <button mat-flat-button color="accent"  routerLink="/user/historias/{{idUsuario}}/ver/{{ dataSource2.idHistoria }}" ><mat-icon>arrow_back_ios</mat-icon></button></td> 
         <button mat-button routerLink="/user/historias">Cancelar</button>  -->
 </div>
     <div class="container">
