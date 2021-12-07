@@ -1,8 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute} from '@angular/router';
 import { Capitulo } from '../../capitulos/shared/capitulo.model';
+import { Historia } from '../../historias/shared/historia.model';
 import { CapituloService } from '../../capitulos/shared/capitulo.service';
+import { HistoriaService } from '../../historias/shared/historia.service';
 
 @Component({
     selector: 'app-form-capitulo',
@@ -11,6 +13,7 @@ import { CapituloService } from '../../capitulos/shared/capitulo.service';
   })
   export class FormCapituloComponent implements OnInit {
     form:FormGroup;
+    dataSource2:Historia;
   
     @Input() capitulo: Capitulo = new Capitulo();
     @Output() onSubmit: EventEmitter<any> = new EventEmitter();
@@ -19,16 +22,23 @@ import { CapituloService } from '../../capitulos/shared/capitulo.service';
     constructor(
       private capituloSercive: CapituloService,
       private formBuilder: FormBuilder,
-      private router: Router
+      private router: Router,
+      private acRoute: ActivatedRoute,
+      private historiaService: HistoriaService,
     ) {}
       
     ngOnInit(): void {
+
+        
+
+      const params = this.acRoute.snapshot.params;
+      this.getHistoria(params['idx']);
       this.form = this.formBuilder.group({
         
        
 
         historia:[
-          this.capitulo.historia = {idHistoria: 1},//[
+          this.capitulo.historia = {idHistoria: params['idx']},//[
             //Validators.required, // = {idHistoria: 1} //Colocar idDeHistoria
           //],
         ],
@@ -51,6 +61,13 @@ import { CapituloService } from '../../capitulos/shared/capitulo.service';
       });
     }
   
+    getHistoria(id: number){
+      this.historiaService.getHistoriaPorId(id).subscribe((data: any)=>{
+        //console.log(data);
+        this.dataSource2 = data;
+      })
+    }
+
     save(){
       this.onSubmit.emit(this.form.value);
     }
