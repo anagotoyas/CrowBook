@@ -4,7 +4,6 @@ import { Capitulo } from '../shared/capitulo.model';
 import { CapituloService } from '../shared/capitulo.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
-import { HistoriaService } from '../../historias/shared/historia.service';
 
 @Component({
   selector: 'app-modificar-capitulo',
@@ -19,17 +18,16 @@ export class ModificarCapituloComponent implements OnInit {
     fechaPublicacion:any
     user: any;
 
-    constructor(private capituloService: CapituloService, private router: Router, private activeRoute: ActivatedRoute, private historiaService: HistoriaService) { }
+    constructor(private capituloService: CapituloService, private router: Router, private activeRoute: ActivatedRoute) { }
   
     ngOnInit(): void {this.getCapitulo4Id();}
   
     
 
     modifyCapitulo(capitulo:Capitulo){
-      const params = this.activeRoute.snapshot.params;
       this.capituloService.modify(capitulo).subscribe(
         ()=>{
-          this.router.navigate(['user/capitulos/listar-capitulo/',params['idx']]); 
+          this.router.navigate(['user/capitulos/listar-capitulo']); 
         },
         (error: any)=> {}
       );

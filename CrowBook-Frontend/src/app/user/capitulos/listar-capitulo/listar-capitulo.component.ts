@@ -24,8 +24,7 @@ import { ActivatedRoute, Router } from '@angular/router';
     ngOnInit(): void {
   
       const params = this.route.snapshot.params;
-      this.getHisria4Id(params['idx']);
-      this.getAllCapitulos(params['idx']);
+      this.getAllCapitulos(params['idx']); //valor estatico
       this.route.paramMap.subscribe((paramMap: any) => {
   
         const { params } = paramMap
@@ -36,18 +35,11 @@ import { ActivatedRoute, Router } from '@angular/router';
       })  
   
     }
-
-      getHisria4Id(id : number){
-        this.historiaService.getHistoriaPorId(id).subscribe((data: any)=>{
-          this.dataSource3 = data;
-       //console.log(data);
-        })
-      }
   
       getAllCapitulos(id:number){
         this.capituloService.getAllCapitulos(id).subscribe((data)=>{
           this.dataSource = new MatTableDataSource(data);
-          //  console.log(data);
+            console.log(data);
         });
       }
       applyFilter(value: string){

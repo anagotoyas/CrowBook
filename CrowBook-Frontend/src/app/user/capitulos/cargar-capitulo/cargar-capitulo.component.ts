@@ -4,7 +4,6 @@ import { HistoriaService } from '../../historias/shared/historia.service';
 import { Capitulo } from '../shared/capitulo.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { CapituloService } from '../../capitulos/shared/capitulo.service';
-import { Historia } from '../../historias/shared/historia.model';
 
 @Component({
   selector: 'app-cargar-capitulo',
@@ -15,32 +14,11 @@ import { Historia } from '../../historias/shared/historia.model';
 export class CargarCapituloComponent implements OnInit {
 
   dataSource: Capitulo;
-  dataSource2: Historia;
-  idUsuario:string;
-  idHistoria:string;
   
   constructor(private historiaService: HistoriaService, private capituloService: CapituloService,private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getCap();
-    const params = this.activeRoute.snapshot.params;
-    this.getHisria4Id(params['idx']);
-    this.idUsuario = sessionStorage.getItem('idUsuario') || ''
-
-  }
-
-  usuario(){
-    const params = this.activeRoute.snapshot.params;
-  }
-
-  /*this.getMisHistorias(sessionStorage.getItem('idUsuario')); }
-  */
-
-  getHisria4Id(id : number){
-    this.historiaService.getHistoriaPorId(id).subscribe((data: any)=>{
-      this.dataSource2 = data;
-   //console.log(data);
-    })
   }
 
   getCap(){

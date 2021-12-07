@@ -1,20 +1,18 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Capitulo } from '../../capitulos/shared/capitulo.model';
-import { Historia } from '../../historias/shared/historia.model';
 import { CapituloService } from '../../capitulos/shared/capitulo.service';
-import { HistoriaService } from '../../historias/shared/historia.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
     selector: 'app-form-capitulo-modificar',
     templateUrl: './form-capitulo-modificar.component.html',
-    styleUrls: ['./form-capitulo-modificar.component.css'],
+    styleUrls: ['./form-capitulo-modificar.component.css']
   })
   export class FormCapituloModificarComponent implements OnInit {
     form:FormGroup;
-    dataSource2:Historia;
+
     idCapitulo:number;
     idy: string | null;
     fechaPublicacion1: string;
@@ -34,7 +32,6 @@ import { ActivatedRoute, Router } from '@angular/router';
         private formBuilder: FormBuilder,
         private router: Router,
         private activeRoute: ActivatedRoute,
-        private historiaService: HistoriaService,
       ) {
     this.idy=this.activeRoute.snapshot.paramMap.get('idy')
    
@@ -44,7 +41,7 @@ import { ActivatedRoute, Router } from '@angular/router';
         this.capitulo = new Capitulo();
         this.capituloSercive.getCapituloPorId(Number(this.idy))
           .subscribe(data => {
-           // console.log(data)
+            console.log(data)
             this.capitulo = data;
             this.fechaPublicacion1=data['fechaPublicacion']
             sessionStorage.setItem('fechaPublicacion1',this.fechaPublicacion1);
@@ -52,19 +49,9 @@ import { ActivatedRoute, Router } from '@angular/router';
     
       }
 
-      getHistoria(id: number){
-        this.historiaService.getHistoriaPorId(id).subscribe((data: any)=>{
-          //console.log(data);
-          this.dataSource2 = data;
-        })
-      }
-
       ngOnInit(): void {
-
-        const params = this.activeRoute.snapshot.params;
-        this.getHistoria(params['idx']);
         this.getContenidoCapitulo();
-        //console.log('aa',this.fechaPublicacion1) NO CREO
+        console.log('aa',this.fechaPublicacion1)
         this.form = this.formBuilder.group({
             idCapitulo: [
                 this.capitulo.idCapitulo=Number(this.idy), 
@@ -75,7 +62,7 @@ import { ActivatedRoute, Router } from '@angular/router';
                this.capitulo.fechaPublicacion=String(sessionStorage.getItem('fechaPublicacion1'))
             ],
             historia:[
-                this.capitulo.historia = {idHistoria: params['idx']},//POR ALGUNA RAZON QUE YA NO ME ACUERDO ESTABA CON EL VALOR ESTATICO 1
+                this.capitulo.historia = {idHistoria: 1},//ColocarIdHistoria
               ],
             nombreCapitulo: [
                 this.capitulo.nombreCapitulo,  //Hacer validaciones dependiendo del backend
