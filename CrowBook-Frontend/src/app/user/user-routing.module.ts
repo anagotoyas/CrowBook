@@ -64,7 +64,7 @@ const routes: Routes = [
   },
   {
     path: '',
-      //inserta LAYOUT 
+    component: LayoutComponent,
     children: [
       
       {
@@ -81,7 +81,7 @@ const routes: Routes = [
   },
   {
     path: '',
-      //inserta LAYOUT 
+    component: LayoutComponent,
     children: [
       
       {
@@ -99,7 +99,7 @@ const routes: Routes = [
   },
   {
     path: 'capitulos',
-    //component: LayoutComponent,
+    component: LayoutComponent,
     children: [
       {
         path: 'listar-capitulo/:idx',

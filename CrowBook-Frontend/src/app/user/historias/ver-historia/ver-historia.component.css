@@ -25,7 +25,7 @@ body {
     border-radius: 1rem;
     box-shadow: 0 1rem 1rem rgba(88, 88, 88, 0.2);
     display: flex;	
-    margin: 1.5rem;
+    margin: -3.5rem;
     overflow: hidden;
     height: 25rem;
   }
@@ -85,3 +85,12 @@ body {
     width: 100%;  
     background: rgb(255, 255, 255);
   }
+
+  table#space {
+    border-collapse: separate;
+    border-spacing: 10px 5px;
+  }
+  
+  table{
+    width: 100%;
+   }

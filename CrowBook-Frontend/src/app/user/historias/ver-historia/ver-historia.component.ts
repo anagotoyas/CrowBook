@@ -16,7 +16,7 @@ export class VerHistoriaComponent implements OnInit {
   capitulo: any;
   user: any;
 
-  displayedColumns: string[] = ['id', 'nombre','modificar', 'eliminar'];
+  displayedColumns: string[] = ['id', 'nombre','visualizar'];
   dataSource2: MatTableDataSource<Historia>;
 
   constructor(private historiaService: HistoriaService, private capituloService: CapituloService,private activeRoute: ActivatedRoute) { }

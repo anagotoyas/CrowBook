@@ -1,34 +1,43 @@
 .customWidthClass{
-    flex: 0 0 1000px;
+  flex: 0 0 1000px;
 }
 
-.example-card {
-    max-width: 400px;
-  }
+.container2{
+  font-family: 'Signika', sans-serif;
+  padding: 30px;
+  margin-top:30px;
+  margin-left: 50px;
+  margin-right: 50px;
+  background-color: #F3F3F3;
+  border-radius: 25px;
 
-.container {
-  padding: 50px;
 }
 
-  .card-wrapper {
-    display: flex;
-    gap: 1rem;
-  }
+h1{
+  font-weight: bold;
+  display: inline-block;
+}
+.icono{
+  padding-left: 30px;
+}
 
-  table {
-    width: 100%;
-  }
-  
-  .mat-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
-  
-  td, th {
-    width: 25%;
-  }
+.row2{
+  display: flex;
+}
+.col-1{
+  flex: 90%;
+}
+.col-2{
+  flex: 10%;
+}
 
-  #ver-boton {
-    box-shadow: 0.3;
-  }
+
+mat-form-field{
+  width: 100%;
+}
+
+table{
+  width: 100%;
+  border-radius: 50px;
+}
   

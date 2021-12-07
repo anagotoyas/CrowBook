@@ -29,6 +29,10 @@ body {
       overflow: hidden;
       height: 25rem;
     }
+
+    .mat-card-subtitle {
+      padding: 30px;
+    }
   
     .left-column {	
       padding: 1rem;
@@ -65,7 +69,7 @@ body {
     }
   
     .left-column img {
-      height: 90vh;
+      height: 49vh;
       width: 100%;
   
       border-radius: 1rem;
