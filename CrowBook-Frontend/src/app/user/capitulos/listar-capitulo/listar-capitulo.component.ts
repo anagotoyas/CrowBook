@@ -14,7 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   })
   export class ListarCapituloComponent implements OnInit {
     
-    displayedColumns2: string[] = ['id', 'nombre', 'fecha', 'modificar', 'eliminar'];
+    displayedColumns2: string[] = ['id', 'nombre', 'fecha','visualizar', 'modificar', 'eliminar'];
     dataSource: MatTableDataSource<Capitulo>;
     dataSource3: Historia;
     user: any;
