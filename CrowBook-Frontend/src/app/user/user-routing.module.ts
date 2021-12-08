@@ -11,7 +11,8 @@ import { ListarCapituloComponent } from './capitulos/listar-capitulo/listar-capi
 import {ModificarHistoriaComponent} from './historias/modificar-historia/modificar-historia.component';
 import { CargarCapituloComponent } from './capitulos/cargar-capitulo/cargar-capitulo.component';
 import { CrearResenaComponent } from './historias/crear-resena/crear-resena.component';
-
+import {ModificarResenasComponent} from './historias/modificar-resenas/modificar-resenas.component'
+import { FormModificarComponent } from './shared/form-modificar/form-modificar.component';
 
 const routes: Routes = [
   {
@@ -69,7 +70,11 @@ const routes: Routes = [
       {
         path: 'crear-resena', 
         component: CrearResenaComponent,
-      }
+      },
+      {
+        path: 'modificar/:idz',
+        component: ModificarResenasComponent,
+      },
     ]
 
   },

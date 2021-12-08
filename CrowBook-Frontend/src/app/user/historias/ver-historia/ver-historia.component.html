@@ -84,7 +84,11 @@
     
       <ul class="list-group">
       <li class="list-group-item" *ngFor="let comentario of listaResenas" [value]="comentario">
-        {{comentario.comentarioResena}} 
+        {{comentario.comentarioResena}}
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button class="btn btn-secondary" type="button"   [routerLink]="['modificar', comentario.idResena]">Modificar</button> &nbsp;&nbsp;
+          <button class="btn btn-secondary" type="button" (click)="deleteResena(comentario.idResena)" >Eliminar</button>
+        </div> 
       </li>
     </ul>
     </div>

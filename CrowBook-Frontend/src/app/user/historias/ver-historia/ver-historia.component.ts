@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HistoriaService } from '../shared/historia.service';
 import { Historia } from '../shared/historia.model';
 import { MatTableDataSource } from '@angular/material/table';
@@ -12,11 +12,12 @@ import { ResenaService } from '../shared/resena.service';
   styleUrls: ['./ver-historia.component.css']
 })
 export class VerHistoriaComponent implements OnInit {
-
+  @Input() resena: Resena = new Resena();
   dataSource: Historia;
   nombreCategoria: any;
   capitulo: any;
   user: any;
+  idResena: any;
   listaResenas: Resena[];
   displayedColumns: string[] = ['id', 'nombre','visualizar'];
   dataSource2: MatTableDataSource<Historia>;
@@ -25,7 +26,8 @@ export class VerHistoriaComponent implements OnInit {
     private historiaService: HistoriaService,
     private capituloService: CapituloService,
     private resenaService: ResenaService,
-    private activeRoute: ActivatedRoute) { }
+    private activeRoute: ActivatedRoute,
+    private router: Router) { }
 
   //capitulo =new C();
   //public prueba: Array<any> = [];
@@ -63,5 +65,29 @@ export class VerHistoriaComponent implements OnInit {
     });
   }
 
+  deleteResena(idResena:number){
+    console.log(idResena)
+    const ok = confirm('¿Estás seguro de eliminar la Resena?');
+    if(ok){
+      this.resenaService.deleteResena(idResena).subscribe(()=> {
+        this.getResenaPorIdHistoria();
+        window.location.reload();
+      });
+    }
+  }
+  getInfoResena(idResena: any){
+    this.resena = new Resena();
+    this.resenaService.getResenaPorId(idResena)
+    
+      .subscribe(data => {
+        console.log(data)
+        console.log(idResena);
+        this.resena = data;
+        this.idResena=data['idResena'];
+        
+      }, error => console.log(error));
+    }
+   
 
+  
 }
