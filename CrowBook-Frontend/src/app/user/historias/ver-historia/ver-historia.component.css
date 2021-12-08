@@ -2,7 +2,7 @@ body {
   font-family: Signika;
 }
 
-  section {
+.historia-sec {
     height: 90vh;
 
     display: flex;
@@ -88,4 +88,29 @@ body {
 
   table{
     width: 100%;
+    box-shadow: 0;
   }
+
+  .crear-resena {
+    align-items: center;
+    justify-content: center;
+    width: 1000px;
+    margin: 0px auto;
+    padding: 20px;
+    font-family: Signika;
+    background-color: rgb(238, 238, 238);
+    border-radius: 1rem;
+  }
+  .list-group-item {
+    margin: 5px;
+  }
+  .fila{
+    display: flex;
+  }
+  .columna-1{
+    flex: 90%;
+  }
+  .columna-2{
+    flex: 10%;
+  }
+    

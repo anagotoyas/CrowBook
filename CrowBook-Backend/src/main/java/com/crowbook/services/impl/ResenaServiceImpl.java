@@ -1,5 +1,6 @@
 package com.crowbook.services.impl;
 
+import com.crowbook.model.Historia;
 import com.crowbook.model.Resena;
 import com.crowbook.repositories.ResenaRepository;
 
@@ -37,6 +38,12 @@ public class ResenaServiceImpl implements ResenaService {
     @Override
     public Resena obtenerResenaPorIdResena(Integer idResena) {
         return resenaRepository.findById(idResena).orElse(new Resena());
+    }
+
+    @Override
+    public List<Resena> buscarResenaPorIdHistoria(Historia historia) {
+        List<Resena> historiaId = resenaRepository.buscarResenaPorIdHistoria(historia);
+        return historiaId;
     }
 
     @Override

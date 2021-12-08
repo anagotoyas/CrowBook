@@ -1,5 +1,6 @@
 package com.crowbook.controller;
 
+import com.crowbook.model.Historia;
 import com.crowbook.model.Resena;
 
 import com.crowbook.services.ResenaService;
@@ -48,6 +49,12 @@ public class ResenaController {
     public ResponseEntity<Resena> modificarResena(@Valid @RequestBody Resena resena){
         Resena resenaUpdate=  resenaService.modificarResena(resena);
         return new ResponseEntity<Resena>(resenaUpdate, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/buscarPorIdHistoria")
+    public ResponseEntity<List<Resena>> buscarResenaPorIdHistoria(@RequestParam Historia historia){
+        List<Resena> historiaid=resenaService.buscarResenaPorIdHistoria(historia);
+        return new ResponseEntity<List<Resena>>(historiaid, HttpStatus.OK);
     }
 
     @DeleteMapping("/{idResena}")

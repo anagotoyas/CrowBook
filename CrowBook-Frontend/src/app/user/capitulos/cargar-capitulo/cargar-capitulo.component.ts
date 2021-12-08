@@ -5,6 +5,7 @@ import { Capitulo } from '../shared/capitulo.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { CapituloService } from '../../capitulos/shared/capitulo.service';
 import { Historia } from '../../historias/shared/historia.model';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-cargar-capitulo',
@@ -18,7 +19,11 @@ export class CargarCapituloComponent implements OnInit {
   dataSource2: Historia;
   idUsuario:string;
   
-  constructor(private historiaService: HistoriaService, private capituloService: CapituloService,private activeRoute: ActivatedRoute) { }
+  constructor(
+    private historiaService: HistoriaService, 
+    private capituloService: CapituloService,
+    private activeRoute: ActivatedRoute,
+    private _location: Location) { }
 
   ngOnInit(): void {
     this.getCap();
@@ -52,6 +57,10 @@ export class CargarCapituloComponent implements OnInit {
       });
     }  
 
+  }
+
+  backClicked() {
+    this._location.back();
   }
 
 

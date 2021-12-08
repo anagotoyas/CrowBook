@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { LayoutComponent } from '../user/layout/layout.component';
 import { CrearHistoriaComponent } from './historias/crear-historia/crear-historia.component';
 import { ListarHistoriaComponent } from './historias/listar-historia/listar-historia.component';
@@ -11,6 +10,7 @@ import { ModificarCapituloComponent } from './capitulos/modificar-capitulo/modif
 import { ListarCapituloComponent } from './capitulos/listar-capitulo/listar-capitulo.component';
 import {ModificarHistoriaComponent} from './historias/modificar-historia/modificar-historia.component';
 import { CargarCapituloComponent } from './capitulos/cargar-capitulo/cargar-capitulo.component';
+import { CrearResenaComponent } from './historias/crear-resena/crear-resena.component';
 
 
 const routes: Routes = [
@@ -61,6 +61,17 @@ const routes: Routes = [
       }
       
     ]
+  },
+  {
+    path: 'historias/:id/ver/:idx',
+    component:LayoutComponent,
+    children: [
+      {
+        path: 'crear-resena', 
+        component: CrearResenaComponent,
+      }
+    ]
+
   },
   {
     path: '',

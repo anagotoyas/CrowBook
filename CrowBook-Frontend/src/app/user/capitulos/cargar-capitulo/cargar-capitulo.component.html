@@ -1,6 +1,6 @@
 <section *ngIf="dataSource" >
     <div class="container2" *ngIf="dataSource2" >
-    <button mat-flat-button color="accent" routerLink="../../../historias/{{idUsuario}}/ver/1" ><mat-icon>arrow_back_ios</mat-icon></button>
+    <button mat-flat-button color="accent" (click)="backClicked()" ><mat-icon>arrow_back_ios</mat-icon></button>
     <!-- routerLink="../../historias/{{dataSource.idHistoria}}/ver/{{dataSource.idCapitulo}}"    -->
 </div>
 <section>

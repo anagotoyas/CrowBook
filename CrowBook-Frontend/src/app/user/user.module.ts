@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { UserRoutingModule } from './user-routing.module';
 import { ListarHistoriaComponent } from './historias/listar-historia/listar-historia.component';
 import { CrearHistoriaComponent } from './historias/crear-historia/crear-historia.component';
@@ -18,7 +17,8 @@ import { ModificarCapituloComponent } from './capitulos/modificar-capitulo/modif
 import { FormModificarComponent } from './shared/form-modificar/form-modificar.component';
 import { FormCapituloModificarComponent } from './shared/form-capitulo-modificar/form-capitulo-modificar.component';
 import { CargarCapituloComponent } from './capitulos/cargar-capitulo/cargar-capitulo.component';
-
+import { CrearResenaComponent } from './historias/crear-resena/crear-resena.component';
+import { FormResenaComponent } from './shared/form-resena/form-resena.component';
 
 
 @NgModule({
@@ -39,6 +39,8 @@ import { CargarCapituloComponent } from './capitulos/cargar-capitulo/cargar-capi
     FormCapituloComponent,
     FormCapituloModificarComponent,
     CargarCapituloComponent,
+    CrearResenaComponent,
+    FormResenaComponent,
   ],
   imports: [
     CommonModule,

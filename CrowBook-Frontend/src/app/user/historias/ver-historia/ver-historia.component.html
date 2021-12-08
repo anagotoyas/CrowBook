@@ -1,4 +1,4 @@
-<section>
+<section class="historia-sec">
   <div class="container">
     <mat-card class="example-card"  *ngIf="dataSource">
       <div class="left-column">
@@ -62,11 +62,32 @@
       </div>
 
   </mat-card>
-  </div>
+</div>
+</section>
   
     <mat-selection-list [multiple]="false" *ngFor="let element of capitulo; let i = index" >
       <mat-list-option >
         {{capitulo.nombreCapitulo}}
       </mat-list-option>
     </mat-selection-list>
+
+  <section class="section-resena">
+    <div class="crear-resena">
+      <div class="fila">
+        <div class="columna-1">
+          <h1 style="font-family: Signika; font-weight: bold;">Reseñas del libro:</h1>
+        </div>
+        <div class="columna-2">
+          <button mat-raised-button class="resena-button" color="primary" [routerLink]="['crear-resena']">Crear Reseña</button>
+        </div>
+      </div>
+    
+      <ul class="list-group">
+      <li class="list-group-item" *ngFor="let comentario of listaResenas" [value]="comentario">
+        {{comentario.comentarioResena}} 
+      </li>
+    </ul>
+    </div>
+    
   </section>
+

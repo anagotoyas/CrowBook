@@ -4,6 +4,8 @@ import { HistoriaService } from '../shared/historia.service';
 import { Historia } from '../shared/historia.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { CapituloService } from '../../capitulos/shared/capitulo.service';
+import { Resena } from '../shared/resena.model';
+import { ResenaService } from '../shared/resena.service';
 @Component({
   selector: 'app-ver-historia',
   templateUrl: './ver-historia.component.html',
@@ -15,17 +17,22 @@ export class VerHistoriaComponent implements OnInit {
   nombreCategoria: any;
   capitulo: any;
   user: any;
-
+  listaResenas: Resena[];
   displayedColumns: string[] = ['id', 'nombre','visualizar'];
   dataSource2: MatTableDataSource<Historia>;
 
-  constructor(private historiaService: HistoriaService, private capituloService: CapituloService,private activeRoute: ActivatedRoute) { }
+  constructor(
+    private historiaService: HistoriaService,
+    private capituloService: CapituloService,
+    private resenaService: ResenaService,
+    private activeRoute: ActivatedRoute) { }
 
   //capitulo =new C();
   //public prueba: Array<any> = [];
 
   ngOnInit(): void {
     this.getInfoHistoria();
+    this.getResenaPorIdHistoria();
   }
 
   getInfoHistoria(){
@@ -45,6 +52,15 @@ export class VerHistoriaComponent implements OnInit {
       });      
     }  
 
+  }
+
+  getResenaPorIdHistoria(){
+    const params = this.activeRoute.snapshot.params;
+
+    this.resenaService.getResenaPorIdHistoria(params['idx']).subscribe((data)=>{
+      this.listaResenas=data;
+
+    });
   }
 
 

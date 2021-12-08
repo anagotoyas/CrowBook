@@ -1,0 +1,30 @@
+<form
+(ngSubmit)="save()"
+autocomplete="off"
+[formGroup]="form"
+#frmLibro="ngForm"
+>
+    
+    <BR>
+    <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Reseña de Historia</mat-label>
+        <textarea
+        matInput #resenaInput
+        maxlength="500"
+        formControlName="comentarioResena"
+        row="5"
+        ></textarea>
+        <mat-hint align="end">{{resenaInput.value?.length || 0}}/500</mat-hint>
+
+    </mat-form-field>
+    <BR>
+
+    <button mat-button (click)="salir()">Cancelar</button>
+    <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    class="ms-2"
+    [disabled]="frmLibro.invalid"
+    >Guardar</button>
+</form>
