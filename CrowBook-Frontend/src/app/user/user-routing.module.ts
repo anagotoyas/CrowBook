@@ -64,7 +64,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: LayoutComponent,
+    component: LayoutComponent, 
     children: [
       
       {
@@ -89,7 +89,7 @@ const routes: Routes = [
         component: ListarCapituloComponent,
       },
       {
-        path: 'capitulos/listar-capitulo/:idy/modificar',//DILE P Dile Dile Dile 
+        path: 'capitulos/listar-capitulo/:idx/:idy/modificar',//DILE P Dile Dile Dile 
         component: ModificarCapituloComponent,
         
       }, //'user/capitulos/listar-capitulo/1/modificar'
@@ -113,12 +113,12 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: 'capitulos/:id',
+        path: 'capitulos',
         component: ListarCapituloComponent,
         
       },
       {
-        path: 'capitulos/:id/cargar/:idx',
+        path: 'capitulos/cargar/:idx',
         component: CargarCapituloComponent,
       }
       

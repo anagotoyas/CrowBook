@@ -1,3 +1,8 @@
+<section *ngIf="dataSource" >
+    <div class="container2" *ngIf="dataSource2" >
+    <button mat-flat-button color="accent" routerLink="../../../historias/{{idUsuario}}/ver/1" ><mat-icon>arrow_back_ios</mat-icon></button>
+    <!-- routerLink="../../historias/{{dataSource.idHistoria}}/ver/{{dataSource.idCapitulo}}"    -->
+</div>
 <section>
     <div class="container">
         <mat-card class="example-card"  *ngIf="dataSource">
@@ -9,12 +14,10 @@
     
                   <mat-card-title id="title-historia">{{dataSource.nombreCapitulo}}</mat-card-title>
 
-                  <mat-card-subtitle>
-                    {{dataSource.contenidoCapitulo}}
-                  </mat-card-subtitle>
+                    <mat-card-subtitle>
+                        {{dataSource.contenidoCapitulo}}
+                    </mat-card-subtitle>
                     </mat-card-title-group >
-                    
-                    
             </div>
   
   

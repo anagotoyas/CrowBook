@@ -12,14 +12,15 @@ import { HistoriaService } from '../../historias/shared/historia.service';
 
 export class CrearCapituloComponent implements OnInit {
 
-    constructor(public capituloService: CapituloService, private router: Router, private activeRoute: ActivatedRoute) { }
+    constructor(public capituloService: CapituloService, private router: Router, private activeRoute: ActivatedRoute, private historiaService: HistoriaService) { }
   
     ngOnInit(): void {}
-  
+
     createCapitulo(capitulo:Capitulo){
+      const params = this.activeRoute.snapshot.params;
       this.capituloService.create(capitulo).subscribe(
         ()=>{
-          this.router.navigate(['user/capitulos/listar-capitulo']); //TMREEEEEEEEEEEEEEEEEEEEE
+          this.router.navigate(['user/capitulos/listar-capitulo/',params['idx']]); //TMREEEEEEEEEEEEEEEEEEEEE
         },
         (error: any)=> {}
       );
