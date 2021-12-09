@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HistoriaService } from '../../historias/shared/historia.service';
 import { Capitulo } from '../shared/capitulo.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { CapituloService } from '../../capitulos/shared/capitulo.service';
 import { Historia } from '../../historias/shared/historia.model';
 import { Location } from '@angular/common';
+import { Comentario } from '../shared/comentario.model';
+import { ComentarioService } from '../shared/comentario.service';
+
 
 @Component({
   selector: 'app-cargar-capitulo',
@@ -14,15 +17,22 @@ import { Location } from '@angular/common';
 })
 
 export class CargarCapituloComponent implements OnInit {
+  @Input() comentario: Comentario = new Comentario();
 
   dataSource: Capitulo;
   dataSource2: Historia;
   idUsuario:string;
+  user: any;//ojo
+  idComentario: any;
+  listarComentarios: Comentario[];
+
   
   constructor(
     private historiaService: HistoriaService, 
     private capituloService: CapituloService,
     private activeRoute: ActivatedRoute,
+    private comentarioService: ComentarioService,
+    private router: Router,
     private _location: Location) { }
 
   ngOnInit(): void {
@@ -30,15 +40,14 @@ export class CargarCapituloComponent implements OnInit {
     const params = this.activeRoute.snapshot.params;
     this.getHisria4Id(params['idx']);
     this.idUsuario = sessionStorage.getItem('idUsuario') || ''
+    this.getComentarioPorIdCapitulo();
 
   }
+
 
   usuario(){
     const params = this.activeRoute.snapshot.params;
   }
-
-  /*this.getMisHistorias(sessionStorage.getItem('idUsuario')); }
-  */
 
   getHisria4Id(id : number){
     this.historiaService.getHistoriaPorId(id).subscribe((data: any)=>{
@@ -50,18 +59,54 @@ export class CargarCapituloComponent implements OnInit {
   getCap(){
 
     const params = this.activeRoute.snapshot.params;
-    if (params['idx']) {
+    if (params['idx']) {//idx♠
       this.capituloService.getCapituloPorId(params['idx']).subscribe(data => {
         this.dataSource = data;
+        //this.user = data['usuario'];
         console.log(data)
       });
     }  
 
   }
 
+  
+
   backClicked() {
     this._location.back();
   }
+
+  getComentarioPorIdCapitulo(){
+    const params = this.activeRoute.snapshot.params;
+
+    this.comentarioService.getCapituloPorIdCapitulo(params['idx']).subscribe((data)=>{
+      this.listarComentarios=data;
+
+    });
+  }
+
+  deleteComentario(idComentario:number){
+    console.log(idComentario)
+    const ok = confirm('¿Estás seguro de eliminar el Comentario?');
+    if(ok){
+      this.comentarioService.deleteComentario(idComentario).subscribe(()=> {
+        this.getComentarioPorIdCapitulo();
+        window.location.reload();
+      });
+    }
+  }
+
+  getInfoComentario(idComentario: any){
+    this.comentario = new Comentario();
+    this.comentarioService.getComentarioPorId(idComentario)
+    
+      .subscribe(data => {
+        console.log(data)
+        console.log(idComentario);
+        this.comentario = data;
+        this.idComentario=data['idComentario'];
+        
+      }, error => console.log(error));
+    }
 
 
 }

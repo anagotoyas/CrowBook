@@ -1,6 +1,8 @@
 package com.crowbook.services.impl;
 
+import com.crowbook.model.Capitulo;
 import com.crowbook.model.Comentario;
+import com.crowbook.model.Resena;
 import com.crowbook.repositories.ComentarioRepository;
 import com.crowbook.services.ComentarioService;
 import org.springframework.stereotype.Service;
@@ -35,6 +37,12 @@ public class ComentarioServiceImpl implements ComentarioService {
     @Override
     public Comentario obtenerComentarioPorIdComentario(Integer idComentario) {
         return comentarioRepository.findById(idComentario).orElse(new Comentario());
+    }
+
+    @Override
+    public List<Comentario> buscarComentarioPorIdCapitulo(Capitulo capitulo) {
+        List<Comentario> capituloId = comentarioRepository.buscarComentarioPorIdCapitulo(capitulo);
+        return capituloId;
     }
 
     @Override

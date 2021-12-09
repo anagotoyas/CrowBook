@@ -1,6 +1,9 @@
 package com.crowbook.controller;
 
+import com.crowbook.model.Capitulo;
 import com.crowbook.model.Comentario;
+import com.crowbook.model.Historia;
+import com.crowbook.model.Resena;
 import com.crowbook.services.ComentarioService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -50,4 +53,12 @@ public class ComentarioController {
         comentarioService.eliminarComentario(idComentario);
         return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
+
+    @GetMapping("/buscarPorIdCapitulo")
+    public ResponseEntity<List<Comentario>> buscarComentarioPorIdCapitulo(@RequestParam Capitulo capitulo){
+        List<Comentario> capituloid=comentarioService.buscarComentarioPorIdCapitulo(capitulo);
+        return new ResponseEntity<List<Comentario>>(capituloid, HttpStatus.OK);
+    }
+
 }
+//buscarComentarioPorIdCapitulo

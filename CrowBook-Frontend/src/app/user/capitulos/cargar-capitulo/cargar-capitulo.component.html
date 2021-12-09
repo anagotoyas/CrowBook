@@ -24,4 +24,28 @@
         </mat-card>
     </div>
     
+    <section class="section-resena">
+        <div class="crear-resena">
+          <div class="fila">
+            <div class="columna-1">
+              <h1 style="font-family: Signika; font-weight: bold;">Comentarios del capitulo:</h1>
+            </div>
+            <div class="columna-2">
+              <button mat-raised-button class="resena-button" color="primary" [routerLink]="['crear-comentario']">Crear Comentario</button>
+            </div>
+          </div>
+        
+          <ul> <!--class="list-group"--->
+          <li  *ngFor="let comentario of listarComentarios" [value]="comentario"> <!---class="list-group-item"-->
+            {{comentario.comentarioComentario}} <H1>OAAAA</H1>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button class="btn btn-secondary" type="button"   [routerLink]="['modificar', comentario.idComentario]">Modificar</button> &nbsp;&nbsp;
+              <button class="btn btn-secondary" type="button" (click)="deleteComentario(comentario.idComentario)" >Eliminar</button>
+            </div> 
+          </li>
+        </ul>
+        </div>
+        
+      </section>
+
 </section>

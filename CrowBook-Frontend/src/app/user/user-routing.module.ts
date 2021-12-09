@@ -12,6 +12,7 @@ import {ModificarHistoriaComponent} from './historias/modificar-historia/modific
 import { CargarCapituloComponent } from './capitulos/cargar-capitulo/cargar-capitulo.component';
 import { CrearResenaComponent } from './historias/crear-resena/crear-resena.component';
 import {ModificarResenasComponent} from './historias/modificar-resenas/modificar-resenas.component'
+import { CrearComentarioComponent } from './capitulos/crear-comentario/crear-comentario.component'
 import { FormModificarComponent } from './shared/form-modificar/form-modificar.component';
 
 const routes: Routes = [
@@ -134,11 +135,26 @@ const routes: Routes = [
         
       },
       {
-        path: 'capitulos/cargar/:idx',
+        path: 'capitulos/:id/cargar/:idx',
         component: CargarCapituloComponent,
       }
       
     ]
+  },
+  {
+    path: 'capitulos/:id/cargar/:idy', //Era idx
+    component:LayoutComponent,
+    children: [
+      {
+        path: 'crear-comentario', 
+        component: CrearComentarioComponent,
+      }//,
+   //   {
+    //    path: 'modificar/:idz',
+    //    component: ModificarResenasComponent,
+    //  },
+    ]
+
   },
   
   

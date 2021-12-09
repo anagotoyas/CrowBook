@@ -21,6 +21,10 @@ import { CrearResenaComponent } from './historias/crear-resena/crear-resena.comp
 import { FormResenaComponent } from './shared/form-resena/form-resena.component';
 import { ModificarResenasComponent } from './historias/modificar-resenas/modificar-resenas.component';
 import { FormResenasModificarComponent } from './shared/form-resenas-modificar/form-resenas-modificar.component';
+import { CrearComentarioComponent } from './capitulos/crear-comentario/crear-comentario.component';
+import { FormComentarioComponent } from './shared/form-comentario/form-comentario.component';
+
+
 
 @NgModule({
   declarations: [
@@ -44,6 +48,8 @@ import { FormResenasModificarComponent } from './shared/form-resenas-modificar/f
     FormResenaComponent,
     ModificarResenasComponent,
     FormResenasModificarComponent,
+    CrearComentarioComponent,
+    FormComentarioComponent,
   ],
   imports: [
     CommonModule,
