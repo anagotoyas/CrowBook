@@ -1,7 +1,14 @@
 <div class="container2" style="margin: 50px;">
+  <div class="row">
+    <div class="col">
+      <button mat-flat-button color="accent" routerLink="/user/historias/ver-mis-historias" ><mat-icon>arrow_back_ios</mat-icon></button>
+    </div>
+  </div>
   <div class="row2" *ngIf="dataSource3">
     <div class="col-11">
-        <h1>Capitulos de:</h1> {{dataSource3.nombreHistoria}} // ID Historia: {{dataSource3.idHistoria}}<mat-icon class="icono"></mat-icon>
+     
+        <h1>Capitulos de:  {{dataSource3.nombreHistoria}}</h1> <mat-icon class="icono"></mat-icon>
+      <h3>ID Historia: {{dataSource3.idHistoria}}</h3>
       </div>
       <div class="col-1">
         <button mat-raised-button color="primary"routerLink="/user/capitulos/crear/{{dataSource3.idHistoria}}">
@@ -10,7 +17,7 @@
       </div>
     </div>
 
-<div class="example-header" >
+  <div class="example-header" >
       <mat-form-field appearance="fill">
         <input
           matInput

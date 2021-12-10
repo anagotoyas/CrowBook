@@ -38,5 +38,11 @@ export class HistoriaService {
   deleteHistoria(idHistoria: number) {
     return this.http.delete<Historia>(`${this.apiBase}/historias/${idHistoria}`)
   }
+  verBiblioteca(idUsuario: number){
+    return this.http.get<Historia[]>( `${this.apiBase}/usuarios/${idUsuario}/biblioteca`)
+  }
+  agregarABiblioteca(idUsuario: number,idHistoria: number){
+    return this.http.put(`${this.apiBase}/usuarios/${idUsuario}/biblioteca/${idHistoria}`, null)
+  }
 
 }

@@ -5,7 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Capitulo } from '../shared/capitulo.model';
 import { Historia } from '../../historias/shared/historia.model';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { Location } from '@angular/common';
 
 @Component({
     selector: 'app-listar-capitulo',
@@ -18,7 +18,12 @@ import { ActivatedRoute, Router } from '@angular/router';
     dataSource: MatTableDataSource<Capitulo>;
     dataSource3: Historia;
     user: any;
-    constructor(private capituloService: CapituloService, private route: ActivatedRoute, private historiaService: HistoriaService ,private router:Router) { }
+    constructor(
+      private capituloService: CapituloService,
+       private route: ActivatedRoute,
+        private historiaService: HistoriaService ,
+        private router:Router,
+        private _location: Location) { }
   
 
     ngOnInit(): void {
@@ -63,5 +68,8 @@ import { ActivatedRoute, Router } from '@angular/router';
             })
         }  
        }
+       backClicked() {
+        this._location.back();
+      }
 
   }

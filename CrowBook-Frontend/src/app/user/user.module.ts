@@ -25,6 +25,7 @@ import { CrearComentarioComponent } from './capitulos/crear-comentario/crear-com
 import { FormComentarioComponent } from './shared/form-comentario/form-comentario.component';
 import { FormComentarioModificarComponent } from './shared/form-comentario-modificar/form-comentario-modificar.component';
 import { ModificarComentarioComponent } from './capitulos/modificar-comentario/modificar-comentario.component';
+import { ListarHistoriasBibliotecaComponent } from './historias/listar-historias-biblioteca/listar-historias-biblioteca.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { ModificarComentarioComponent } from './capitulos/modificar-comentario/m
     FormComentarioComponent,
     FormComentarioModificarComponent,
     ModificarComentarioComponent,
+    ListarHistoriasBibliotecaComponent,
   ],
   imports: [
     CommonModule,

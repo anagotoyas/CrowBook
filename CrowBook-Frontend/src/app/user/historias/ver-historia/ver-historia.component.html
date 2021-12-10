@@ -5,32 +5,35 @@
         <img mat-card-lg-image src="https://i.ibb.co/yXXX4v8/Group-165.png" >
       </div>
       <div class="right-column">
-          <mat-card-title-group >
-  
-            <mat-card-title id="title-historia">{{dataSource.nombreHistoria}}
-              <h4>Escrito por <a href="#" style="font-weight: bold; display: inline-block; margin-top: 5px; margin-bottom: 0px; color: #000; font-family: Signika;">{{user.nombreUsuario}}</a></h4>
-              <div class="example-button-row" >
-                <button mat-raised-button >Comenzar a leer</button>  
-                <button mat-icon-button color="primary">
-                  <mat-icon>library_add</mat-icon>
-                </button>
-              </div>
-              
-            </mat-card-title>
-            
-            <mat-card-subtitle>
-                {{dataSource.descripcionHistoria}}
-              </mat-card-subtitle>
-          </mat-card-title-group>
-      <mat-card-content>
-        <mat-chip-list aria-label="Fish selection">
-        <mat-chip>
-          {{nombreCategoria.nombreCategoria}}
-        </mat-chip>
-      </mat-chip-list>
-      </mat-card-content>
-  </div>
+        <mat-card-title-group >
 
+          <mat-card-title id="title-historia">{{dataSource.nombreHistoria}}
+            <h4>Escrito por <a href="#" style="font-weight: bold; display: inline-block; margin-top: 5px; margin-bottom: 0px; color: #000; font-family: Signika;">{{user.nombreUsuario}}</a></h4>
+            
+            
+          </mat-card-title>
+          
+          <mat-card-subtitle>
+              {{dataSource.descripcionHistoria}}
+            </mat-card-subtitle>
+
+        </mat-card-title-group>
+        
+        <div class="example-button-row" >
+          <button mat-raised-button >Donar</button>  
+          <button mat-icon-button color="primary">
+            <mat-icon (click)="agregarBiblioteca()" >library_add</mat-icon>
+          </button>
+        </div>
+        <BR>
+    <mat-card-content>
+      <mat-chip-list aria-label="Fish selection">
+      <mat-chip>
+        {{nombreCategoria.nombreCategoria}}
+      </mat-chip>
+    </mat-chip-list>
+    </mat-card-content>
+</div>
   <div class="capitulos-column">
 
     <table

@@ -14,6 +14,7 @@ import { CrearResenaComponent } from './historias/crear-resena/crear-resena.comp
 import {ModificarResenasComponent} from './historias/modificar-resenas/modificar-resenas.component'
 import { CrearComentarioComponent } from './capitulos/crear-comentario/crear-comentario.component'
 import { ModificarComentarioComponent } from './capitulos/modificar-comentario/modificar-comentario.component';
+import { ListarHistoriasBibliotecaComponent } from './historias/listar-historias-biblioteca/listar-historias-biblioteca.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
       {
         path: 'historias/crear',
         component: CrearHistoriaComponent,
+      },
+      {
+        path: 'historias/biblioteca',
+        component: ListarHistoriasBibliotecaComponent,
       },
      
       

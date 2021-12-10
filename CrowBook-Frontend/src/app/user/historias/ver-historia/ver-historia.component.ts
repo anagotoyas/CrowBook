@@ -18,6 +18,7 @@ export class VerHistoriaComponent implements OnInit {
   capitulo: any;
   user: any;
   idResena: any;
+  idHistoria: any;
   listaResenas: Resena[];
   displayedColumns: string[] = ['id', 'nombre','visualizar'];
   dataSource2: MatTableDataSource<Historia>;
@@ -87,6 +88,25 @@ export class VerHistoriaComponent implements OnInit {
         
       }, error => console.log(error));
     }
+  
+    agregarBiblioteca(){
+      const params = this.activeRoute.snapshot.params;
+      this.historiaService.getHistoriaPorId(params['idx']).subscribe(data => {
+      this.dataSource = data;
+      const ok = confirm('¿Estás seguro de agregar esta historia a tu biblioteca?');
+      if(ok){
+        this.historiaService.agregarABiblioteca(Number(sessionStorage.getItem('idUsuario')),params['idx'] ).subscribe(()=>{
+         
+        })
+      }
+          
+        });
+       
+    
+     
+  
+    
+  }
    
 
   

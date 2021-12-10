@@ -6,13 +6,11 @@
 <section>
   <div class="container">
       <mat-card class="example-card"  *ngIf="dataSource">
-          <div class="left-column">
-              <img mat-card-lg-image src="https://i.ibb.co/yXXX4v8/Group-165.png" >
-          </div>
+          
           <div class="right-column">
               <mat-card-title-group >
   
-                <mat-card-title id="title-historia">{{dataSource.nombreCapitulo}}</mat-card-title>
+                <mat-card-title id="title-historia" >{{dataSource.nombreCapitulo}}</mat-card-title>
 
                   <mat-card-subtitle>
                       {{dataSource.contenidoCapitulo}}

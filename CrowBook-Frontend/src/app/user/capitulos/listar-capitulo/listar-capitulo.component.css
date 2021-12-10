@@ -24,18 +24,19 @@ h1{
 .row2{
   display: flex;
 }
-.col-1{
+.fw-bold{
   flex: 90%;
 }
 .col-2{
   flex: 10%;
 }
 
-table {
+
+mat-form-field{
   width: 100%;
 }
 
-div.example-header{
+table{
   width: 100%;
+  border-radius: 50px;
 }
-
