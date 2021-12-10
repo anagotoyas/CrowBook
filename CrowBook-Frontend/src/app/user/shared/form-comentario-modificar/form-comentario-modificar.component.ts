@@ -5,12 +5,12 @@ import { Comentario } from '../../capitulos/shared/comentario.model';
 import { ComentarioService } from '../../capitulos/shared/comentario.service';
 
 @Component({
-    selector: 'app-form-comentario',
-    templateUrl: './form-comentario.component.html',
-    styleUrls: ['./form-comentario.component.css']
+    selector: 'app-form-comentario-modificar',
+    templateUrl: './form-comentario-modificar.component.html',
+    styleUrls: ['./form-comentario-modificar.component.css']
 })
 
-export class FormComentarioComponent implements OnInit {
+export class FormComentarioModificarComponent implements OnInit {
     form:FormGroup;
 
   @Input() comentario: Comentario = new Comentario();
@@ -22,14 +22,25 @@ export class FormComentarioComponent implements OnInit {
   id: any
   idx$: any
   user: any
+  idz: any
 
   constructor(
     private formBuilder: FormBuilder,
     private activeRoute: ActivatedRoute,
     private router: Router,
-  ) { }
+    private comentarioService: ComentarioService,
+  ) { this.idz=this.activeRoute.snapshot.paramMap.get('idz') }
+  getInfoComentario(){
+    this.comentario = new Comentario();
+    this.comentarioService.getComentarioPorId(Number(this.idz))
+      .subscribe(data => {
+        console.log(data)
+        this.comentario = data;
 
+      }, error => console.log(error));
+    }
   ngOnInit(): void {
+    this.getInfoComentario();
     this.params = this.activeRoute.parent?.params.subscribe(data => {
       this.id = data['id']
       this.idx$ = data['idy'] //era idx
@@ -41,6 +52,7 @@ export class FormComentarioComponent implements OnInit {
           this.comentario.usuario = {idUsuario: sessionStorage.getItem('idUsuario' )}
           
         ],
+        idComentario:[this.comentario.idComentario=Number(this.idz)],
         capitulo:[
           this.comentario.capitulo = {idCapitulo: this.idx$}
         ],

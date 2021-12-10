@@ -23,7 +23,8 @@ import { ModificarResenasComponent } from './historias/modificar-resenas/modific
 import { FormResenasModificarComponent } from './shared/form-resenas-modificar/form-resenas-modificar.component';
 import { CrearComentarioComponent } from './capitulos/crear-comentario/crear-comentario.component';
 import { FormComentarioComponent } from './shared/form-comentario/form-comentario.component';
-
+import { FormComentarioModificarComponent } from './shared/form-comentario-modificar/form-comentario-modificar.component';
+import { ModificarComentarioComponent } from './capitulos/modificar-comentario/modificar-comentario.component';
 
 
 @NgModule({
@@ -50,6 +51,8 @@ import { FormComentarioComponent } from './shared/form-comentario/form-comentari
     FormResenasModificarComponent,
     CrearComentarioComponent,
     FormComentarioComponent,
+    FormComentarioModificarComponent,
+    ModificarComentarioComponent,
   ],
   imports: [
     CommonModule,

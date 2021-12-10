@@ -4,5 +4,5 @@ export class Comentario {
     idComentario: number;
     usuario: Object;
     capitulo: Object;
-    comentarioComentario: string;
+    comentarioCapitulo: string;
 }

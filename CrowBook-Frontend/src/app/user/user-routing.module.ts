@@ -13,7 +13,7 @@ import { CargarCapituloComponent } from './capitulos/cargar-capitulo/cargar-capi
 import { CrearResenaComponent } from './historias/crear-resena/crear-resena.component';
 import {ModificarResenasComponent} from './historias/modificar-resenas/modificar-resenas.component'
 import { CrearComentarioComponent } from './capitulos/crear-comentario/crear-comentario.component'
-import { FormModificarComponent } from './shared/form-modificar/form-modificar.component';
+import { ModificarComentarioComponent } from './capitulos/modificar-comentario/modificar-comentario.component';
 
 const routes: Routes = [
   {
@@ -148,11 +148,11 @@ const routes: Routes = [
       {
         path: 'crear-comentario', 
         component: CrearComentarioComponent,
-      }//,
-   //   {
-    //    path: 'modificar/:idz',
-    //    component: ModificarResenasComponent,
-    //  },
+      },
+      {
+        path: 'modificar/:idz',
+        component: ModificarComentarioComponent,
+      },
     ]
 
   },

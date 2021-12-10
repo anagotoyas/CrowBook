@@ -4,42 +4,43 @@
     <!-- routerLink="../../historias/{{dataSource.idHistoria}}/ver/{{dataSource.idCapitulo}}"    -->
 </div>
 <section>
-    <div class="container">
-        <mat-card class="example-card"  *ngIf="dataSource">
-            <div class="left-column">
-                <img mat-card-lg-image src="https://i.ibb.co/yXXX4v8/Group-165.png" >
-            </div>
-            <div class="right-column">
-                <mat-card-title-group >
-    
-                  <mat-card-title id="title-historia">{{dataSource.nombreCapitulo}}</mat-card-title>
+  <div class="container">
+      <mat-card class="example-card"  *ngIf="dataSource">
+          <div class="left-column">
+              <img mat-card-lg-image src="https://i.ibb.co/yXXX4v8/Group-165.png" >
+          </div>
+          <div class="right-column">
+              <mat-card-title-group >
+  
+                <mat-card-title id="title-historia">{{dataSource.nombreCapitulo}}</mat-card-title>
 
-                    <mat-card-subtitle>
-                        {{dataSource.contenidoCapitulo}}
-                    </mat-card-subtitle>
-                    </mat-card-title-group >
-            </div>
-  
-  
+                  <mat-card-subtitle>
+                      {{dataSource.contenidoCapitulo}}
+                  </mat-card-subtitle>
+                  </mat-card-title-group >
+          </div>
         </mat-card>
-    </div>
+      </div>
+      </section>
+    </section>
     
-    <section class="section-resena">
-        <div class="crear-resena">
-          <div class="fila">
-            <div class="columna-1">
-              <h1 style="font-family: Signika; font-weight: bold;">Comentarios del capitulo:</h1>
-            </div>
-            <div class="columna-2">
+
+  <section class="section-resena">
+      <div class="crear-resena">
+        <div class="fila">
+          <div class="columna-1">
+            <h1 style="font-family: Signika; font-weight: bold;">Comentarios del capitulo:</h1>
+          </div>
+          <div class="columna-2">
               <button mat-raised-button class="resena-button" color="primary" [routerLink]="['crear-comentario']">Crear Comentario</button>
             </div>
           </div>
         
-          <ul> <!--class="list-group"--->
-          <li  *ngFor="let comentario of listarComentarios" [value]="comentario"> <!---class="list-group-item"-->
-            {{comentario.comentarioComentario}} <H1>OAAAA</H1>
+          <ul class="list-group"> <!--class="list-group"--->
+          <li   *ngFor="let comentario of listarComentarios" class="list-group-item" [value]="comentario"> <!---class="list-group-item"-->
+            {{comentario.comentarioCapitulo}}
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-              <button class="btn btn-secondary" type="button"   [routerLink]="['modificar', comentario.idComentario]">Modificar</button> &nbsp;&nbsp;
+              <button class="btn btn-secondary" type="button"   routerLink="modificar/{{comentario.idComentario}}">Modificar</button> &nbsp;&nbsp;
               <button class="btn btn-secondary" type="button" (click)="deleteComentario(comentario.idComentario)" >Eliminar</button>
             </div> 
           </li>
@@ -47,5 +48,9 @@
         </div>
         
       </section>
+    
+    
+    
+    
 
-</section>
+
