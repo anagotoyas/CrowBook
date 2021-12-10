@@ -25,8 +25,8 @@ public class Capitulo {
     private Historia historia;
 
     @NotNull
-    @Size(min = 2, max = 25, message = "El nombre del capítulo debe tener como mínimo 2 caracteres")
-    @Column(name = "nombre_capitulo", nullable = false, length = 25)
+    @Size(min = 2, max = 100, message = "El nombre del capítulo debe tener como mínimo 2 caracteres")
+    @Column(name = "nombre_capitulo", nullable = false, length = 100)
     private String nombreCapitulo;
 
     @JsonFormat(pattern = "dd/MM/yyyy")

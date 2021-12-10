@@ -10,10 +10,10 @@
     margin-right: 50px;
     background-color: #F3F3F3;
     border-radius: 25px;
-
 }
 
 h1{
+    font-family: Signika;
     font-weight: bold;
     display: inline-block;
 }
@@ -21,16 +21,15 @@ h1{
     padding-left: 30px;
 }
 
-.row2{
+.fila{
     display: flex;
 }
-.col-1{
+.colu-1{
     flex: 90%;
 }
-.col-2{
+.colu-2{
     flex: 10%;
 }
-
 
 mat-form-field{
     width: 100%;
@@ -39,4 +38,9 @@ mat-form-field{
 table{
     width: 100%;
     border-radius: 50px;
+}
+
+button{
+    font-family: Signika;
+    font-size: 15px;
 }

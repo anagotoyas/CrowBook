@@ -22,6 +22,7 @@ body {
   }
 
   .mat-card {
+    font-family: Signika;
     border-radius: 1rem;
     box-shadow: 0 1rem 1rem rgba(88, 88, 88, 0.2);
     display: flex;	
@@ -58,6 +59,11 @@ body {
     font-weight: bolder;
     
   }
+
+  h1{
+    font-family: Signika;
+    font-weight: bold;
+  }
   h4 {
     font-family: Signika;
     opacity: 0.9;
@@ -69,16 +75,21 @@ body {
     width: 100%;
 
     border-radius: 1rem;
- 
-
-  }
+}
 
   .right-column {
     padding: 30px;
     width: 80%;
     display: flex;
-      flex-direction: column;
+    flex-direction: column;
       
+  }
+  .vertical{
+    margin-left: 60px;
+    border-left: 3px solid #ebebeb;
+    height: 350px;
+    position:absolute;
+    left: 50%;
   }
 
   .capitulos-column {
@@ -112,5 +123,9 @@ body {
   }
   .columna-2{
     flex: 10%;
+  }
+  table{
+    width: 90%;
+  
   }
     

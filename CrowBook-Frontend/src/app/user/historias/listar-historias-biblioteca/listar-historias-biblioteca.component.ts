@@ -14,6 +14,7 @@ export class ListarHistoriasBibliotecaComponent implements OnInit {
   displayedColumns: string[] = ['nombre', 'usuario','categoria', 'fecha', 'acciones', 'borrar'];
   dataSource: MatTableDataSource<Historia>;
   user: any;
+  idUsuario: any;
   constructor(private historiaService: HistoriaService, private route: ActivatedRoute,private router:Router) { }
 
 
@@ -27,6 +28,19 @@ export class ListarHistoriasBibliotecaComponent implements OnInit {
     this.dataSource.filter = value.trim().toLowerCase();
   }
 
+  eliminarDeBiblioteca(idHistoria: number){
+    this.idUsuario = sessionStorage.getItem('idUsuario');
+    const ok = confirm('¿Estás seguro de eliminar la Historia de tu Biblioteca?');
+    if(ok){
+      this.historiaService.eliminarDeBiblioteca(this.idUsuario,idHistoria).subscribe(()=> {
+        console.log(this.idUsuario)
+        console.log(idHistoria)
+
+        window.location.reload();
+      });
+    }
+
+  }
 
   ngOnInit(): void {
     this.verBiblioteca();
@@ -36,13 +50,6 @@ export class ListarHistoriasBibliotecaComponent implements OnInit {
       console.log(sessionStorage.getItem('key'))
       console.log('params : ',paramMap )
       sessionStorage.setItem('param', params.id);
-     
-      
-      
-
     })
-   
-    
-
   }
 }
