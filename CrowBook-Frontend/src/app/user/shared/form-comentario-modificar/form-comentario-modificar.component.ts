@@ -33,9 +33,9 @@ export class FormComentarioModificarComponent implements OnInit {
   getInfoComentario(){
     this.comentario = new Comentario();
     this.comentarioService.getComentarioPorId(Number(this.idz))
-      .subscribe(data => {
+      .subscribe((data:any) => {
         console.log(data)
-        this.comentario = data;
+        this.comentario = data['body'];
 
       }, error => console.log(error));
     }

@@ -10,11 +10,11 @@ autocomplete="off"
         <mat-label>Comentario de Capitulo</mat-label>
         <textarea
         matInput #resenaInput
-        maxlength="500"
+        maxlength="1000"
         formControlName="comentarioCapitulo"
         row="5"
         ></textarea>
-        <mat-hint align="end">{{resenaInput.value?.length || 0}}/500</mat-hint>
+        <mat-hint align="end">{{resenaInput.value?.length || 0}}/1000</mat-hint>
 
     </mat-form-field>
     <BR>

@@ -2,9 +2,8 @@ package com.crowbook.controller;
 
 import com.crowbook.model.Capitulo;
 import com.crowbook.model.Comentario;
-import com.crowbook.model.Historia;
-import com.crowbook.model.Resena;
 import com.crowbook.services.ComentarioService;
+import com.crowbook.utils.WrapperResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,41 +23,40 @@ public class ComentarioController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Comentario>> listarComentario() {
+    public ResponseEntity<WrapperResponse<List<Comentario>>> listarComentario() {
         List<Comentario> comentario = comentarioService.listarComentario();
-        return new ResponseEntity<List<Comentario>>(comentario, HttpStatus.CREATED);
+        return new WrapperResponse<>(true, "success", comentario).createResponse();
     }
 
     @GetMapping("/{idComentario}")
-    public ResponseEntity<Comentario> obtenerComentarioPorIdComentario(@PathVariable("idComentario") Integer idComentario) {
+    public ResponseEntity<WrapperResponse<Comentario>> obtenerComentarioPorIdComentario(@PathVariable("idComentario") Integer idComentario) {
         Comentario comentario = comentarioService.obtenerComentarioPorIdComentario(idComentario);
 
-        return new ResponseEntity<Comentario>(comentario, HttpStatus.OK);
+        return new WrapperResponse<>(true, "success", comentario).createResponse();
     }
 
     @PostMapping
-    public ResponseEntity<Comentario> crearComentario(@Valid @RequestBody Comentario comentario){
+    public ResponseEntity<WrapperResponse<Comentario>> crearComentario(@Valid @RequestBody Comentario comentario){
         Comentario comentarioNew= comentarioService.crearComentario(comentario);
-        return new ResponseEntity<Comentario>(comentarioNew, HttpStatus.CREATED);
+        return new WrapperResponse<>(true, "success", comentarioNew).createResponse();
     }
 
     @PutMapping
-    public ResponseEntity<Comentario> modificarComentario(@Valid @RequestBody Comentario comentario){
+    public ResponseEntity<WrapperResponse<Comentario>> modificarComentario(@Valid @RequestBody Comentario comentario){
         Comentario comentarioUpdate=  comentarioService.modificarComentario(comentario);
-        return new ResponseEntity<Comentario>(comentarioUpdate, HttpStatus.CREATED);
-    }
-
-    @DeleteMapping("/{idComentario}")
-    public ResponseEntity<Void> eliminarComentario(@PathVariable ("idComentario") Integer idComentario){
-        comentarioService.eliminarComentario(idComentario);
-        return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+        return new WrapperResponse<>(true, "success", comentarioUpdate).createResponse();
     }
 
     @GetMapping("/buscarPorIdCapitulo")
-    public ResponseEntity<List<Comentario>> buscarComentarioPorIdCapitulo(@RequestParam Capitulo capitulo){
+    public ResponseEntity<WrapperResponse<List<Comentario>>> buscarComentarioPorIdCapitulo(@RequestParam Capitulo capitulo){
         List<Comentario> capituloid=comentarioService.buscarComentarioPorIdCapitulo(capitulo);
-        return new ResponseEntity<List<Comentario>>(capituloid, HttpStatus.OK);
+        return new WrapperResponse<>(true, "success", capituloid).createResponse();
+    }
+
+    @DeleteMapping("/{idComentario}")
+    public ResponseEntity<WrapperResponse<Void>> eliminarComentario(@PathVariable ("idComentario") Integer idComentario){
+        comentarioService.eliminarComentario(idComentario);
+        return new WrapperResponse<Void>(true, "success", null).createResponse(HttpStatus.NO_CONTENT);
     }
 
 }
-//buscarComentarioPorIdCapitulo

@@ -24,8 +24,8 @@ public class Resena {
 
 
     @NotNull
-    @Size(min=7, max=500, message = "Tú opinión o comentario de la historia debe tener como minimo 7 caracteres o maximo 500 caracteres")
-    @Column (name="comentario_Resena", nullable = false, length = 500)
+    @Size(min=2, max=1000, message = "Tú opinión o comentario de la historia debe tener como minimo 2 caracteres o maximo 1000 caracteres")
+    @Column (name="comentario_Resena", nullable = false, length = 1000)
     private String comentarioResena;
 
     

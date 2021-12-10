@@ -21,6 +21,5 @@ public interface HistoriaRepository extends JpaRepository <Historia, Integer>  {
     @Query("SELECT h FROM Historia h WHERE h.usuario=:usuario")
     List<Historia> buscarHistoriaPorIdUsuario(@Param("usuario") Usuario usuario);
 
-    List<Historia>findByUsuario(Usuario usuario);
 
 }

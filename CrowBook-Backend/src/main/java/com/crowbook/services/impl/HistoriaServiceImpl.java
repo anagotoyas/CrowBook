@@ -6,9 +6,11 @@ import com.crowbook.model.Usuario;
 import com.crowbook.repositories.HistoriaRepository;
 
 import com.crowbook.services.HistoriaService;
+import com.crowbook.validators.HistoriaValidator;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,21 +23,24 @@ public class HistoriaServiceImpl implements HistoriaService {
         this.historiaRepository=historiaRepository;
     }
 
+    @Transactional
     @Override
     public Historia registrarHistoria(Historia historia) {
+        HistoriaValidator.validate(historia);
         return historiaRepository.save(historia);
     }
 
+    @Transactional
     @Override
     public Historia modificarHistoria(Historia historia) {
+        HistoriaValidator.validate(historia);
         return historiaRepository.save(historia);
     }
-
+    @Transactional(readOnly = true)
     @Override
     public List<Historia> listarHistoria() {
         return historiaRepository.findAll();
     }
-
 
 
     @Override
@@ -69,8 +74,4 @@ public class HistoriaServiceImpl implements HistoriaService {
         historiaRepository.deleteById(idHistoria);
     }
 
-    @Override
-    public List<Historia> fetchHistoria(Usuario usuario) {
-        return historiaRepository.findByUsuario(usuario);
-    }
 }

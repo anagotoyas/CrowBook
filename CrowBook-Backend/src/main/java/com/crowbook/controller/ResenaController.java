@@ -6,6 +6,7 @@ import com.crowbook.model.Resena;
 import com.crowbook.services.ResenaService;
 
 
+import com.crowbook.utils.WrapperResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,36 +26,35 @@ public class ResenaController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Resena>> listarResena() {
+    public ResponseEntity<WrapperResponse<List<Resena>>> listarResena() {
         List<Resena> resena = resenaService.listarResena();
-        return new ResponseEntity<List<Resena>>(resena, HttpStatus.CREATED);
+        return new WrapperResponse<>(true, "success", resena).createResponse();
     }
 
     @GetMapping("/{idResena}")
-    public ResponseEntity<Resena> obtenerResenaPorIdResena(@PathVariable("idResena") Integer idResena) {
+    public ResponseEntity<WrapperResponse<Resena>> obtenerResenaPorIdResena(@PathVariable("idResena") Integer idResena) {
         Resena resena = resenaService.obtenerResenaPorIdResena(idResena);
 
-        return new ResponseEntity<Resena>(resena, HttpStatus.OK);
+        return new WrapperResponse<>(true, "success", resena).createResponse();
         
     }
 
     @PostMapping
-
-    public ResponseEntity<Resena> registrarResena(@Valid @RequestBody Resena resena){
+    public ResponseEntity<WrapperResponse<Resena>> registrarResena(@Valid @RequestBody Resena resena){
         Resena resenaNew=  resenaService.registrarResena(resena);
-        return new ResponseEntity<Resena>(resenaNew, HttpStatus.CREATED);
+        return new WrapperResponse<>(true, "success", resenaNew).createResponse();
     }
 
     @PutMapping
-    public ResponseEntity<Resena> modificarResena(@Valid @RequestBody Resena resena){
+    public ResponseEntity<WrapperResponse<Resena>> modificarResena(@Valid @RequestBody Resena resena){
         Resena resenaUpdate=  resenaService.modificarResena(resena);
-        return new ResponseEntity<Resena>(resenaUpdate, HttpStatus.CREATED);
+        return new WrapperResponse<>(true, "success", resenaUpdate).createResponse();
     }
 
     @GetMapping("/buscarPorIdHistoria")
-    public ResponseEntity<List<Resena>> buscarResenaPorIdHistoria(@RequestParam Historia historia){
+    public ResponseEntity<WrapperResponse<List<Resena>>> buscarResenaPorIdHistoria(@RequestParam Historia historia){
         List<Resena> historiaid=resenaService.buscarResenaPorIdHistoria(historia);
-        return new ResponseEntity<List<Resena>>(historiaid, HttpStatus.OK);
+        return new WrapperResponse<>(true, "success", historiaid).createResponse();
     }
 
     @DeleteMapping("/{idResena}")

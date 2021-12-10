@@ -5,7 +5,9 @@ import com.crowbook.model.Resena;
 import com.crowbook.repositories.ResenaRepository;
 
 import com.crowbook.services.ResenaService;
+import com.crowbook.validators.ResenaValidator;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,14 +20,17 @@ public class ResenaServiceImpl implements ResenaService {
         this.resenaRepository=resenaRepository;
     }
 
+    @Transactional
     @Override
     public Resena registrarResena(Resena resena) {
+        ResenaValidator.validate(resena);
         return resenaRepository.save(resena);
     }
 
+    @Transactional
     @Override
-
     public Resena modificarResena(Resena resena) {
+        ResenaValidator.validate(resena);
         return resenaRepository.save(resena);
     }
 

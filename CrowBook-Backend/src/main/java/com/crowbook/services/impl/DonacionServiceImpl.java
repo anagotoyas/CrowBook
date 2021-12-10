@@ -5,7 +5,9 @@ import com.crowbook.model.PaqueteCrowCoin;
 import com.crowbook.model.Usuario;
 import com.crowbook.repositories.DonacionRepository;
 import com.crowbook.services.DonacionService;
+import com.crowbook.validators.DonacionValidator;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,8 +20,10 @@ public class DonacionServiceImpl implements DonacionService {
         this.donacionRepository = donacionRepository;
     }
 
+    @Transactional
     @Override
     public Donacion crearDonacion(Donacion donacion) {
+        DonacionValidator.validate(donacion);
         return donacionRepository.save(donacion);
     }
 

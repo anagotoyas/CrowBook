@@ -47,12 +47,11 @@ export class FormModificarComponent implements OnInit {
   getInfoHistoria(){
     this.historia = new Historia();
     this.historiaService.getHistoriaPorId(Number(this.idy))
-      .subscribe(data => {
-        console.log(data)
-        this.historia = data;
-        this.fechaPublicacion1=data['fechaPublicacion']
-        sessionStorage.setItem('fechaPublicacion1',this.fechaPublicacion1);
-        this.nombreCategoria=data['categoria']
+    .subscribe((data:any) => {
+      this.historia = data['body'];
+      this.fechaPublicacion1=this.historia.fechaPublicacion
+      sessionStorage.setItem('fechaPublicacion1',this.fechaPublicacion1);
+      this.nombreCategoria=this.historia.categoria
       }, error => console.log(error));
          
     

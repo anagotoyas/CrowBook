@@ -44,15 +44,14 @@ import { Location } from '@angular/common';
 
       getHisria4Id(id : number){
         this.historiaService.getHistoriaPorId(id).subscribe((data: any)=>{
-          this.dataSource3 = data;
-       //console.log(data);
+          this.dataSource3 = data['body'];
         })
       }
   
       getAllCapitulos(id:number){
-        this.capituloService.getAllCapitulos(id).subscribe((data)=>{
-          this.dataSource = new MatTableDataSource(data);
-          //  console.log(data);
+        this.capituloService.getAllCapitulos(id).subscribe((data:any)=>{
+          this.dataSource = new MatTableDataSource(data['body']);
+
         });
       }
       applyFilter(value: string){

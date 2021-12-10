@@ -50,12 +50,13 @@ export class ModificarCapituloComponent implements OnInit {
 
       const parameter = this.activeRoute.snapshot.params;
       if (parameter['idX']){
-        this.capituloService.getCapituloPorId(parameter['idX']).subscribe(data =>{
-          this.dataSource = data;
-          this.fechaPublicacion=data['fechaPublicacion'];
+        this.capituloService.getCapituloPorId(parameter['idX']).subscribe((data:any) =>{
+          console.log(data)
+          this.dataSource = data['body'];
+          this.fechaPublicacion=this.dataSource.fechaPublicacion;
           sessionStorage.setItem('fechaPublicacion',data.fechaPublicacion);
 
-          console.log(data)
+          
         });
       }
 

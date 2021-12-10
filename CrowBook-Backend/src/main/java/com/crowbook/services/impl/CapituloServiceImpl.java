@@ -3,8 +3,10 @@ package com.crowbook.services.impl;
 import com.crowbook.model.Capitulo;
 import com.crowbook.repositories.CapituloRepository;
 import com.crowbook.services.CapituloService;
+import com.crowbook.validators.CapituloValidator;
 import org.springframework.stereotype.Service;
 import com.crowbook.model.Historia;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,13 +19,17 @@ public class CapituloServiceImpl implements CapituloService {
         this.capituloRepository = capituloRepository;
     }
 
+    @Transactional
     @Override
     public Capitulo agregarCapitulo(Capitulo capitulo) {
+        CapituloValidator.validate(capitulo);
         return capituloRepository.save(capitulo);
     }
 
+    @Transactional
     @Override
     public Capitulo modificarCapitulo(Capitulo capitulo) {
+        CapituloValidator.validate(capitulo);
         return capituloRepository.save(capitulo);
     }
 

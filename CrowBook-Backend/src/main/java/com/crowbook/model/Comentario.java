@@ -25,8 +25,8 @@ public class Comentario {
     private Capitulo capitulo;
 
     @NotNull
-    @Size(min = 2, max = 500, message = "El comentario debe tener mínimo 2 caracteres ")
-    @Column (name = "comentario_capitulo", nullable = false, length = 500)
+    @Size(min = 2, max = 1000, message = "El comentario debe tener mínimo 2 caracteres ")
+    @Column (name = "comentario_capitulo", nullable = false, length = 1000)
     private String comentarioCapitulo;
 
     public Integer getIdComentario() {

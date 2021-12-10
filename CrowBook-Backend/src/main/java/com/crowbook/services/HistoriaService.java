@@ -24,5 +24,5 @@ public interface HistoriaService {
 
     void eliminarHistoria(Integer idHistoria);
 
-    List<Historia>fetchHistoria(Usuario usuario);
+
 }

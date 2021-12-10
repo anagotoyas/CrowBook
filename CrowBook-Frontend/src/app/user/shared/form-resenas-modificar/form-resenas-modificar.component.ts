@@ -36,10 +36,10 @@ export class FormResenasModificarComponent implements OnInit {
   getInfoResena(){
     this.resena = new Resena();
     this.resenaService.getResenaPorId(Number(this.idz))
-      .subscribe(data => {
-        console.log(data)
-        this.resena = data;
-        
+    .subscribe((data:any) => {
+
+      this.resena = data['body'];
+      
       }, error => console.log(error));
     }
 

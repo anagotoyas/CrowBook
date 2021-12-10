@@ -25,6 +25,7 @@ export class CargarCapituloComponent implements OnInit {
   user: any;//ojo
   idComentario: any;
   listarComentarios: Comentario[];
+  idHistoria:any
 
   
   constructor(
@@ -51,7 +52,7 @@ export class CargarCapituloComponent implements OnInit {
 
   getHisria4Id(id : number){
     this.historiaService.getHistoriaPorId(id).subscribe((data: any)=>{
-      this.dataSource2 = data;
+      this.dataSource2 = data['body'];
    //console.log(data);
     })
   }
@@ -60,10 +61,10 @@ export class CargarCapituloComponent implements OnInit {
 
     const params = this.activeRoute.snapshot.params;
     if (params['idx']) {//idx♠
-      this.capituloService.getCapituloPorId(params['idx']).subscribe(data => {
-        this.dataSource = data;
-        //this.user = data['usuario'];
-        console.log(data)
+      this.capituloService.getCapituloPorId(params['idx']).subscribe((data:any) => {
+        this.dataSource = data['body'];
+        this.idHistoria= this.dataSource.historia
+
       });
     }  
 
@@ -71,15 +72,16 @@ export class CargarCapituloComponent implements OnInit {
 
   
 
-  backClicked() {
-    this._location.back();
+  retroceder() {
+    this.router.navigate(['user/historias/', Number(sessionStorage.getItem('idUsuario')),'ver', this.idHistoria.idHistoria]);
+      console.log('historia', this.idHistoria)
   }
 
   getComentarioPorIdCapitulo(){
     const params = this.activeRoute.snapshot.params;
 
-    this.comentarioService.getCapituloPorIdCapitulo(params['idx']).subscribe((data)=>{
-      this.listarComentarios=data;
+    this.comentarioService.getCapituloPorIdCapitulo(params['idx']).subscribe((data:any)=>{
+      this.listarComentarios=data['body'];
 
     });
   }
@@ -98,7 +100,6 @@ export class CargarCapituloComponent implements OnInit {
   getInfoComentario(idComentario: any){
     this.comentario = new Comentario();
     this.comentarioService.getComentarioPorId(idComentario)
-    
       .subscribe(data => {
         console.log(data)
         console.log(idComentario);

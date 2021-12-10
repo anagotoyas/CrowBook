@@ -23,8 +23,8 @@ public class Historia {
     private Usuario usuario;
 
     @NotNull
-    @Size(min = 2, max = 25, message = "El nombre de la historia debe tener como mínimo 2 caracteres")
-    @Column(name = "nombre_historia", nullable = false, length = 25)
+    @Size(min = 2, max = 100, message = "El nombre de la historia debe tener como mínimo 2 caracteres")
+    @Column(name = "nombre_historia", nullable = false, length = 100)
     private String nombreHistoria;
 
 
@@ -32,8 +32,8 @@ public class Historia {
     private String imagenPortada;
 
     @NotNull
-    @Size(max = 500, message = "La descripcion de la historia debe tener como maximo 500 caracteres")
-    @Column(name = "descripcion_historia", nullable = false, length = 500)
+    @Size(max = 1000, message = "La descripcion de la historia debe tener como maximo 1000 caracteres")
+    @Column(name = "descripcion_historia", nullable = false, length = 1000)
     private String descripcionHistoria;
 
     @NotNull

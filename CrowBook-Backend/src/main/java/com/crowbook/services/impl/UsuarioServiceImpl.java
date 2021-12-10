@@ -5,8 +5,10 @@ import com.crowbook.model.Usuario;
 import com.crowbook.repositories.UsuarioRepository;
 
 import com.crowbook.services.UsuarioService;
+import com.crowbook.validators.UsuarioValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -24,14 +26,17 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     }
 
-
+    @Transactional
     @Override
     public Usuario registrarUsuario(Usuario usuario) {
+        UsuarioValidator.validate(usuario);
         return usuarioRepository.save(usuario);
     }
 
+    @Transactional
     @Override
     public Usuario modificarUsuario(Usuario usuario) {
+        UsuarioValidator.validate(usuario);
         return usuarioRepository.save(usuario);
     }
 

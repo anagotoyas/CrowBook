@@ -35,8 +35,8 @@ export class ListarHistoriaComponent implements OnInit {
   }
 
     getAllHistorias(){
-      this.historiaService.getAllHistorias().subscribe((data)=>{
-        this.dataSource = new MatTableDataSource(data);
+      this.historiaService.getAllHistorias().subscribe((data:any)=>{
+        this.dataSource = new MatTableDataSource(data['body']);
       });
     }
     applyFilter(value: string){

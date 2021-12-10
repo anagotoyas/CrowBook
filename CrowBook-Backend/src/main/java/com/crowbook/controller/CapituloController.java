@@ -5,6 +5,7 @@ import com.crowbook.model.Historia;
 
 import com.crowbook.services.CapituloService;
 
+import com.crowbook.utils.WrapperResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,34 +24,34 @@ public class CapituloController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Capitulo>> listarCapitulo(){
+    public ResponseEntity<WrapperResponse<List<Capitulo>>> listarCapitulo(){
         List<Capitulo> capitulo=capituloService.listarCapitulo();
-        return new ResponseEntity<List<Capitulo>> (capitulo, HttpStatus.CREATED);
+        return new WrapperResponse<>(true, "success", capitulo).createResponse();
     }
 
     @GetMapping("/listarPorHistoria")
-    public ResponseEntity<List<Capitulo>> listarCapitulosPorHistoria(@RequestParam Historia historia){
+    public ResponseEntity<WrapperResponse<List<Capitulo>>> listarCapitulosPorHistoria(@RequestParam Historia historia){
         List<Capitulo> capituloH=capituloService.listarCapitulosPorHistoria(historia);
-        return new ResponseEntity<List<Capitulo>>(capituloH, HttpStatus.OK);
+        return new WrapperResponse<>(true, "success", capituloH).createResponse();
     }
 
     @GetMapping("/{idCapitulo}")
-    public ResponseEntity<Capitulo> obtenerCapituloPorIdCapitulo(@PathVariable("idCapitulo") Integer idCapitulo){
+    public ResponseEntity<WrapperResponse<Capitulo>> obtenerCapituloPorIdCapitulo(@PathVariable("idCapitulo") Integer idCapitulo){
         Capitulo capitulo=capituloService.obtenerCapituloPorIdCapitulo(idCapitulo);
-        return new ResponseEntity<Capitulo>(capitulo, HttpStatus.OK);
+        return new WrapperResponse<>(true, "success", capitulo).createResponse();
     }
 
     @PostMapping
-    public ResponseEntity<Capitulo> agregarCapitulo(@Valid @RequestBody Capitulo capitulo){
+    public ResponseEntity<WrapperResponse<Capitulo>> agregarCapitulo(@Valid @RequestBody Capitulo capitulo){
         Capitulo capituloNew=  capituloService.agregarCapitulo(capitulo);
-        return new ResponseEntity<Capitulo>(capituloNew, HttpStatus.CREATED);
+        return new WrapperResponse<>(true, "success", capituloNew).createResponse();
 
     }
 
     @PutMapping
-    public ResponseEntity<Capitulo> modificarCapitulo(@Valid @RequestBody Capitulo capitulo){
+    public ResponseEntity<WrapperResponse<Capitulo>> modificarCapitulo(@Valid @RequestBody Capitulo capitulo){
         Capitulo capituloUpdate=  capituloService.modificarCapitulo(capitulo);
-        return new ResponseEntity<Capitulo>(capituloUpdate, HttpStatus.CREATED);
+        return new WrapperResponse<>(true, "success", capituloUpdate).createResponse();
     }
 
     @DeleteMapping("/{idCapitulo}")

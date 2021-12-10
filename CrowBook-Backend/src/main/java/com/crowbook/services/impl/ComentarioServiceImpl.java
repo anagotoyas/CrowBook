@@ -2,10 +2,11 @@ package com.crowbook.services.impl;
 
 import com.crowbook.model.Capitulo;
 import com.crowbook.model.Comentario;
-import com.crowbook.model.Resena;
 import com.crowbook.repositories.ComentarioRepository;
 import com.crowbook.services.ComentarioService;
+import com.crowbook.validators.ComentarioValidator;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,8 +20,10 @@ public class ComentarioServiceImpl implements ComentarioService {
         this.comentarioRepository = comentarioRepository;
     }
 
+    @Transactional
     @Override
     public Comentario crearComentario(Comentario comentario) {
+        ComentarioValidator.validate(comentario);
         return comentarioRepository.save(comentario);
     }
 

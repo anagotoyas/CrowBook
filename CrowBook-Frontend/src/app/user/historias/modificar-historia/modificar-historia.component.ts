@@ -22,11 +22,10 @@ export class ModificarHistoriaComponent implements OnInit {
 
     const params = this.activeRoute.snapshot.params;
     if (params['idy']) {
-      this.historiaService.getHistoriaPorId(params['idy']).subscribe(data => {
-        this.dataSource = data;
-        this.fechaPublicacion=data['fechaPublicacion'];
-        sessionStorage.setItem('fechaPublicacion',data.fechaPublicacion);
-        
+      this.historiaService.getHistoriaPorId(params['idy']).subscribe((data:any) => {
+        this.dataSource = data['body'];
+        this.fechaPublicacion=this.dataSource.fechaPublicacion
+        sessionStorage.setItem('fechaPublicacion', this.dataSource.fechaPublicacion);
 
         console.log(data)
       });      

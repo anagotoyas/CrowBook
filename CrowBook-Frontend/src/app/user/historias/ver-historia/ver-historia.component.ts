@@ -43,14 +43,13 @@ export class VerHistoriaComponent implements OnInit {
     this.capituloService.test();
     const params = this.activeRoute.snapshot.params;
     if (params['idx']) {
-      this.historiaService.getHistoriaPorId(params['idx']).subscribe(data => {
-        this.dataSource = data;
-        this.nombreCategoria = data['categoria'];
-        this.user = data['usuario'];
-        console.log(data)
+      this.historiaService.getHistoriaPorId(params['idx']).subscribe((data:any) => {
+        this.dataSource = data['body'];
+        this.nombreCategoria = this.dataSource.categoria;
+        this.user = this.dataSource.usuario;
       });
       this.capituloService.getAllCapitulos(params['idx']).subscribe((data: any) =>{
-        this.dataSource2 = new MatTableDataSource(data);
+        this.dataSource2 = new MatTableDataSource(data['body']);
         console.log(data);
       });      
     }  
@@ -60,8 +59,8 @@ export class VerHistoriaComponent implements OnInit {
   getResenaPorIdHistoria(){
     const params = this.activeRoute.snapshot.params;
 
-    this.resenaService.getResenaPorIdHistoria(params['idx']).subscribe((data)=>{
-      this.listaResenas=data;
+    this.resenaService.getResenaPorIdHistoria(params['idx']).subscribe((data:any)=>{
+      this.listaResenas=data['body'];
 
     });
   }
@@ -91,8 +90,8 @@ export class VerHistoriaComponent implements OnInit {
   
     agregarBiblioteca(){
       const params = this.activeRoute.snapshot.params;
-      this.historiaService.getHistoriaPorId(params['idx']).subscribe(data => {
-      this.dataSource = data;
+      this.historiaService.getHistoriaPorId(params['idx']).subscribe((data:any) => {
+      this.dataSource = data['body'];
       const ok = confirm('¿Estás seguro de agregar esta historia a tu biblioteca?');
       if(ok){
         this.historiaService.agregarABiblioteca(Number(sessionStorage.getItem('idUsuario')),params['idx'] ).subscribe(()=>{

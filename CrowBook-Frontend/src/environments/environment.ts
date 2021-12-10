@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiBase: 'http://localhost:8090/crowbook/v1',
+  apiBase: 'http://localhost:8092/crowbook/v1',
 };
 
 /*

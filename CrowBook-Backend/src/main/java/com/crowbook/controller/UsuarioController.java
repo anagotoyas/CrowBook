@@ -10,6 +10,7 @@ import com.crowbook.repositories.HistoriaRepository;
 import com.crowbook.repositories.PaqueteCrowCoinRepository;
 import com.crowbook.repositories.UsuarioRepository;
 import com.crowbook.services.UsuarioService;
+import com.crowbook.utils.WrapperResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,31 +30,27 @@ public class UsuarioController {
     private HistoriaRepository historiaRepository;
     @Autowired
     private UsuarioRepository usuarioRepository;
-    @Autowired
-    private PaqueteCrowCoinRepository paqueteRepository;
-    @Autowired
-    private DonacionRepository donacionRepository;
 
     public UsuarioController(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
     }
 
     @GetMapping
-    public ResponseEntity<List<Usuario>> listarUsuarios() {
+    public ResponseEntity<WrapperResponse<List<Usuario>>> listarUsuarios() {
         List<Usuario> usuarios = usuarioService.listarUsuario();
-        return new ResponseEntity<List<Usuario>>(usuarios, HttpStatus.CREATED);
+        return new WrapperResponse<>(true,"success",usuarios).createResponse();
     }
 
     @GetMapping("/{idUsuario}")
-    public ResponseEntity<Usuario> obtenerUsuarioPorIdUsuario(@PathVariable("idUsuario") Integer idUsuario) {
+    public ResponseEntity<WrapperResponse<Usuario>> obtenerUsuarioPorIdUsuario(@PathVariable("idUsuario") Integer idUsuario) {
         Usuario usuario = usuarioService.obtenerUsuarioPorIdUsuario(idUsuario);
-        return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
+        return new WrapperResponse<>(true,"success",usuario).createResponse();
     }
 
     @PostMapping
-    public ResponseEntity<Usuario> registrarUsuario(@Valid @RequestBody Usuario usuario) {
+    public ResponseEntity<WrapperResponse<Usuario>> registrarUsuario(@Valid @RequestBody Usuario usuario) {
         Usuario usuarioNew = usuarioService.registrarUsuario(usuario);
-        return new ResponseEntity<Usuario>(usuarioNew, HttpStatus.CREATED);
+        return new WrapperResponse<>(true,"success",usuarioNew).createResponse();
     }
     @PostMapping("/login")
     @CrossOrigin(origins = "http://localhost:4200/signin")
@@ -70,11 +67,10 @@ public class UsuarioController {
         return  userObj;
     }
 
-
     @PutMapping
-    public ResponseEntity<Usuario> modificarUsuario(@Valid @RequestBody Usuario usuario) {
+    public ResponseEntity<WrapperResponse<Usuario>> modificarUsuario(@Valid @RequestBody Usuario usuario) {
         Usuario usuarioUpdate = usuarioService.modificarUsuario(usuario);
-        return new ResponseEntity<Usuario>(usuarioUpdate, HttpStatus.CREATED);
+        return new WrapperResponse<>(true,"success",usuarioUpdate).createResponse();
     }
 
     @DeleteMapping("/{idUsuario}")

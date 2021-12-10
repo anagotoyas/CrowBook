@@ -6,6 +6,7 @@ import com.crowbook.model.Historia;
 import com.crowbook.model.Usuario;
 import com.crowbook.services.HistoriaService;
 
+import com.crowbook.utils.WrapperResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -27,64 +28,56 @@ public class HistoriaController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Historia>> listarHistoria(){
+    public ResponseEntity<WrapperResponse<List<Historia>>> listarHistoria(){
         List<Historia> historia=historiaService.listarHistoria();
-        return new ResponseEntity<List<Historia>> (historia, HttpStatus.CREATED);
+        return new WrapperResponse<>(true, "success", historia).createResponse();
     }
+
     @GetMapping("/pageable")
     public ResponseEntity<Page<Historia>> index(Pageable pageable) {
         Page<Historia> historias = historiaService.index(pageable);
         return new ResponseEntity<Page<Historia>>(historias, HttpStatus.OK);
     }
 
-
     @GetMapping("/{idHistoria}")
-    public ResponseEntity<Historia> obtenerHistoriaPorIdHistoria(@PathVariable("idHistoria") Integer idHistoria){
+    public ResponseEntity<WrapperResponse<Historia>> obtenerHistoriaPorIdHistoria(@PathVariable("idHistoria") Integer idHistoria){
         Historia historia=historiaService.obtenerHistoriaPorIdHistoria(idHistoria);
-        return new ResponseEntity<Historia>(historia, HttpStatus.OK);
+        return new WrapperResponse<>(true, "success", historia).createResponse();
     }
 
     @GetMapping("/buscarPorNombre")
-    public ResponseEntity<List<Historia>> buscarHistoriaPorNombre(@RequestParam String nombreHistoria){
+    public ResponseEntity<WrapperResponse<List<Historia>>> buscarHistoriaPorNombre(@RequestParam String nombreHistoria){
         List<Historia> historiaN=historiaService.buscarHistoriaPorNombre(nombreHistoria);
-        return new ResponseEntity<List<Historia>>(historiaN, HttpStatus.OK);
+        return new WrapperResponse<>(true, "success", historiaN).createResponse();
     }
 
     @GetMapping("/listarPorCategoria")
-    public ResponseEntity<List<Historia>> listarHistoriaPorCategoria(@RequestParam Categoria categoria){
+    public ResponseEntity<WrapperResponse<List<Historia>>> listarHistoriaPorCategoria(@RequestParam Categoria categoria){
         List<Historia> historiaC=historiaService.listarHistoriaPorCategoria(categoria);
-        return new ResponseEntity<List<Historia>>(historiaC, HttpStatus.OK);
+        return new WrapperResponse<>(true, "success", historiaC).createResponse();
     }
 
     @GetMapping("/buscarPorIdUsuario")
-    public ResponseEntity<List<Historia>> buscarHistoriaPorIdUsuario(@RequestParam Usuario usuario){
+    public ResponseEntity<WrapperResponse<List<Historia>>> buscarHistoriaPorIdUsuario(@RequestParam Usuario usuario){
         List<Historia> usuarioid=historiaService.buscarHistoriaPorIdUsuario(usuario);
-        return new ResponseEntity<List<Historia>>(usuarioid, HttpStatus.OK);
+        return new WrapperResponse<>(true, "success", usuarioid).createResponse();
     }
 
     @PostMapping
-    public ResponseEntity<Historia> registrarHistoria(@Valid @RequestBody Historia historia){
+    public ResponseEntity<WrapperResponse<Historia>> registrarHistoria(@Valid @RequestBody Historia historia){
         Historia historiaNew=  historiaService.registrarHistoria(historia);
-        return new ResponseEntity<Historia>(historiaNew, HttpStatus.CREATED);
-    }
-    @PostMapping("/stories")
-    @CrossOrigin(origins = "http://localhost:4200/usuarios/historias")
-    public ResponseEntity<List<Historia>>  buscarPorUsuario (@Valid @RequestBody Usuario user) throws Exception{
-
-        List<Historia> h= historiaService.fetchHistoria(user);
-        return new ResponseEntity<List<Historia>>(h, HttpStatus.OK);
-
+        return new WrapperResponse<>(true, "success", historiaNew).createResponse();
     }
 
     @PutMapping
-    public ResponseEntity<Historia> modificarHistoria(@Valid @RequestBody Historia historia){
+    public ResponseEntity<WrapperResponse<Historia>> modificarHistoria(@Valid @RequestBody Historia historia){
         Historia historiaUpdate=  historiaService.modificarHistoria(historia);
-        return new ResponseEntity<Historia>(historiaUpdate, HttpStatus.CREATED);
+        return new WrapperResponse<>(true,"success", historiaUpdate).createResponse();
     }
 
     @DeleteMapping("/{idHistoria}")
-    public ResponseEntity<Void> eliminarHistoria(@PathVariable ("idHistoria") Integer idHistoria){
+    public ResponseEntity<WrapperResponse<Void>> eliminarHistoria(@PathVariable ("idHistoria") Integer idHistoria){
         historiaService.eliminarHistoria(idHistoria);
-        return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
+        return new WrapperResponse<Void>(true, "success", null).createResponse(HttpStatus.NO_CONTENT);
     }
 }

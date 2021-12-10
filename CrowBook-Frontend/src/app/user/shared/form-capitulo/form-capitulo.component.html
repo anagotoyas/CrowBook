@@ -29,11 +29,11 @@ autocomplete="off"
         <mat-label>Contenido de Capitulo</mat-label>
         <textarea
         matInput #contenidoInput
-        maxlength="3500"
+        maxlength="10000"
         formControlName="contenidoCapitulo"
         row="5"
         ></textarea>
-        <mat-hint align="end">{{contenidoInput.value?.length || 0}}/3500</mat-hint>
+        <mat-hint align="end">{{contenidoInput.value?.length || 0}}/10000</mat-hint>
     </mat-form-field>
     <BR>
 

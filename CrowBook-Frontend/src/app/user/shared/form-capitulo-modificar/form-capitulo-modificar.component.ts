@@ -43,10 +43,10 @@ import { ActivatedRoute, Router } from '@angular/router';
       getContenidoCapitulo(){
         this.capitulo = new Capitulo();
         this.capituloSercive.getCapituloPorId(Number(this.idy))
-          .subscribe(data => {
-           // console.log(data)
-            this.capitulo = data;
-            this.fechaPublicacion1=data['fechaPublicacion']
+          .subscribe((data:any) => {
+            //console.log(data)
+            this.capitulo = data['body'];
+            this.fechaPublicacion1=this.capitulo.fechaPublicacion
             sessionStorage.setItem('fechaPublicacion1',this.fechaPublicacion1);
           }, error => console.log(error));
     
@@ -55,7 +55,7 @@ import { ActivatedRoute, Router } from '@angular/router';
       getHistoria(id: number){
         this.historiaService.getHistoriaPorId(id).subscribe((data: any)=>{
           //console.log(data);
-          this.dataSource2 = data;
+          this.dataSource2 = data['body'];
         })
       }
 

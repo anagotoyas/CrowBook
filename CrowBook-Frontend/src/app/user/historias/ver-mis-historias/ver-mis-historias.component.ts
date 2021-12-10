@@ -39,8 +39,8 @@ export class VerMisHistoriasComponent implements OnInit {
   }
   
   getMisHistorias(id:any){
-    this.historiaService.getMisHistorias(id).subscribe(data => {
-      this.dataSource2 = new MatTableDataSource(data);
+    this.historiaService.getMisHistorias(id).subscribe((data:any) => {
+      this.dataSource2 = new MatTableDataSource(data['body']);
     })
 
     /*

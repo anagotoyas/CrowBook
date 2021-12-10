@@ -8,6 +8,7 @@ import com.crowbook.repositories.PaqueteCrowCoinRepository;
 import com.crowbook.repositories.UsuarioRepository;
 import com.crowbook.services.DonacionService;
 import com.crowbook.services.UsuarioService;
+import com.crowbook.utils.WrapperResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,19 +30,19 @@ public class DonacionController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Donacion>> listarDonacion() {
+    public ResponseEntity<WrapperResponse<List<Donacion>>> listarDonacion() {
         List<Donacion> donacions = donacionService.listarDonacion();
-        return new ResponseEntity<List<Donacion>>(donacions, HttpStatus.CREATED);
+        return new WrapperResponse<>(true, "success",donacions).createResponse();
     }
 
     @GetMapping("/{idDonacion}")
-    public ResponseEntity<Donacion> obtenerDonacionPorIdDonacion(@PathVariable("idDonacion") Integer idDonacion){
+    public ResponseEntity<WrapperResponse<Donacion>> obtenerDonacionPorIdDonacion(@PathVariable("idDonacion") Integer idDonacion){
         Donacion donacion = donacionService.obtenerDonacionPorID(idDonacion);
-        return new ResponseEntity<Donacion>(donacion, HttpStatus.OK);
+        return new WrapperResponse<>(true, "success", donacion).createResponse();
     }
 
     @PostMapping
-    public ResponseEntity<Donacion> crearDonacion(@Valid @RequestBody Donacion donacion){
+    public ResponseEntity<WrapperResponse<Donacion>> crearDonacion(@Valid @RequestBody Donacion donacion){
         Donacion donacionN = donacionService.crearDonacion(donacion);
         Usuario usuarioE = donacionN.getEmisor();
         Integer id_u1 = usuarioE.getIdUsuario();
@@ -53,7 +54,7 @@ public class DonacionController {
         donacionService.donarCrowCoins(u1, u2, coins);
         usuarioRepository.save(u1);
         usuarioRepository.save(u2);
-        return new ResponseEntity<Donacion>(donacionN, HttpStatus.CREATED);
+        return new WrapperResponse<>(true, "success", donacionN).createResponse();
 
     }
 
