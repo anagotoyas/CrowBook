@@ -54,7 +54,7 @@ export class FormHistoriaComponent implements OnInit {
         this.historia.descripcionHistoria,
         [
           Validators.required,
-          Validators.maxLength(500),
+          Validators.maxLength(1000),
         ],
       ],
       categoria: [

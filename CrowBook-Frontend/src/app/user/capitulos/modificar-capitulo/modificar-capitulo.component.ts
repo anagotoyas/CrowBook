@@ -53,7 +53,7 @@ export class ModificarCapituloComponent implements OnInit {
         this.capituloService.getCapituloPorId(parameter['idX']).subscribe((data:any) =>{
           console.log(data)
           this.dataSource = data['body'];
-          this.fechaPublicacion=this.dataSource.fechaPublicacion;
+          
           sessionStorage.setItem('fechaPublicacion',data.fechaPublicacion);
 
           

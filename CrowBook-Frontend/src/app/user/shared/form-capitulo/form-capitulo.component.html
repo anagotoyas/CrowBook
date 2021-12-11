@@ -3,7 +3,7 @@
 autocomplete="off"
 [formGroup]="form"
 #frmLibro3="ngForm"
-*ngIf="dataSource2"
+
 >
     
     <mat-form-field appearance="outline" class="d-block">
@@ -37,7 +37,7 @@ autocomplete="off"
     </mat-form-field>
     <BR>
 
-    <button mat-button routerLink="/user/capitulos/listar-capitulo/{{dataSource2.idHistoria}}">Cancelar</button> <!--{{dataSource2.idHistoria}}-->
+    <button mat-button (click)="retroceder()">Cancelar</button> <!--{{dataSource2.idHistoria}}-->
     <button
     mat-raised-button
     color="primary"

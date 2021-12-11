@@ -17,7 +17,7 @@ import { ActivatedRoute, Router } from '@angular/router';
     dataSource2:Historia;
     idCapitulo:number;
     idy: string | null;
-    fechaPublicacion1: string;
+    
     nombreCapitulo:string;
     descripcionCapitle: string;
     
@@ -46,8 +46,8 @@ import { ActivatedRoute, Router } from '@angular/router';
           .subscribe((data:any) => {
             //console.log(data)
             this.capitulo = data['body'];
-            this.fechaPublicacion1=this.capitulo.fechaPublicacion
-            sessionStorage.setItem('fechaPublicacion1',this.fechaPublicacion1);
+            
+           
           }, error => console.log(error));
     
       }
@@ -70,10 +70,7 @@ import { ActivatedRoute, Router } from '@angular/router';
                 this.capitulo.idCapitulo=Number(this.idy), 
                 
               ],
-            fechaPublicacion:[
-                
-               this.capitulo.fechaPublicacion=String(sessionStorage.getItem('fechaPublicacion1'))
-            ],
+           
             historia:[
                 this.capitulo.historia = {idHistoria: params['idx']},//POR ALGUNA RAZON QUE YA NO ME ACUERDO ESTABA CON EL VALOR ESTATICO 1
               ],
@@ -90,7 +87,7 @@ import { ActivatedRoute, Router } from '@angular/router';
                 this.capitulo.contenidoCapitulo,
                 [
                   Validators.required,
-                  Validators.maxLength(500),
+                  Validators.maxLength(10000),
                 ],
             ],
 

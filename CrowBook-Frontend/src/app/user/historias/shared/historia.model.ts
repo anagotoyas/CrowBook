@@ -6,7 +6,7 @@ export class Historia {
   descripcionHistoria: string;
   cantidadResenas: number;
   calificacionTotal: number;
-  fechaPublicacion: string;
+  
   categoria: Object;
   
 

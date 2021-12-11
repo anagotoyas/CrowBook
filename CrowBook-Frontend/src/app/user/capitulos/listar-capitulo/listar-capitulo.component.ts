@@ -14,7 +14,7 @@ import { Location } from '@angular/common';
   })
   export class ListarCapituloComponent implements OnInit {
     
-    displayedColumns2: string[] = ['id', 'nombre', 'fecha', 'modificar', 'eliminar'];
+    displayedColumns2: string[] = ['id', 'nombre', 'modificar', 'eliminar'];
     dataSource: MatTableDataSource<Capitulo>;
     dataSource3: Historia;
     user: any;

@@ -44,16 +44,7 @@ public class Historia {
     @Column(name = "calificacion_total", nullable = false)
     private int calificacionTotal;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    @Temporal (TemporalType.TIMESTAMP)
-    @Column(name = "fecha_publicacion", nullable = false)
-    private Date fechaPublicacion;
 
-
-    @PrePersist
-    private void Creacion(){
-        fechaPublicacion=new Date();
-    }
 
     @ManyToOne
     @JoinColumn(name = "id_categoria", nullable = false,
@@ -74,13 +65,7 @@ public class Historia {
     @ManyToMany(mappedBy = "favorito")
     private List<Usuario> favoritos = new ArrayList<>();
 
-    public Date getFechaPublicacion() {
-        return fechaPublicacion;
-    }
 
-    public void setFechaPublicacion(Date fechaPublicacion) {
-        this.fechaPublicacion = fechaPublicacion;
-    }
 
     public Integer getIdHistoria() {
         return idHistoria;

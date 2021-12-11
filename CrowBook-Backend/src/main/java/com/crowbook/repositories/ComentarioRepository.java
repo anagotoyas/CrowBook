@@ -15,4 +15,5 @@ import java.util.List;
 public interface ComentarioRepository extends JpaRepository<Comentario, Integer> {
     @Query("SELECT c FROM Comentario c WHERE c.capitulo=:capitulo")
     List<Comentario> buscarComentarioPorIdCapitulo(@Param("capitulo") Capitulo capitulo);
+    //a
 }

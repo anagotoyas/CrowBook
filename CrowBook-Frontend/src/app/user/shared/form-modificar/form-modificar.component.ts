@@ -49,7 +49,7 @@ export class FormModificarComponent implements OnInit {
     this.historiaService.getHistoriaPorId(Number(this.idy))
     .subscribe((data:any) => {
       this.historia = data['body'];
-      this.fechaPublicacion1=this.historia.fechaPublicacion
+     
       sessionStorage.setItem('fechaPublicacion1',this.fechaPublicacion1);
       this.nombreCategoria=this.historia.categoria
       }, error => console.log(error));
@@ -77,13 +77,7 @@ export class FormModificarComponent implements OnInit {
        
         
       ],
-      fechaPublicacion:[
-        
-        this.historia.fechaPublicacion=String(sessionStorage.getItem('fechaPublicacion1'))
-        //console.log(this.historia.fechaPublicacion)
-        //this.historia.fechaPublicacion=String(sessionStorage.getItem('fechaPublicacion'))
-      ],
-     
+      
       usuario:[
         this.historia.usuario = {idUsuario: sessionStorage.getItem('idUsuario' )}
       ],
@@ -100,7 +94,7 @@ export class FormModificarComponent implements OnInit {
         this.historia.descripcionHistoria,
         [
           Validators.required,
-          Validators.maxLength(500),
+          Validators.maxLength(1000),
         ],
       ],
       categoria: [

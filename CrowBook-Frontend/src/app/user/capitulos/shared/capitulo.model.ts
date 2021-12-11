@@ -2,7 +2,7 @@ export class Capitulo {
     idCapitulo: number;
     historia: Object;
     nombreCapitulo: string;
-    fechaPublicacion: string;
+   
     contenidoCapitulo: string;
     calificacion: number;
     cantidadComentarios: number;

@@ -29,16 +29,7 @@ public class Capitulo {
     @Column(name = "nombre_capitulo", nullable = false, length = 100)
     private String nombreCapitulo;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    @Temporal (TemporalType.TIMESTAMP)
-    @Column(name = "fecha_publicacion", nullable = false)
-    private Date fechaPublicacion;
 
-
-    @PrePersist
-    private void Creacion(){
-        fechaPublicacion=new Date();
-    }
     @NotNull
     @Size(min = 2, message = "El contenido del capítulo debe tener como mínimo 2 caracteres")
     @Column(name = "contenido_capitulo", nullable = false)
@@ -80,13 +71,7 @@ public class Capitulo {
         this.nombreCapitulo = nombreCapitulo;
     }
 
-    public Date getFechaPublicacion() {
-        return fechaPublicacion;
-    }
 
-    public void setFechaPublicacion(Date fechaPublicacion) {
-        this.fechaPublicacion = fechaPublicacion;
-    }
 
     public String getContenidoCapitulo() {
         return contenidoCapitulo;

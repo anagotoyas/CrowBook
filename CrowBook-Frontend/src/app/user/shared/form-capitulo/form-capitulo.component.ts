@@ -14,7 +14,8 @@ import { HistoriaService } from '../../historias/shared/historia.service';
   export class FormCapituloComponent implements OnInit {
     form:FormGroup;
     dataSource2:Historia;
-  
+    idHistoria:any;
+    idx:any;
     @Input() capitulo: Capitulo = new Capitulo();
     @Output() onSubmit: EventEmitter<any> = new EventEmitter();
 
@@ -25,7 +26,9 @@ import { HistoriaService } from '../../historias/shared/historia.service';
       private router: Router,
       private acRoute: ActivatedRoute,
       private historiaService: HistoriaService,
-    ) {}
+    ) {
+      this.idx=this.acRoute.snapshot.paramMap.get('idx')
+    }
       
     ngOnInit(): void {
 
@@ -55,7 +58,7 @@ import { HistoriaService } from '../../historias/shared/historia.service';
           this.capitulo.contenidoCapitulo,
           [
             Validators.required,
-            Validators.maxLength(500),
+            Validators.maxLength(10000),
           ],
         ],
       });
@@ -65,10 +68,17 @@ import { HistoriaService } from '../../historias/shared/historia.service';
       this.historiaService.getHistoriaPorId(id).subscribe((data: any)=>{
         //console.log(data);
         this.dataSource2 = data;
+        this.idHistoria=this.dataSource2.idHistoria
       })
     }
 
     save(){
       this.onSubmit.emit(this.form.value);
     }
+    retroceder(){
+      this.router.navigate(['/user/capitulos/listar-capitulo/', this.idx])
+      console.log()
+      
+    }
+    
   }

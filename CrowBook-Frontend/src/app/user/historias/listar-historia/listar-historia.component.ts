@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ListarHistoriaComponent implements OnInit {
   
-  displayedColumns: string[] = ['nombre', 'usuario','categoria', 'fecha', 'acciones'];
+  displayedColumns: string[] = ['nombre', 'usuario','categoria',  'acciones'];
   dataSource: MatTableDataSource<Historia>;
   user: any;
   constructor(private historiaService: HistoriaService, private route: ActivatedRoute,private router:Router) { }

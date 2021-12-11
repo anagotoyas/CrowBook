@@ -24,8 +24,8 @@ export class ModificarHistoriaComponent implements OnInit {
     if (params['idy']) {
       this.historiaService.getHistoriaPorId(params['idy']).subscribe((data:any) => {
         this.dataSource = data['body'];
-        this.fechaPublicacion=this.dataSource.fechaPublicacion
-        sessionStorage.setItem('fechaPublicacion', this.dataSource.fechaPublicacion);
+        
+        
 
         console.log(data)
       });      
