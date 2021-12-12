@@ -1,6 +1,7 @@
 package com.crowbook.model;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -22,14 +23,14 @@ public class Compra {
     @JoinColumn(name = "id_paquete", nullable = false, foreignKey = @ForeignKey(name = "FK_paquete_compra"))
     private PaqueteCrowCoin paqueteComprado;
 
-    @CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "fecha_compra")
-    private Date FechaCompra;
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    @Temporal (TemporalType.TIMESTAMP)
+    @Column(name = "fecha_compra", nullable = false)
+    private Date fechaCompra;
 
     @PrePersist
     public void onCreate() {
-        FechaCompra = new Date();
+        fechaCompra = new Date();
     }
 
     public Integer getIdCompra() {
@@ -57,10 +58,10 @@ public class Compra {
     }
 
     public Date getFechaCompra() {
-        return FechaCompra;
+        return fechaCompra;
     }
 
     public void setFechaCompra(Date fechaCompra) {
-        FechaCompra = fechaCompra;
+        this.fechaCompra = fechaCompra;
     }
 }
