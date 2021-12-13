@@ -12,6 +12,9 @@
   </button>
 
   <mat-menu #menu="matMenu">
+    <button mat-menu-item  routerLink="/user/ver-mi-perfil">
+      <mat-icon>account_box</mat-icon> Mi perfil
+    </button>
     <button mat-menu-item  routerLink="/user/historias/ver-mis-historias">
       <mat-icon>assignment</mat-icon> Mis Historias
     </button>
@@ -20,6 +23,9 @@
     </button>
     <button mat-menu-item  routerLink="/user/historias/crear">
       <mat-icon>text_rotation_none</mat-icon> Escribir una Historia
+    </button>
+    <button mat-menu-item  routerLink="/user/ver-perfiles">
+      <mat-icon>supervised_user_circle</mat-icon> Ver perfiles
     </button>
     <button mat-menu-item (click)=signOut()>
       <mat-icon>logout</mat-icon> Cerrar sesión

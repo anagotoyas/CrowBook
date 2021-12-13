@@ -1,0 +1,50 @@
+.contenedor{
+    padding: 30px;
+    margin-top:30px;
+    margin-left: 50px;
+    margin-right: 50px;
+    background-color: #F3F3F3;
+    border-radius: 25px;
+}
+  
+h1{
+    font-family: Signika;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.usuario{
+    margin-left: 10px;
+    position: relative;
+    top: 4px;
+}
+
+.icono{
+    padding-left: 30px;
+}
+
+mat-form-field{
+    width: 100%;
+}
+  
+table{
+    width: 100%;
+    border-radius: 50px;
+}
+.fila{
+    display: flex;
+    margin-bottom: 15px;
+}
+.colu-1{
+    flex: 50%;
+}
+.colu-2{
+    flex: 50%;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+
+.cuervazo{
+    width: 50%;
+}

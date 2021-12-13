@@ -1,0 +1,80 @@
+.contenedor{
+    margin-top: 50px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.mat-card{
+    font-family: Signika;
+    border-radius: 1rem;
+    box-shadow: 0 1rem 1rem rgba(88, 88, 88, 0.2);
+    overflow: hidden;
+    height: auto;
+    width: 70%;
+    padding: 30px;
+}
+
+mat-card-title-group{
+    padding-left: 40px;
+    transform: translateY(50%);
+
+}
+
+
+
+.fila{
+    display: flex;
+    margin-bottom: 15px;
+}
+.colu-1{
+    flex: 10%;
+}
+.colu-2{
+    flex: 70%;
+}
+.colu-3{
+    flex: 20%;
+}
+
+
+
+h1{
+    font-family: Signika;
+    font-weight: bold;
+}
+h4 {
+    font-family: Signika;
+    opacity: 0.9;
+    font-size: 14px;
+}
+
+table{
+    width: 100%;
+    margin-left: 20px;
+}
+
+.botones{
+    font-family: Signika;
+    font-size: 15px;
+    font-weight: bold;
+    width: 60%;
+    margin-bottom: 5px;
+    
+}
+
+.agregar{
+    padding-left: 30px;
+    margin-left: 10px;
+    margin-top: -3px;
+}
+
+a{
+    font-weight: bold;
+    display: inline-block;
+    color: #000;
+    font-family: Signika;
+}

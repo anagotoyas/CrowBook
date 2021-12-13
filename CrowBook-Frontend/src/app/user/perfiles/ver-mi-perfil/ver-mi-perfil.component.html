@@ -1,0 +1,144 @@
+<div class="contenedor">
+    <mat-card class="perfil" *ngIf="dataSource">
+        <div class="fila">
+            <div class="colu-1">
+                <img src="../../../../assets/crow-perfil.png" width="100" height="100" alt="Foto de Perfil">
+            </div>
+            <div class="colu-2">
+                <mat-card-title-group>
+                    <mat-card-title id="nombreUsuario">
+                        Perfil de <a> {{dataSource.nombreUsuario}} </a>
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        {{dataSource.descripcionUsuario}}
+                    </mat-card-subtitle>
+                </mat-card-title-group>
+            </div>
+            <div class="colu-3">
+                <button mat-flat-button class="botones" color="accent">{{dataSource.cantidadCrowCoins}}<mat-icon class="agregar">add</mat-icon></button>
+                <br>
+                <button mat-flat-button class="botones" color="accent">Editar perfil</button>
+            </div>
+
+        </div>
+        <hr color="grey">
+        <div class="fila">
+            <hr size="1px" color="black">
+            <h1 style="margin-top: 15px;">Mis favoritos</h1>
+
+            <table 
+            mat-table
+            [dataSource]="dataSource2"
+            matSort
+            class="mat-elevation-z8"
+            class="w-100"
+        >
+            <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Título</th>
+            <td mat-cell *matCellDef="let element">{{ element.nombreHistoria }}</td>
+            </ng-container>
+        
+            <ng-container matColumnDef="usuario">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Autor</th>
+            <td mat-cell *matCellDef="let element">{{ element.usuario.nombreUsuario }}</td>
+            </ng-container>
+        
+            <ng-container matColumnDef="categoria">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Género</th>
+            <td mat-cell *matCellDef="let element">{{ element.categoria.nombreCategoria }}</td>
+            </ng-container>
+    
+            <ng-container matColumnDef="ver">
+            <th mat-header-cell *matHeaderCellDef>Leer</th>
+            <td mat-cell *matCellDef="let element">
+                <button
+                id="ver-boton" 
+                mat-icon-button
+                color="primary"
+                (click)="verHistoria(element.idHistoria)"
+                >
+                <mat-icon>visibility</mat-icon>
+                </button>
+            </td>
+            </ng-container>
+
+            <ng-container matColumnDef="eliminar">
+                <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+                <td mat-cell *matCellDef="let element">
+                    <button
+                    id="ver-boton" 
+                    mat-icon-button
+                    color="primary"
+
+                    >
+                    <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+                </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+        </div>
+
+        <div class="fila">
+            <hr size="1px" color="black">
+            <h1 style="margin-top: 15px;">Mi biblioteca </h1>
+
+            <table 
+            mat-table
+            [dataSource]="dataSource3"
+            matSort
+            class="mat-elevation-z8"
+            class="w-100"
+        >
+            <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Título</th>
+            <td mat-cell *matCellDef="let element">{{ element.nombreHistoria }}</td>
+            </ng-container>
+        
+            <ng-container matColumnDef="usuario">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Autor</th>
+            <td mat-cell *matCellDef="let element">{{ element.usuario.nombreUsuario }}</td>
+            </ng-container>
+        
+            <ng-container matColumnDef="categoria">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Género</th>
+            <td mat-cell *matCellDef="let element">{{ element.categoria.nombreCategoria }}</td>
+            </ng-container>
+    
+            <ng-container matColumnDef="ver">
+            <th mat-header-cell *matHeaderCellDef>Leer</th>
+            <td mat-cell *matCellDef="let element">
+                <button
+                id="ver-boton" 
+                mat-icon-button
+                color="primary"
+                (click)="verHistoria(element.idHistoria)"
+                >
+                <mat-icon>visibility</mat-icon>
+                </button>
+            </td>
+            </ng-container>
+
+            <ng-container matColumnDef="eliminar">
+                <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+                <td mat-cell *matCellDef="let element">
+                    <button
+                    id="ver-boton" 
+                    mat-icon-button
+                    color="primary"
+                    (click)="eliminarDeBiblioteca(element.idHistoria)"
+                    >
+                    <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+                </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+        </div>
+
+    </mat-card>
+</div>

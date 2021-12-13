@@ -6,6 +6,9 @@ import { VerMisHistoriasComponent } from './user/historias/ver-mis-historias/ver
 import { VerHistoriaComponent } from './user/historias/ver-historia/ver-historia.component';
 import { ModificarHistoriaComponent} from './user/historias/modificar-historia/modificar-historia.component';
 import { ModificarResenasComponent } from './user/historias/modificar-resenas/modificar-resenas.component';
+import { VerPerfilesComponent } from './user/perfiles/ver-perfiles/ver-perfiles.component';
+import { VerPerfilComponent } from './user/perfiles/ver-perfil/ver-perfil.component';
+import { VerMiPerfilComponent } from './user/perfiles/ver-mi-perfil/ver-mi-perfil.component';
 
 const routes: Routes = [
   { 
@@ -42,7 +45,19 @@ const routes: Routes = [
     path: 'user/historias/ver-mis-historias/:idy/edit',
     component: ModificarHistoriaComponent
   },
-  
+  {
+    path: 'user/ver-mi-perfil',
+    component: VerMiPerfilComponent
+  },
+  {
+    path: 'user/ver-perfiles',
+    component: VerPerfilesComponent
+  },
+  {
+    path: 'user/ver-perfil/:idUsuario',
+    component: VerPerfilComponent
+  },
+
   
 
 ];

@@ -2,8 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Historia } from './historia.model';
-import { Usuario } from 'src/app/usuario';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -46,5 +44,8 @@ export class HistoriaService {
   }
   eliminarDeBiblioteca(idUsuario: number, idHistoria: number){
     return this.http.delete<Historia>(`${this.apiBase}/usuarios/${idUsuario}/biblioteca/${idHistoria}`)
+  }
+  verFavoritos(idUsuario: number){
+    return this.http.get<Historia[]>( `${this.apiBase}/usuarios/${idUsuario}/favorito`)
   }
 }

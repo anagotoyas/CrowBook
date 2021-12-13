@@ -15,6 +15,9 @@ import {ModificarResenasComponent} from './historias/modificar-resenas/modificar
 import { CrearComentarioComponent } from './capitulos/crear-comentario/crear-comentario.component'
 import { ModificarComentarioComponent } from './capitulos/modificar-comentario/modificar-comentario.component';
 import { ListarHistoriasBibliotecaComponent } from './historias/listar-historias-biblioteca/listar-historias-biblioteca.component';
+import { VerPerfilesComponent } from './perfiles/ver-perfiles/ver-perfiles.component';
+import { VerPerfilComponent } from './perfiles/ver-perfil/ver-perfil.component';
+import { VerMiPerfilComponent } from './perfiles/ver-mi-perfil/ver-mi-perfil.component';
 
 const routes: Routes = [
   {
@@ -34,7 +37,14 @@ const routes: Routes = [
         path: 'historias/biblioteca',
         component: ListarHistoriasBibliotecaComponent,
       },
-     
+      {
+        path: 'ver-mi-perfil',
+        component: VerMiPerfilComponent,
+      },
+      {
+        path: 'ver-perfiles',
+        component: VerPerfilesComponent,
+      },
       
     ]
   },
@@ -159,9 +169,18 @@ const routes: Routes = [
         component: ModificarComentarioComponent,
       },
     ]
-
   },
-  
+  {
+    path: 'ver-perfiles',
+    component:LayoutComponent,
+    children: [
+      {
+        path: 'ver-perfil/:idUsuario', 
+        component: VerPerfilComponent,
+      },
+    ]
+  },
+
   
 ];
 
