@@ -1,0 +1,79 @@
+.titulo-shop {
+    justify-content: center;
+    display: flex;
+    margin-top: 50px;
+    align-items: center;
+    
+  }
+  
+  .titlee {
+    font-size: 60px;
+    margin-top: 60px;
+    font-family: Signika;
+    font-weight: bold;
+    background-color: rgba(226, 162, 255, 0.2);
+    
+  }
+  
+  .mensajito {
+    justify-content: center;
+    display: flex;
+    margin-top: 20px;
+    
+  }
+  .mensajito_p {
+    text-align: center;
+    font-size: 18px;
+  }
+  
+  .example-card {
+    width: 20rem;
+      height: 25rem;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+     
+    }
+    * {
+      font-family: Signika;
+    }
+  
+    .coin {
+      width: 200px;
+      height: 200px;
+      text-align:center
+    }
+    
+    .example-header-image {
+      background-size: cover;
+    }
+  
+  .mat-card {
+        display: inline-block;
+        margin: 1rem;
+        background: rgba(226, 162, 255, 0.2);
+        background: linear-gradient(199deg, rgba(171,72,217,.2) 0%, rgba(250, 80, 179, 0.2) 61%, rgba(251, 81, 126, 0.2) 100%);
+      }
+  
+  .cajita {
+    display: flex;
+      justify-content: center;
+      height: 60vh;
+    align-items: center;
+  }
+  
+  .cantidad_crowcoins {
+    margin-top: 25px;
+    font-size: 28px;
+    color: rgb(255, 255, 255);
+    letter-spacing: 0.5px
+  }
+  
+  .boton_paquete {
+    background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(59, 59, 59, 0.25);
+  border-radius: 24px;
+  font-weight: bold;
+  font-size: 20px;
+  width: 130px;
+  margin-top: 20px;
+  
+  }

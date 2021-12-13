@@ -14,11 +14,12 @@ export class CompraService {
   getAllCompras(){
     return this.http.get<Compra[]>(`${this.apiBase}/compras`);
   }
-  /*
-  getMisHistorias(usuario: Usuario): Observable<Usuario[]>{
-    return this.http.post<Usuario[]>(`${this.apiBase}/historias/stories`, usuario)
-  }*/
+
   getMisCompras(id: number){
     return this.http.get<Compra[]>(`${this.apiBase}/compras?usuario=${id}`);
+  }
+
+  crearCompra(compra: Compra){
+    return this.http.post<Compra>(`${this.apiBase}/compras`, compra);
   }
 }

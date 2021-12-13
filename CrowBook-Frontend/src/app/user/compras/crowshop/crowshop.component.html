@@ -1,0 +1,24 @@
+<section class="titulo-shop">
+    <h1 class="titlee">CrowShop</h1>
+  </section>
+  <div class="mensajito">
+    <p class="mensajito_p">¡Apoya a tus autores favoritos!
+      <br>Ellos son la razón por la que existimos ❤</p>
+    </div>
+  
+  <section class="cajita">
+  <mat-card class="example-card" *ngFor="let element of dataSource">
+      <mat-card-header>
+      </mat-card-header>
+      
+      <mat-card-content style="text-align: center; margin-top: 25px;">
+        <img src="../../../../assets/card1.png" class="coin">
+        <p class="cantidad_crowcoins">
+          {{element.cantidadCoinsPaquete}} CrowCoins
+        </p>
+      </mat-card-content>
+      <mat-card-actions style="text-align: center;">
+        <button mat-button routerLink="/user/compras/crear-compra/{{element.idPaquete}}" class="boton_paquete">s/. {{element.precioPaquete}}.00</button>
+      </mat-card-actions>
+  </mat-card>
+  </section>

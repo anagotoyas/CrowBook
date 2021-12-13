@@ -9,6 +9,7 @@ import { ModificarResenasComponent } from './user/historias/modificar-resenas/mo
 import { VerPerfilesComponent } from './user/perfiles/ver-perfiles/ver-perfiles.component';
 import { VerPerfilComponent } from './user/perfiles/ver-perfil/ver-perfil.component';
 import { VerMiPerfilComponent } from './user/perfiles/ver-mi-perfil/ver-mi-perfil.component';
+import { CrearCompraComponent } from './user/compras/crear-compra/crear-compra.component';
 
 const routes: Routes = [
   { 
@@ -57,6 +58,10 @@ const routes: Routes = [
     path: 'user/ver-perfil/:idUsuario',
     component: VerPerfilComponent
   },
+  {
+    path: 'user/compras/crear-compra/:idp',
+    component: CrearCompraComponent
+  }
 
   
 

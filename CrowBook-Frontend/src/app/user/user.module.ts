@@ -30,6 +30,9 @@ import { VerMiPerfilComponent } from './perfiles/ver-mi-perfil/ver-mi-perfil.com
 import { VerPerfilComponent } from './perfiles/ver-perfil/ver-perfil.component';
 import { VerPerfilesComponent } from './perfiles/ver-perfiles/ver-perfiles.component';
 import { ListarComprasComponent } from './compras/listar-compras/listar-compras.component';
+import { CrearCompraComponent } from './compras/crear-compra/crear-compra.component';
+import { CrowshopComponent } from './compras/crowshop/crowshop.component';
+import { FormCompraComponent } from './shared/form-compra/form-compra.component';
 
 
 
@@ -64,6 +67,9 @@ import { ListarComprasComponent } from './compras/listar-compras/listar-compras.
     VerPerfilComponent,
     VerPerfilesComponent,
     ListarComprasComponent,
+    CrearCompraComponent,
+    CrowshopComponent,
+    FormCompraComponent,
   ],
   imports: [
     CommonModule,

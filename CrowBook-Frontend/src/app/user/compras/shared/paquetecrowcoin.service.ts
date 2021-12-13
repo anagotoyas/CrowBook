@@ -15,4 +15,8 @@ export class PaqueteCrowCoinService {
     return this.http.get<PaqueteCrowCoin[]>(`${this.apiBase}/paquetes`);
   }
 
+  getPaqueteCrowCoinPorId(id:number){
+    return this.http.get<PaqueteCrowCoin>(`${this.apiBase}/paquetes/${id}`);
+  }
+
 }

@@ -19,6 +19,8 @@ import { VerPerfilesComponent } from './perfiles/ver-perfiles/ver-perfiles.compo
 import { VerPerfilComponent } from './perfiles/ver-perfil/ver-perfil.component';
 import { VerMiPerfilComponent } from './perfiles/ver-mi-perfil/ver-mi-perfil.component';
 import { ListarComprasComponent } from './compras/listar-compras/listar-compras.component';
+import { CrowshopComponent } from './compras/crowshop/crowshop.component';
+import { CrearCompraComponent } from './compras/crear-compra/crear-compra.component';
 
 const routes: Routes = [
   {
@@ -182,13 +184,24 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'compras',
+    path: '',
     component: LayoutComponent,
     children: [
       {
-        path: 'listar-compras',
-        component: ListarComprasComponent,
+        path: 'compras/crowshop',
+        component: CrowshopComponent
+        
       },
+      {
+        path: 'compras/listar-compras',
+        component: ListarComprasComponent,
+        
+      },
+      {
+        path: 'compras/crear-compra/:idp',
+        component: CrearCompraComponent,
+        
+      }
       
     ]
   }
