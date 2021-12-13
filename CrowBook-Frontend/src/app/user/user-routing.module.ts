@@ -18,6 +18,7 @@ import { ListarHistoriasBibliotecaComponent } from './historias/listar-historias
 import { VerPerfilesComponent } from './perfiles/ver-perfiles/ver-perfiles.component';
 import { VerPerfilComponent } from './perfiles/ver-perfil/ver-perfil.component';
 import { VerMiPerfilComponent } from './perfiles/ver-mi-perfil/ver-mi-perfil.component';
+import { ListarComprasComponent } from './compras/listar-compras/listar-compras.component';
 
 const routes: Routes = [
   {
@@ -180,6 +181,17 @@ const routes: Routes = [
       },
     ]
   },
+  {
+    path: 'compras',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'listar-compras',
+        component: ListarComprasComponent,
+      },
+      
+    ]
+  }
 
   
 ];

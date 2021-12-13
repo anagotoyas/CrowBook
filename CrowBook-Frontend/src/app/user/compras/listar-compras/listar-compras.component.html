@@ -1,0 +1,46 @@
+<div class="container2">
+    <div class="fila">
+      <div class="colu-1">
+        <h1>Mis Compras</h1><mat-icon class="icono"></mat-icon>
+      </div>
+    </div>
+  
+    <section>
+      <div class="mis_compras_list" >
+        <table
+          mat-table
+          [dataSource]="dataSource3"
+          matSort
+          class="mat-elevation-z8"
+          class="w-200"
+        
+        >
+          <ng-container matColumnDef="id" style="margin-left: 100px;">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header >ID</th>
+            <td mat-cell *matCellDef="let element">{{ element.idCompra }}</td>
+          </ng-container>
+  
+          <ng-container matColumnDef="cantidad">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Cantidad</th>
+            <td mat-cell *matCellDef="let element">{{ element.paqueteComprado.cantidadCoinsPaquete }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="precio">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Precio</th>
+            <td mat-cell *matCellDef="let element">s/. {{ element.paqueteComprado.precioPaquete }}.00</td>
+          </ng-container>
+  
+          <ng-container matColumnDef="fecha">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha</th>
+              <td mat-cell *matCellDef="let element">{{ element.fechaCompra }}</td>
+          </ng-container>
+  
+         
+  
+          <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns2"></tr>
+        </table>
+      </div>
+    </section>
+  </div>
+  

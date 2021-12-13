@@ -29,6 +29,8 @@ import { ListarHistoriasBibliotecaComponent } from './historias/listar-historias
 import { VerMiPerfilComponent } from './perfiles/ver-mi-perfil/ver-mi-perfil.component';
 import { VerPerfilComponent } from './perfiles/ver-perfil/ver-perfil.component';
 import { VerPerfilesComponent } from './perfiles/ver-perfiles/ver-perfiles.component';
+import { ListarComprasComponent } from './compras/listar-compras/listar-compras.component';
+
 
 
 @NgModule({
@@ -61,6 +63,7 @@ import { VerPerfilesComponent } from './perfiles/ver-perfiles/ver-perfiles.compo
     VerMiPerfilComponent,
     VerPerfilComponent,
     VerPerfilesComponent,
+    ListarComprasComponent,
   ],
   imports: [
     CommonModule,
