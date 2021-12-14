@@ -26,6 +26,7 @@ import { FormComentarioComponent } from './shared/form-comentario/form-comentari
 import { FormComentarioModificarComponent } from './shared/form-comentario-modificar/form-comentario-modificar.component';
 import { ModificarComentarioComponent } from './capitulos/modificar-comentario/modificar-comentario.component';
 import { ListarHistoriasBibliotecaComponent } from './historias/listar-historias-biblioteca/listar-historias-biblioteca.component';
+import { ListarHistoriasFavoritoComponent } from './historias/listar-historias-favorito/listar-historias-favorito.component';
 import { VerMiPerfilComponent } from './perfiles/ver-mi-perfil/ver-mi-perfil.component';
 import { VerPerfilComponent } from './perfiles/ver-perfil/ver-perfil.component';
 import { VerPerfilesComponent } from './perfiles/ver-perfiles/ver-perfiles.component';
@@ -63,6 +64,7 @@ import { FormCompraComponent } from './shared/form-compra/form-compra.component'
     FormComentarioModificarComponent,
     ModificarComentarioComponent,
     ListarHistoriasBibliotecaComponent,
+    ListarHistoriasFavoritoComponent,
     VerMiPerfilComponent,
     VerPerfilComponent,
     VerPerfilesComponent,

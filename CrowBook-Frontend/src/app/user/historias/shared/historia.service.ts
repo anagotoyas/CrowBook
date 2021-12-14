@@ -48,4 +48,10 @@ export class HistoriaService {
   verFavoritos(idUsuario: number){
     return this.http.get<Historia[]>( `${this.apiBase}/usuarios/${idUsuario}/favorito`)
   }
+  agregarAFavorito(idUsuario: number, idHistoria: number){
+    return this.http.put(`${this.apiBase}/usuarios/${idUsuario}/favorito/${idHistoria}`, null)
+  }
+  eliminarDeFavorito(idUsuario: number, idHistoria: number){
+    return this.http.delete<Historia>(`${this.apiBase}/usuarios/${idUsuario}/favorito/${idHistoria}`)
+  }
 }

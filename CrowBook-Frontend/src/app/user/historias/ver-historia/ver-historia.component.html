@@ -9,7 +9,7 @@
           <mat-card-title id="title-historia">{{dataSource.nombreHistoria}}
             <h4>Escrito por <a href="#" style="font-weight: bold; display: inline-block; margin-top: 5px; margin-bottom: 0px; color: #000; font-family: Signika;">{{user.nombreUsuario}}</a></h4>
           </mat-card-title>
-          
+      
           <mat-card-subtitle>
               {{dataSource.descripcionHistoria}}
             </mat-card-subtitle>
@@ -19,6 +19,10 @@
           <button mat-raised-button >Donar</button>  
           <button mat-icon-button color="primary">
             <mat-icon (click)="agregarBiblioteca()" >library_add</mat-icon>
+          </button>
+          &nbsp;&nbsp;
+          <button mat-icon-button color="primary">
+            <mat-icon (click)="agregarFavorito()" >favorite</mat-icon>
           </button>
         </div>
         <BR>

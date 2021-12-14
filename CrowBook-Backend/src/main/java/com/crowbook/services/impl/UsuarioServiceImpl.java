@@ -69,14 +69,12 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public void eliminarHistoriaBiblioteca(Usuario usuario,Historia historia) {
-
         usuario.getBiblioteca().remove(historia);
 
 
     }
     @Override
     public void eliminarHistoriaFavorito(Usuario usuario,Historia historia) {
-
         usuario.getFavorito().remove(historia);
 
 

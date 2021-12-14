@@ -45,6 +45,20 @@ export class VerMiPerfilComponent implements OnInit {
     });
   }
 
+  eliminarDeFavorito(idHistoria: number){
+    this.idUsuario = sessionStorage.getItem('idUsuario');
+    const ok = confirm('¿Estás seguro de eliminar la Historia de tus Favoritos?');
+    if(ok){
+      this.historiaService.eliminarDeFavorito(this.idUsuario,idHistoria).subscribe(()=> {
+        console.log(this.idUsuario)
+        console.log(idHistoria)
+
+        window.location.reload();
+      });
+    }
+
+  }
+
   getBiblioteca(){
     this.historiaService.verBiblioteca(Number(sessionStorage.getItem('idUsuario'))).subscribe((data)=>{
       this.dataSource3= new MatTableDataSource(data);

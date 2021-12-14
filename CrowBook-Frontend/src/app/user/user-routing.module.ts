@@ -15,6 +15,7 @@ import {ModificarResenasComponent} from './historias/modificar-resenas/modificar
 import { CrearComentarioComponent } from './capitulos/crear-comentario/crear-comentario.component'
 import { ModificarComentarioComponent } from './capitulos/modificar-comentario/modificar-comentario.component';
 import { ListarHistoriasBibliotecaComponent } from './historias/listar-historias-biblioteca/listar-historias-biblioteca.component';
+import { ListarHistoriasFavoritoComponent } from './historias/listar-historias-favorito/listar-historias-favorito.component';
 import { VerPerfilesComponent } from './perfiles/ver-perfiles/ver-perfiles.component';
 import { VerPerfilComponent } from './perfiles/ver-perfil/ver-perfil.component';
 import { VerMiPerfilComponent } from './perfiles/ver-mi-perfil/ver-mi-perfil.component';
@@ -39,6 +40,10 @@ const routes: Routes = [
       {
         path: 'historias/biblioteca',
         component: ListarHistoriasBibliotecaComponent,
+      },
+      {
+        path: 'historias/favorito',
+        component: ListarHistoriasFavoritoComponent,
       },
       {
         path: 'ver-mi-perfil',

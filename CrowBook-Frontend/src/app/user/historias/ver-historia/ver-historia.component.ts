@@ -100,13 +100,24 @@ export class VerHistoriaComponent implements OnInit {
       }
           
         });
-       
     
+    }
+       
+    agregarFavorito(){
+    const params = this.activeRoute.snapshot.params;
+    this.historiaService.getHistoriaPorId(params['idx']).subscribe((data:any) => {
+    this.dataSource = data['body'];
+    const ok = confirm('¿Estás seguro de agregar esta historia a tus Favoritos?');
+    if(ok){
+      this.historiaService.agregarAFavorito(Number(sessionStorage.getItem('idUsuario')),params['idx'] ).subscribe(()=>{
+       
+      })
+    }
+        
+      });
+}
      
   
     
-  }
-   
-
-  
 }
+   
