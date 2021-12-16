@@ -5,6 +5,6 @@ export class Usuario{
     correo: string;
     contrasenaUsuario: string;
     cantidadCrowCoins: number;
-    esMiembro: boolean;
+    esMiembro: string;
     membresia: Object;
 }

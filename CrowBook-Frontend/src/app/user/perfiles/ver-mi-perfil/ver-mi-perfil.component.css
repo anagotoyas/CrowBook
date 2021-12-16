@@ -17,6 +17,9 @@
     width: 70%;
     padding: 30px;
 }
+.red{
+    background-color:#878994;
+}
 
 mat-card-title-group{
     padding-left: 40px;

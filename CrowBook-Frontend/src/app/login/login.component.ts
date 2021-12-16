@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
     },
     err=>{
       console.log(err)
+      this.msg="Nombre de usuario o contraseña incorrectos"
     }
   )
   

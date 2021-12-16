@@ -1,0 +1,27 @@
+<form
+(ngSubmit)="registrar()"
+autocomplete="off"
+[formGroup]="form"
+
+
+>
+    
+<body>
+    <div class="login-box">
+        <img class="logo" src="https://i.imgur.com/UZORtIY.png" alt="CrowBook">
+        <div>
+            <input type="email" formControlName="correo"  placeholder="Correo electrónico">
+            <input type="text" formControlName="nombreUsuario" placeholder="Nombre de usuario">
+            <input type="text" formControlName="contrasenaUsuario" placeholder="Contraseña">
+            <input id="descripcion" formControlName="descripcionUsuario" type="text" placeholder="Descripción">
+            
+            <input type="submit" value="Crear Cuenta">
+        </div>
+        
+    </div>
+</body>
+</form>
+<div class="login-box2">
+    <p>¿Ya tienes una cuenta?</p>
+    <a href="/login"><button>Inicia Sesión</button></a>
+</div>

@@ -10,6 +10,7 @@ import { VerPerfilesComponent } from './user/perfiles/ver-perfiles/ver-perfiles.
 import { VerPerfilComponent } from './user/perfiles/ver-perfil/ver-perfil.component';
 import { VerMiPerfilComponent } from './user/perfiles/ver-mi-perfil/ver-mi-perfil.component';
 import { CrearCompraComponent } from './user/compras/crear-compra/crear-compra.component';
+import { RegistrarUsuarioComponent } from './registrar/registrar-usuario/registrar-usuario.component';
 
 const routes: Routes = [
   { 
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegistrarUsuarioComponent
   },
   {
     path: 'user/historias',

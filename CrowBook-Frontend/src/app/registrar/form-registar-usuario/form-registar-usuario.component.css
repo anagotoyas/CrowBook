@@ -1,7 +1,7 @@
 body{
     margin: 0;
     padding: 0;
-    background: url(https://i.imgur.com/wgn3Svy.png);
+    background: url(https://i.imgur.com/szVsnun.png);
     background-repeat: no-repeat;
     background-position-x: center;
     background-position-y: top;
@@ -13,7 +13,7 @@ body{
 
 .login-box{
     width: 550px;
-    height: 600px;
+    height: 700px;
     top: 50%;
     left: 50%;
     position: absolute;
@@ -32,7 +32,7 @@ body{
 }
 
 .login-box input[type="text"],
-.login-box input[type="password"]{
+.login-box input[type="email"]{
     width: 468px;
     height: 50px;
     border: none;
@@ -49,9 +49,8 @@ body{
     color: black;
     font-family: 'Signika', sans-serif;
 }
-.danger{
-    color:red;
-    font-size: 16px;
+.login-box2{
+    margin-top:-180px;
 }
 
 .login-box input[type="submit"]{
@@ -61,7 +60,7 @@ body{
     outline: none;
     background-color: #AC6D82;
     border-radius: 30px;
-    margin-top:55px;
+    margin-top:30px;
     color:white;
     font-family: 'Signika', sans-serif;
     font-weight: 700;
@@ -74,10 +73,16 @@ p{
     text-align: center;
     margin-bottom: 13px;
 }
+.login-box2{
+    left: 50%;
+    display: grid;
+    text-align: center;
+}
 
-.login-box button{
+.login-box2 button{
     width: 260px;
     height: 50px;
+    left: 50%;
     border: none;
     outline: none;
     cursor: pointer;
@@ -89,14 +94,19 @@ p{
     font-size: 22px;
     text-decoration: none;
     margin: auto;
-    top: 50%;
+    top: 60%;
+    
+
 }
 
+#descripcion{
+    height: 100px;
+}
 @media only screen and (max-width: 700px){
     body{
         margin: 0;
         padding: 0;
-        /*background: url(../assets/FondoInicioSesionMobile.png);*/
+        background: url(https://i.imgur.com/9ffVk79.png);
         background-repeat: no-repeat;
         background-position-x: center;
         background-position-y: top;
@@ -121,7 +131,7 @@ p{
     }
     
     .login-box input[type="text"],
-    .login-box input[type="password"]{
+    .login-box input[type="email"]{
         width: 340px;
         height: 40px;
         border: none;
@@ -145,4 +155,5 @@ p{
         height: 40px;
         font-weight: 600;
         font-size: 22px;
-    }}
+    }
+}

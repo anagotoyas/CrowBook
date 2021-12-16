@@ -1,0 +1,116 @@
+<form
+(ngSubmit)="update()"
+autocomplete="off"
+[formGroup]="form"
+#frmLibro2="ngForm"
+>
+    
+    <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Nombre de Usuario</mat-label>
+        <input
+        matInput #nombreInput
+        type="text"
+        maxlength="25"
+        placeholder="Nombre de Usuario"
+        formControlName="nombreUsuario"
+        required [(ngModel)]="usuario.nombreUsuario"
+        />
+        <mat-hint align="end">{{nombreInput.value?.length || 0}}/25</mat-hint>
+
+       
+    </mat-form-field>
+
+    <BR>
+    <mat-form-field appearance="outline" class="d-block">
+        <mat-label>Correo</mat-label>
+        <textarea
+        matInput #correoInput
+        type="text"
+        maxlength="500"
+        formControlName="correo"
+        required [(ngModel)]="usuario.correo"
+        ></textarea>
+        <mat-hint align="end">{{correoInput.value.length || 0}}/1000</mat-hint>
+
+      
+    </mat-form-field>
+    <BR>
+    <mat-form-field appearance="outline" class="d-block">
+            <mat-label>Contraseña</mat-label>
+            <textarea
+            matInput #contrasenaInput
+            maxlength="25"
+            formControlName="contrasenaUsuario"
+            required [(ngModel)]="usuario.contrasenaUsuario"
+            ></textarea>
+            <mat-hint align="end">{{contrasenaInput.value.length || 0}}/25</mat-hint>
+    
+          
+    </mat-form-field>
+    <BR>
+        <mat-form-field appearance="outline" class="d-block">
+            <mat-label>Descripción</mat-label>
+            <textarea
+            matInput #descripcionInput
+            maxlength="100"
+            formControlName="descripcionUsuario"
+            required [(ngModel)]="usuario.descripcionUsuario"
+            row="5"
+            ></textarea>
+            <mat-hint align="end">{{descripcionInput.value.length || 0}}/100</mat-hint>
+    
+          
+        </mat-form-field>
+
+    
+    <BR>
+        
+        <mat-form-field appearance="outline" class="d-block duro" >
+            <mat-label >Cantidad CrowCoins</mat-label>
+            <textarea
+            matInput #coinsInput
+            maxlength="100"
+            formControlName="cantidadCrowCoins"
+            required [(ngModel)]="usuario.cantidadCrowCoins"
+            row="5"
+            readonly
+            
+           
+            ></textarea>
+            <mat-hint align="end">{{coinsInput.value.length || 0}}/100</mat-hint>
+    
+            
+        </mat-form-field>
+    
+        
+        <BR>
+            <mat-form-field appearance="outline" class="d-block duro" >
+                <mat-label >¿Tiene membresía?</mat-label>
+                <textarea
+                matInput #miembroInput
+                maxlength="100"
+                formControlName="esMiembro"
+                required [(ngModel)]="usuario.esMiembro"
+               
+                readonly
+                
+               
+                ></textarea>
+                <mat-hint align="end">{{miembroInput}}</mat-hint>
+        
+                
+            </mat-form-field>
+        
+            
+            <BR>
+
+    <button mat-button routerLink="/user//ver-mi-perfil">Cancelar</button>
+    
+    <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    class="ms-2"
+    [disabled]="frmLibro2.invalid"
+    >Guardar</button>
+</form>

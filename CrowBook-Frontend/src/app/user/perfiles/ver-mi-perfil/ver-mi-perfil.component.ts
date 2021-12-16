@@ -22,7 +22,8 @@ export class VerMiPerfilComponent implements OnInit {
   constructor(
     private usuarioService: UsuarioService,
     private historiaService: HistoriaService,
-    private router: Router
+    private router: Router,
+    
 
   ) { }
 
@@ -82,6 +83,16 @@ export class VerMiPerfilComponent implements OnInit {
 
   verHistoria(idHistoria: number){
     this.router.navigate(['user/historias/', Number(sessionStorage.getItem('idUsuario')),'ver', idHistoria]);
+  }
+  eliminarCuenta(id: number){
+    console.log(id)
+    const ok = confirm('¿Estás seguro de eliminar tu cuenta?');
+    if(ok){
+      this.usuarioService.delete(id).subscribe(()=> {
+       
+        this.router.navigate([''])
+      });
+    }
   }
 
 }

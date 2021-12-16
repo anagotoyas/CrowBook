@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RegistrarUsuarioComponent } from './registrar/registrar-usuario/registrar-usuario.component';
+import { FormRegistarUsuarioComponent } from './registrar/form-registar-usuario/form-registar-usuario.component';
 
 
 
@@ -15,6 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     LoginComponent,
+    RegistrarUsuarioComponent,
+    FormRegistarUsuarioComponent
     
     
    
@@ -25,6 +29,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

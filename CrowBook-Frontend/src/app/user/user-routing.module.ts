@@ -22,12 +22,18 @@ import { VerMiPerfilComponent } from './perfiles/ver-mi-perfil/ver-mi-perfil.com
 import { ListarComprasComponent } from './compras/listar-compras/listar-compras.component';
 import { CrowshopComponent } from './compras/crowshop/crowshop.component';
 import { CrearCompraComponent } from './compras/crear-compra/crear-compra.component';
+import { RegistrarUsuarioComponent } from '../registrar/registrar-usuario/registrar-usuario.component';
+import { ModificarPerfilComponent } from './perfiles/modificar-perfil/modificar-perfil.component';
 
 const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
     children: [
+      {
+        path: 'register',
+        component: RegistrarUsuarioComponent,
+      },
       
       {
         path: 'historias',
@@ -48,6 +54,10 @@ const routes: Routes = [
       {
         path: 'ver-mi-perfil',
         component: VerMiPerfilComponent,
+      },
+      {
+        path: 'modificar-perfil',
+        component: ModificarPerfilComponent,
       },
       {
         path: 'ver-perfiles',

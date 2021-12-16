@@ -34,6 +34,10 @@ import { ListarComprasComponent } from './compras/listar-compras/listar-compras.
 import { CrearCompraComponent } from './compras/crear-compra/crear-compra.component';
 import { CrowshopComponent } from './compras/crowshop/crowshop.component';
 import { FormCompraComponent } from './shared/form-compra/form-compra.component';
+import { RegistrarUsuarioComponent } from '../registrar/registrar-usuario/registrar-usuario.component';
+import { FormRegistarUsuarioComponent } from '../registrar/form-registar-usuario/form-registar-usuario.component';
+import { ModificarPerfilComponent } from './perfiles/modificar-perfil/modificar-perfil.component';
+import { FormModificarPerfilComponent } from './shared/form-modificar-perfil/form-modificar-perfil.component';
 
 
 
@@ -72,6 +76,9 @@ import { FormCompraComponent } from './shared/form-compra/form-compra.component'
     CrearCompraComponent,
     CrowshopComponent,
     FormCompraComponent,
+    ModificarPerfilComponent,
+    FormModificarPerfilComponent,
+   
   ],
   imports: [
     CommonModule,
