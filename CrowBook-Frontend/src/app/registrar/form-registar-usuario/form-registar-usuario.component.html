@@ -14,13 +14,15 @@ autocomplete="off"
             <input type="text" formControlName="nombreUsuario" placeholder="Nombre de usuario">
             <input type="text" formControlName="contrasenaUsuario" placeholder="Contraseña">
             <input id="descripcion" formControlName="descripcionUsuario" type="text" placeholder="Descripción">
-            
+            <p class="danger">{{msg}}</p>
+            <br>
             <input type="submit" value="Crear Cuenta">
         </div>
         
     </div>
 </body>
 </form>
+<br>
 <div class="login-box2">
     <p>¿Ya tienes una cuenta?</p>
     <a href="/login"><button>Inicia Sesión</button></a>

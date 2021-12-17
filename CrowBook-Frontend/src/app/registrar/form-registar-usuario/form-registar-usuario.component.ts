@@ -71,7 +71,19 @@ export class FormRegistarUsuarioComponent implements OnInit {
   })
   }
   registrar(){
+    this.msg=""
+    
+    if(this.form.value.nombreUsuario==null || this.form.value.correo==null|| this.form.value.contrasenaUsuario==null|| this.form.value.descripcionUsuario==null){
+      this.msg="Debe llenar todos los campos"
+
+     
+    }
+    else if(this.form.value.nombreUsuario.length <1 || this.form.value.correo.lenght<1|| this.form.value.contrasenaUsuario.length<1|| this.form.value.descripcionUsuario.length<1){
+      this.msg="Debe llenar todos los campos"
+    }
     this.onSubmit.emit(this.form.value);
+    console.log(this.msg)
+    console.log(this.form.value.descripcionUsuario)
   }
 
 }

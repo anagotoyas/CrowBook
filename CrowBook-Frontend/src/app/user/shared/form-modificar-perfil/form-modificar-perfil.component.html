@@ -21,32 +21,35 @@ autocomplete="off"
     </mat-form-field>
 
     <BR>
-    <mat-form-field appearance="outline" class="d-block">
-        <mat-label>Correo</mat-label>
-        <textarea
-        matInput #correoInput
-        type="text"
-        maxlength="500"
-        formControlName="correo"
-        required [(ngModel)]="usuario.correo"
-        ></textarea>
-        <mat-hint align="end">{{correoInput.value.length || 0}}/1000</mat-hint>
-
-      
-    </mat-form-field>
+        <mat-form-field appearance="outline" class="d-block">
+            <mat-label>Correo</mat-label>
+            <input
+            matInput #correoInput
+            type="text"
+            
+            placeholder="Correo"
+            formControlName="correo"
+            required [(ngModel)]="usuario.correo"
+            />
+            <mat-hint align="end">{{correoInput.value?.length || 0}}</mat-hint>
+    
+           
+        </mat-form-field>
     <BR>
-    <mat-form-field appearance="outline" class="d-block">
+        <mat-form-field appearance="outline" class="d-block">
             <mat-label>Contraseña</mat-label>
-            <textarea
+            <input
             matInput #contrasenaInput
+            type="text"
             maxlength="25"
+            placeholder="Contraseña"
             formControlName="contrasenaUsuario"
             required [(ngModel)]="usuario.contrasenaUsuario"
-            ></textarea>
-            <mat-hint align="end">{{contrasenaInput.value.length || 0}}/25</mat-hint>
+            />
+            <mat-hint align="end">{{contrasenaInput.value?.length || 0}}/25</mat-hint>
     
-          
-    </mat-form-field>
+           
+        </mat-form-field>
     <BR>
         <mat-form-field appearance="outline" class="d-block">
             <mat-label>Descripción</mat-label>
@@ -65,41 +68,40 @@ autocomplete="off"
     
     <BR>
         
-        <mat-form-field appearance="outline" class="d-block duro" >
-            <mat-label >Cantidad CrowCoins</mat-label>
-            <textarea
+        <mat-form-field appearance="outline" class="d-block duro">
+            <mat-label>Cantidad de CrowCoins</mat-label>
+            <input
             matInput #coinsInput
-            maxlength="100"
+            type="text"
+          
+            placeholder="Cantidad de CrowCoins"
             formControlName="cantidadCrowCoins"
             required [(ngModel)]="usuario.cantidadCrowCoins"
-            row="5"
             readonly
-            
-           
-            ></textarea>
-            <mat-hint align="end">{{coinsInput.value.length || 0}}/100</mat-hint>
+            />
+            <mat-hint align="end">{{coinsInput.value?.length || 0}}</mat-hint>
     
-            
+           
         </mat-form-field>
     
         
         <BR>
-            <mat-form-field appearance="outline" class="d-block duro" >
-                <mat-label >¿Tiene membresía?</mat-label>
-                <textarea
-                matInput #miembroInput
-                maxlength="100"
-                formControlName="esMiembro"
-                required [(ngModel)]="usuario.esMiembro"
-               
+            <mat-form-field appearance="outline" class="d-block duro">
+                <mat-label>¿Es CrowMember?</mat-label>
+                <input
+                matInput #memberInput
+                type="text"
                 readonly
                 
-               
-                ></textarea>
-                <mat-hint align="end">{{miembroInput}}</mat-hint>
+                formControlName="esMiembro"
+                required [(ngModel)]="usuario.esMiembro"
+                />
+                <mat-hint align="end">{{memberInput.value?.length || 0}}</mat-hint>
         
-                
+               
             </mat-form-field>
+            
+            
         
             
             <BR>

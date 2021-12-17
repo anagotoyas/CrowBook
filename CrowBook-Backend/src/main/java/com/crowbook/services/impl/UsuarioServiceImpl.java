@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
@@ -99,6 +100,24 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public Usuario fetchUserByNombreyContra(String nombreUsuario, String contrasenaUsuario){
         return usuarioRepository.findByNombreUsuarioAndContrasenaUsuario(nombreUsuario, contrasenaUsuario);
+    }
+    @Transactional
+    public Optional<Usuario> findByNombreUsuario(String nombreUsuario){
+        return usuarioRepository.findUsuarioByNombreUsuario(nombreUsuario);
+    }
+    @Transactional
+    public Optional<Usuario> findByCorreo(String correo){
+        return usuarioRepository.findUsuarioByCorreo(correo);
+    }
+
+    @Override
+    public boolean userExists (String nombreUsuario){
+        return findByNombreUsuario(nombreUsuario).isPresent();
+    }
+
+    @Override
+    public boolean correoExists(String correo) {
+        return findByCorreo(correo).isPresent();
     }
 
 

@@ -26,6 +26,9 @@ public interface UsuarioService {
      void eliminarHistoriaFavorito(Usuario usuario, Historia historia) ;
 
      Usuario fetchUserByNombreyContra(String nombreUsuario, String contrasenaUsuario);
+    public boolean userExists (String nombreUsuario);
+
+    public boolean correoExists (String correo);
 
 
 }

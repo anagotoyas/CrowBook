@@ -230,6 +230,7 @@ const routes: Routes = [
         component: CrearCompraComponent,
         
       }
+     
       
     ]
   }

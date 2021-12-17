@@ -46,12 +46,15 @@ body{
 }
 
 .login-box input::placeholder{
-    color: black;
+    color: grey;
     font-family: 'Signika', sans-serif;
 }
 .danger{
     color:red;
     font-size: 16px;
+    font-weight: 700;
+    
+    text-align: center;
 }
 
 .login-box input[type="submit"]{

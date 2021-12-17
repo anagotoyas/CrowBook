@@ -61,8 +61,19 @@ public class UsuarioController {
 
     @PostMapping
     public ResponseEntity<WrapperResponse<Usuario>> registrarUsuario(@Valid @RequestBody Usuario usuario) {
-        Usuario usuarioNew = usuarioService.registrarUsuario(usuario);
-        return new WrapperResponse<>(true,"success",usuarioNew).createResponse();
+        Usuario userNull=null;
+        if (usuarioService.userExists(usuario.getNombreUsuario())){
+
+            return new WrapperResponse<>(false,"El nombre de usuario ya existe", userNull).createResponse();
+        }
+        else if(usuarioService.correoExists(usuario.getCorreo())){
+            return new WrapperResponse<>(false,"El correo ya se encuentra registrado", userNull).createResponse();
+        }
+
+        else {
+            Usuario usuarioNew = usuarioService.registrarUsuario(usuario);
+            return new WrapperResponse<>(true,"success",usuarioNew).createResponse();
+        }
     }
     @PostMapping("/login")
     @CrossOrigin(origins = "http://localhost:4200/signin")

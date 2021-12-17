@@ -11,6 +11,7 @@ body{
     font-size: 16px;
 }
 
+
 .login-box{
     width: 550px;
     height: 700px;
@@ -24,6 +25,7 @@ body{
     display: grid;
     text-align: center;
 }
+
 
 .login-box .logo{
     height: 120px;
@@ -46,11 +48,19 @@ body{
 }
 
 .login-box input::placeholder{
-    color: black;
+    color: grey;
     font-family: 'Signika', sans-serif;
 }
 .login-box2{
-    margin-top:-180px;
+    margin-top:-130px;
+}
+.danger{
+    color:red;
+    font-size: 16px;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 700;
+    font-family: 'Signika', sans-serif;
 }
 
 .login-box input[type="submit"]{

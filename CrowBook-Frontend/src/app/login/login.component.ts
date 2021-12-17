@@ -21,7 +21,11 @@ export class LoginComponent implements OnInit {
   }
   loginUser(){
     
-  this.service.signIn(this.usuario)
+    if(this.usuario.nombreUsuario==null || this.usuario.contrasenaUsuario==null){
+      this.msg="Debe llenar todos los campos"
+    }
+    else{
+      this.service.signIn(this.usuario)
   
   
   .subscribe(
@@ -43,5 +47,5 @@ export class LoginComponent implements OnInit {
     }
     
   
-
+  }
 }
