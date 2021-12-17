@@ -65,7 +65,7 @@ export class FormRegistarUsuarioComponent implements OnInit {
         this.usuario.cantidadCrowCoins=0,
     ],
     esMiembro: [
-      this.usuario.esMiembro="false",
+      this.usuario.esMiembro=false,
   ],
 
   })

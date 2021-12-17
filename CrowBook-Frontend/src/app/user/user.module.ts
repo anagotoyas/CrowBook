@@ -38,6 +38,8 @@ import { RegistrarUsuarioComponent } from '../registrar/registrar-usuario/regist
 import { FormRegistarUsuarioComponent } from '../registrar/form-registar-usuario/form-registar-usuario.component';
 import { ModificarPerfilComponent } from './perfiles/modificar-perfil/modificar-perfil.component';
 import { FormModificarPerfilComponent } from './shared/form-modificar-perfil/form-modificar-perfil.component';
+import { CrearMembresiaComponent } from './compras/crear-membresia/crear-membresia.component';
+import { FormMembresiaComponent } from './shared/form-membresia/form-membresia.component';
 
 
 
@@ -78,6 +80,8 @@ import { FormModificarPerfilComponent } from './shared/form-modificar-perfil/for
     FormCompraComponent,
     ModificarPerfilComponent,
     FormModificarPerfilComponent,
+    CrearMembresiaComponent,
+    FormMembresiaComponent,
    
   ],
   imports: [

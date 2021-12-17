@@ -47,7 +47,8 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario", cascade = {CascadeType.ALL})
     private List<Historia> historia;
 
-    @OneToOne(mappedBy = "usuario")
+    @JsonIgnore
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
     private Membresia membresia;
 
     @OneToMany(mappedBy ="usuario", cascade ={CascadeType.ALL})

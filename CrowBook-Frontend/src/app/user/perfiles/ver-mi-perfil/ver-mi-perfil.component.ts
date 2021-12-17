@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Membresia } from '../../compras/shared/membresia.model';
+import { MembresiaService } from '../../compras/shared/membresia.service';
 import { Historia } from '../../historias/shared/historia.model';
 import { HistoriaService } from '../../historias/shared/historia.service';
 import { Usuario } from '../shared/usuario.model';
@@ -18,12 +20,17 @@ export class VerMiPerfilComponent implements OnInit {
   dataSource: Usuario;
   dataSource2: MatTableDataSource<Historia>;
   dataSource3: MatTableDataSource<Historia>;
+  membresia: any;
+  mem: Membresia;
+  isShown: boolean = false;
+  isShown2: boolean = false;
+
 
   constructor(
     private usuarioService: UsuarioService,
     private historiaService: HistoriaService,
     private router: Router,
-    
+    private membresiaService: MembresiaService,
 
   ) { }
 
@@ -36,6 +43,25 @@ export class VerMiPerfilComponent implements OnInit {
   getUsuarioPorId(){
     this.usuarioService.getUsuarioPorId(Number(sessionStorage.getItem('idUsuario'))).subscribe((data:any) => {
       this.dataSource = data['body'];
+
+      if (this.dataSource.esMiembro == true){
+        this.membresiaService.getMembresiaDeUsuario(Number(sessionStorage.getItem('idUsuario'))).subscribe((data) => {
+          this.mem = data;
+          this.membresia = "Miembro desde "+ data.fechaCompra;
+          this.isShown =! this.isShown;
+        });
+      }
+      
+      if (this.dataSource.esMiembro == false) {
+        this.membresiaService.getMembresiaDeUsuario(Number(sessionStorage.getItem('idUsuario'))).subscribe((data2) => {
+          if(data2){
+            this.mem = data2;
+          this.isShown2 =! this.isShown2;
+          }
+          
+        });
+      }
+
     });
   }
 
@@ -43,6 +69,7 @@ export class VerMiPerfilComponent implements OnInit {
     this.historiaService.verFavoritos(Number(sessionStorage.getItem('idUsuario'))).subscribe((data)=>{
       this.dataSource2= new MatTableDataSource(data);
       console.log(data)
+
     });
   }
 
@@ -92,6 +119,30 @@ export class VerMiPerfilComponent implements OnInit {
        
         this.router.navigate([''])
       });
+    }
+  }
+
+  cancelarMembresia() {
+
+    const ok = confirm('¿Estás seguro de cancelar tu membresia?');
+    if(ok) {
+      this.membresiaService.cancelarMembresia(this.mem).subscribe((data2:any) => {
+        this.mem = data2;
+        window.location.reload();
+      });
+      
+    }
+    
+  }
+
+  renovarMembresia(){
+    const ok = confirm('¿Estás seguro de renovar tu membresia?');
+    if(ok) {
+      this.membresiaService.renovarMembresia(this.mem).subscribe((data3:any) => {
+        this.mem = data3;
+        window.location.reload();
+      });
+      
     }
   }
 

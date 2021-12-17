@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name="membresias")
@@ -17,17 +18,15 @@ public class Membresia {
     @Column(name="costo_membresia", nullable = false)
     public float costoMembresia;
 
-    @Column(name = "fecha_inicio_membresia", nullable = false)
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss[.SSS][.SS][.S]")
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    @Temporal (TemporalType.TIMESTAMP)
+    @Column(name = "fecha_membresia", nullable = false)
+    private Date fechaCompra;
 
-    private LocalDateTime fechaInicioMembresia;
-
-    @Column(name = "fecha_fin_membresia", nullable = false)
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss[.SSS][.SS][.S]")
-    private LocalDateTime fechaFinMembresia;
-
-    @Column(name="descuento_membresia")
-    public float descuentoMembresia;
+    @PrePersist
+    public void onCreate() {
+        fechaCompra = new Date();
+    }
 
     @OneToOne
     @JoinColumn(name="usuario_membresia")
@@ -53,27 +52,19 @@ public class Membresia {
         this.costoMembresia = costoMembresia;
     }
 
-    public LocalDateTime getFechaInicioMembresia() {
-        return fechaInicioMembresia;
+    public Date getFechaCompra() {
+        return fechaCompra;
     }
 
-    public void setFechaInicioMembresia(LocalDateTime fechaInicioMembresia) {
-        this.fechaInicioMembresia = fechaInicioMembresia;
+    public void setFechaCompra(Date fechaCompra) {
+        this.fechaCompra = fechaCompra;
     }
 
-    public LocalDateTime getFechaFinMembresia() {
-        return fechaFinMembresia;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setFechaFinMembresia(LocalDateTime fechaFinMembresia) {
-        this.fechaFinMembresia = fechaFinMembresia;
-    }
-
-    public float getDescuentoMembresia() {
-        return descuentoMembresia;
-    }
-
-    public void setDescuentoMembresia(float descuentoMembresia) {
-        this.descuentoMembresia = descuentoMembresia;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }

@@ -24,6 +24,7 @@ import { CrowshopComponent } from './compras/crowshop/crowshop.component';
 import { CrearCompraComponent } from './compras/crear-compra/crear-compra.component';
 import { RegistrarUsuarioComponent } from '../registrar/registrar-usuario/registrar-usuario.component';
 import { ModificarPerfilComponent } from './perfiles/modificar-perfil/modificar-perfil.component';
+import { CrearMembresiaComponent } from './compras/crear-membresia/crear-membresia.component';
 
 const routes: Routes = [
   {
@@ -210,6 +211,11 @@ const routes: Routes = [
       {
         path: 'compras/listar-compras',
         component: ListarComprasComponent,
+        
+      },
+      {
+        path: 'compras/crear-membresia',
+        component: CrearMembresiaComponent,
         
       },
       {

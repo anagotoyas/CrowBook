@@ -11,6 +11,7 @@
                     </mat-card-title>
                     <mat-card-subtitle>
                         {{dataSource.descripcionUsuario}}
+                        <br><p style="font-size: 12px; font-style: italic;"> {{this.membresia}} </p>
                     </mat-card-subtitle>
                 </mat-card-title-group>
             </div>
@@ -20,6 +21,12 @@
                 <button mat-flat-button routerLink="../modificar-perfil" class="botones" color="accent">Editar perfil</button>
                 <br>
                 <button mat-flat-button (click)="eliminarCuenta(dataSource.idUsuario)" class="botones red" color="accent">Eliminar cuenta</button>
+                <div *ngIf="isShown">
+                    <button mat-flat-button class="boton-cancel" color="primary" (click)="cancelarMembresia()" >Cancelar Membresia</button>
+                </div>
+                <div *ngIf="isShown2">
+                    <button mat-flat-button class="boton-cancel" color="primary" (click)="renovarMembresia()" >Renovar Membresia</button>
+                </div>
             </div>
 
         </div>

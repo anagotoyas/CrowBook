@@ -17,6 +17,16 @@
     width: 70%;
     padding: 30px;
 }
+
+.boton-cancel {
+    font-family: Signika;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    width: 65%;
+    margin-bottom: 5px;
+}
+
 .red{
     background-color:#878994;
 }
@@ -64,7 +74,7 @@ table{
     font-family: Signika;
     font-size: 15px;
     font-weight: bold;
-    width: 60%;
+    width: 65%;
     margin-bottom: 5px;
     
 }

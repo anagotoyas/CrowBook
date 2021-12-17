@@ -1,0 +1,62 @@
+<div class="cajota">
+    <form
+    (ngSubmit)="save()"
+    autocomplete="off"
+    [formGroup]="form"
+    #frmLibro="ngForm"
+    >
+    
+    <div class="input-box1">
+        <mat-form-field appearance="outline">
+            <input matInput placeholder="Número de tarjeta">
+            <mat-icon matSuffix>credit_card</mat-icon>
+        </mat-form-field>
+    </div>
+    <div class="form1">
+        <div class="input-box2" style="margin-right: 20px;">
+            <mat-form-field color="primary" appearance="outline">
+                <mat-label style=" font-family: Signika; font-size: 16px; opacity: 0.9;">Fecha de caducidad</mat-label>
+                <input matInput [matDatepicker]="picker2">
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2 color="primary"></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="input-box2">
+            <mat-form-field appearance="outline">
+                <input matInput placeholder="Código CVV">
+                <mat-icon matSuffix>picture_in_picture</mat-icon>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="form1">
+    <div class="input-box2" style="margin-right: 20px;">
+        <mat-form-field appearance="outline">
+            <input matInput placeholder="Nombres">
+            <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+    </div>
+    <div class="input-box2">
+        <mat-form-field appearance="outline">
+            <input matInput placeholder="Apellidos">
+            <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+    </div>
+    </div>
+    <div class="input-box1">
+        <mat-form-field appearance="outline">
+            <input matInput placeholder="Correo electrónico">
+            <mat-icon matSuffix>alternate_email</mat-icon>
+        </mat-form-field>
+    </div>
+    
+    <button mat-button routerLink="/user/compras/crowshop" style="margin-right: 20px; background-color: rgb(223, 223, 223);">Cancelar</button>
+    <button
+    style="background-color: #9F7498; width: 85px;"
+        mat-raised-button
+        color="primary"
+        type="submit"
+        class="ms-2"
+    >Pagar</button>
+    
+    </form>
+    </div>

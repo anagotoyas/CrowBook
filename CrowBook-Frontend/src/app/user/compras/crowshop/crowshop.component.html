@@ -1,24 +1,46 @@
 <section class="titulo-shop">
-    <h1 class="titlee">CrowShop</h1>
-  </section>
-  <div class="mensajito">
-    <p class="mensajito_p">¡Apoya a tus autores favoritos!
-      <br>Ellos son la razón por la que existimos ❤</p>
-    </div>
+  <h1 class="titlee">CrowShop</h1>
+</section>
+<div class="mensajito">
+  <p class="mensajito_p">¡Apoya a tus autores favoritos!
+    <br>Ellos son la razón por la que existimos ❤</p>
+  </div>
+
+<section class="cajita">
+<mat-card class="example-card" *ngFor="let element of dataSource">
+    <mat-card-header>
+    </mat-card-header>
+    
+    <mat-card-content style="text-align: center; margin-top: 25px;">
+      <img src="../../../../assets/card1.png" class="coin">
+      <p class="cantidad_crowcoins">
+        {{element.cantidadCoinsPaquete}} CrowCoins
+      </p>
+    </mat-card-content>
+    <mat-card-actions style="text-align: center;">
+      <button mat-button routerLink="/user/compras/crear-compra/{{element.idPaquete}}" class="boton_paquete">s/. {{element.precioPaquete}}.00</button>
+    </mat-card-actions>
+</mat-card>
+</section>
+<section class="titulo-shop">
+  <h1 class="titlee">¡Conviértete en CrowMember!</h1>
+</section>
+<section class="membresia">
   
-  <section class="cajita">
-  <mat-card class="example-card" *ngFor="let element of dataSource">
-      <mat-card-header>
-      </mat-card-header>
-      
-      <mat-card-content style="text-align: center; margin-top: 25px;">
-        <img src="../../../../assets/card1.png" class="coin">
-        <p class="cantidad_crowcoins">
-          {{element.cantidadCoinsPaquete}} CrowCoins
-        </p>
-      </mat-card-content>
-      <mat-card-actions style="text-align: center;">
-        <button mat-button routerLink="/user/compras/crear-compra/{{element.idPaquete}}" class="boton_paquete">s/. {{element.precioPaquete}}.00</button>
-      </mat-card-actions>
-  </mat-card>
-  </section>
+  <div class="caja">
+    
+  <div class="text-mem" >
+    <mat-icon style="position: absolute; font-size: 35px;">check_circle_outline</mat-icon>
+    <p class="mensajito_p" style="text-align:left;"><b>⠀⠀⠀ ¡No más publicidad! En serio.</b>
+    <br>⠀⠀⠀ Podrás leer tranquilamente libros sin ver molestos anuncios entre capítulos.</p>
+    <br>
+    <mat-icon style="position: absolute; font-size: 35px;">check_circle_outline</mat-icon>
+    <p class="mensajito_p" style="text-align:left;"><b>⠀⠀⠀ ¡30% de descuento en cada compra de CrowCoins! Yup.</b>
+    <br>⠀⠀⠀ Se te descontará el 30% del precio de tu compra solo por ser un CrowMember. </p>
+      <br>
+    <button mat-button routerLink="/user/compras/crear-membresia" class="boton_membresia">⠀¡Adquirir Membresía!⠀</button>
+  </div>
+    <img src="../../../../assets/img comprar crow.png" class="portada" alt="portadahistoria">
+  
+</div>
+</section>

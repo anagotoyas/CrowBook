@@ -11,6 +11,7 @@ import { VerPerfilComponent } from './user/perfiles/ver-perfil/ver-perfil.compon
 import { VerMiPerfilComponent } from './user/perfiles/ver-mi-perfil/ver-mi-perfil.component';
 import { CrearCompraComponent } from './user/compras/crear-compra/crear-compra.component';
 import { RegistrarUsuarioComponent } from './registrar/registrar-usuario/registrar-usuario.component';
+import { CrearMembresiaComponent } from './user/compras/crear-membresia/crear-membresia.component';
 
 const routes: Routes = [
   { 
@@ -66,8 +67,11 @@ const routes: Routes = [
   {
     path: 'user/compras/crear-compra/:idp',
     component: CrearCompraComponent
+  },
+  {
+    path: 'user/compras/crear-membresia',
+    component: CrearMembresiaComponent
   }
-
   
 
 ];
