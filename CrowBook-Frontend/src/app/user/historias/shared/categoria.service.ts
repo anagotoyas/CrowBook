@@ -14,4 +14,8 @@ export class CategoriaService {
     return this.http.get<Categoria[]>(`${this.apiBase}/categorias`);
   }
 
+  getCategoriaPorId(idCategoria: number){
+    return this.http.get<Categoria>(`${this.apiBase}/categorias/${idCategoria}`);
+  }
+
 }

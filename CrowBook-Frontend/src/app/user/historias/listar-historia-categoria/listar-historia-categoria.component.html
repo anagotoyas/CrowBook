@@ -1,0 +1,78 @@
+<div class="container1" style="margin: 100px;">
+    <h1 class="fw-bold">Filtrar por categoria</h1>
+  
+  <div layout='row' layout-align='center end'> 
+  <form *ngFor="let categoria of categoriasid" >
+      <!---routerLink= funcionará en el Netifly?--->
+  <button
+      mat-raised-button
+      style="float: left;"
+      routerLink="./listar-historia-categoria/../../{{categoria.idCategoria}}" 
+      color="primary"
+      type="submit"
+      class="md-raised md-primary material-cust-large-button"
+      >{{categoria.nombreCategoria}}</button>
+    </form>
+  <BR>
+  </div>
+  </div>
+
+<div class="container2" style="margin: 100px;">
+    <h1 *ngIf="categoria" class="fw-bold">Historias de genero: {{categoria.nombreCategoria}}</h1>
+  
+    <div class="example-header">
+      <mat-form-field>
+        <input
+          matInput
+          (keyup)="applyFilter($event.target.value)"
+          placeholder="Buscar historia"
+        />
+      </mat-form-field>
+    </div>
+  
+    <div>
+      <table 
+        mat-table
+        [dataSource]="dataSource"
+        matSort
+        class="mat-elevation-z8"
+        class="w-100"
+      >
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Título</th>
+          <td mat-cell *matCellDef="let element">{{ element.nombreHistoria }}</td>
+        </ng-container>
+    
+        <ng-container matColumnDef="usuario">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Autor</th>
+          <td mat-cell *matCellDef="let element">{{ element.usuario.nombreUsuario }}</td>
+        </ng-container>
+    
+        <ng-container matColumnDef="categoria">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Género</th>
+          <td mat-cell *matCellDef="let element">{{ element.categoria.nombreCategoria }}</td>
+        </ng-container>
+  
+      
+    
+        <ng-container matColumnDef="acciones">
+          <th mat-header-cell *matHeaderCellDef>Leer</th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              id="ver-boton" 
+              mat-icon-button
+              color="primary"
+              [routerLink]="['../../ver',element.idHistoria ]" 
+            > <!--Se podra en el netlify?-->
+            <mat-icon>visibility</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  
+    </div>
+  

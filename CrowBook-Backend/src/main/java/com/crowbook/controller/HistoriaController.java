@@ -57,6 +57,12 @@ public class HistoriaController {
         return new WrapperResponse<>(true, "success", historiaC).createResponse();
     }
 
+    @GetMapping("/listarPorIdCategoria")
+    public ResponseEntity<WrapperResponse<List<Historia>>> listarHistoriasPorIdCategoria(@RequestParam Integer idCategoria){
+        List<Historia> historiaC=historiaService.listarHistoriasPorIdCategoria(idCategoria);
+        return new WrapperResponse<>(true, "success", historiaC).createResponse();
+    }
+
     @GetMapping("/buscarPorIdUsuario")
     public ResponseEntity<WrapperResponse<List<Historia>>> buscarHistoriaPorIdUsuario(@RequestParam Usuario usuario){
         List<Historia> usuarioid=historiaService.buscarHistoriaPorIdUsuario(usuario);

@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { HistoriaService } from '../shared/historia.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { Historia } from '../shared/historia.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Categoria } from '../../historias/shared/categoria.model';
+import { CategoriaService } from '../../historias/shared/categoria.service';
 
 @Component({
   selector: 'app-listar-historia',
@@ -10,13 +12,23 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./listar-historia.component.css']
 })
 export class ListarHistoriaComponent implements OnInit {
+  //
+  onSubmit: EventEmitter<any> = new EventEmitter();
+  //
   
   displayedColumns: string[] = ['nombre', 'usuario','categoria',  'acciones'];
   dataSource: MatTableDataSource<Historia>;
   user: any;
-  constructor(private historiaService: HistoriaService, private route: ActivatedRoute,private router:Router) { }
+  categoriasid: Categoria [];
+  constructor(private historiaService: HistoriaService, private route: ActivatedRoute,private router:Router,private categoriaService: CategoriaService) {}
+  getAllCategorias(){
+    this.categoriaService.getAllCategorias().subscribe((data)=>{
+      this.categoriasid=data;
+    });
+  }
 
   ngOnInit(): void {
+    this.getAllCategorias();
     this.getAllHistorias();
     this.route.paramMap.subscribe((paramMap: any) => {
 
@@ -46,5 +58,5 @@ export class ListarHistoriaComponent implements OnInit {
     eliminar(id:number){
   
     }
-}
 
+}

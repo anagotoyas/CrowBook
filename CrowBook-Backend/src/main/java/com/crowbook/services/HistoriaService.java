@@ -19,6 +19,7 @@ public interface HistoriaService {
     List<Historia> buscarHistoriaPorNombre(String nombreHistoria);
     List<Historia> listarHistoriaPorCategoria(Categoria categoria);
     List<Historia> buscarHistoriaPorIdUsuario(Usuario usuario);
+    List<Historia> listarHistoriasPorIdCategoria(Integer idCategoria);
 
     public Page<Historia> index(Pageable pageable) ;
 

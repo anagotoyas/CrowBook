@@ -54,4 +54,7 @@ export class HistoriaService {
   eliminarDeFavorito(idUsuario: number, idHistoria: number){
     return this.http.delete<Historia>(`${this.apiBase}/usuarios/${idUsuario}/favorito/${idHistoria}`)
   }
+  getHistoriaPorIdCategoria(idCategoria: number){
+    return this.http.get<Historia[]>(`${this.apiBase}/historias/listarPorIdCategoria?idCategoria=${idCategoria}`)
+  }
 }

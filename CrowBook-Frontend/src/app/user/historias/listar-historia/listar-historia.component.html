@@ -1,3 +1,31 @@
+<!--<div class="container1" style="margin: 100px;">
+  <h1 class="fw-bold">Generos mas leidos</h1>
+<div>
+  <button mat-raised-button style="margin: 10px" class="md-raised md-primary material-cust-large-button" color="warn">Drama</button> 
+  <button mat-raised-button style="margin: 10px" class="md-raised md-primary material-cust-large-button" color="primary">Novela</button> 
+  <button mat-raised-button class="md-raised md-primary material-cust-large-button" style="margin: 10px">Ficcion</button> 
+  <button mat-raised-button style="margin: 10px" class="md-raised md-primary material-cust-large-button" color="accent">Accion</button>
+</div>
+</div>
+-->
+<div class="container1" style="margin: 100px;">
+  <h1 class="fw-bold">Filtrar por categoria</h1>
+
+<div layout='row' layout-align='center end'> 
+<form *ngFor="let categoria of categoriasid" >
+<button
+    mat-raised-button
+    style="float: left;"
+    routerLink="./listar-historia-categoria/{{categoria.idCategoria}}" 
+    color="primary"
+    type="submit"
+    class="md-raised md-primary material-cust-large-button"
+    >{{categoria.nombreCategoria}}</button>
+  </form>
+<BR>
+</div>
+</div>
+
 <div class="container2" style="margin: 100px;">
   <h1 class="fw-bold">Historias</h1>
 

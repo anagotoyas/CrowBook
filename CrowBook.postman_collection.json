@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d9db0684-eae7-48e8-96de-cc2eec1b94a4",
+		"_postman_id": "593d8a97-c836-4298-8e34-8a32444d7fb3",
 		"name": "CrowBook",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -1027,6 +1027,51 @@
 						}
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Donaciones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Usuario Por ID Historia",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar ID Usuario por ID Historia",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Cantidad Coins Por ID Usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Historia Por ID Categoria",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
 			},
 			"response": []
 		}

@@ -43,6 +43,7 @@ import { FormMembresiaComponent } from './shared/form-membresia/form-membresia.c
 import { ModalComponent } from './historias/shared/modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog'; 
 import { MatButtonModule } from '@angular/material/button';
+import { ListarHistoriaCategoriaComponent } from './historias/listar-historia-categoria/listar-historia-categoria.component';
 
 
 
@@ -86,6 +87,7 @@ import { MatButtonModule } from '@angular/material/button';
     CrearMembresiaComponent,
     FormMembresiaComponent,
     ModalComponent,
+    ListarHistoriaCategoriaComponent,
    
   ],
   imports: [

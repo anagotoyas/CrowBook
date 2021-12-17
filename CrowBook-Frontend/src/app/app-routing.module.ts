@@ -12,6 +12,7 @@ import { VerMiPerfilComponent } from './user/perfiles/ver-mi-perfil/ver-mi-perfi
 import { CrearCompraComponent } from './user/compras/crear-compra/crear-compra.component';
 import { RegistrarUsuarioComponent } from './registrar/registrar-usuario/registrar-usuario.component';
 import { CrearMembresiaComponent } from './user/compras/crear-membresia/crear-membresia.component';
+import { ListarHistoriaCategoriaComponent } from'./user/historias/listar-historia-categoria/listar-historia-categoria.component'; //categoria
 
 const routes: Routes = [
   { 
@@ -36,6 +37,12 @@ const routes: Routes = [
     path: 'user/historias',
     component: ListarHistoriaComponent
   },
+  //Categoria
+  {
+    path: 'user/historias/:idu/listar-historia-categoria/:idc',
+    component: ListarHistoriaCategoriaComponent
+  },
+  //CloseCategoria
   {
     path: 'user/historias/ver-mis-historias',
     component: VerMisHistoriasComponent

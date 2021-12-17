@@ -25,6 +25,7 @@ import { CrearCompraComponent } from './compras/crear-compra/crear-compra.compon
 import { RegistrarUsuarioComponent } from '../registrar/registrar-usuario/registrar-usuario.component';
 import { ModificarPerfilComponent } from './perfiles/modificar-perfil/modificar-perfil.component';
 import { CrearMembresiaComponent } from './compras/crear-membresia/crear-membresia.component';
+import { ListarHistoriaCategoriaComponent } from './historias/listar-historia-categoria/listar-historia-categoria.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,12 @@ const routes: Routes = [
         path: 'historias',
         component: ListarHistoriaComponent,
       },
+      //Categoria
+      {
+        path: 'historias/:idu/listar-historia-categoria/:idc',
+        component: ListarHistoriaCategoriaComponent,
+      },
+      //closeCategoria
       {
         path: 'historias/crear',
         component: CrearHistoriaComponent,

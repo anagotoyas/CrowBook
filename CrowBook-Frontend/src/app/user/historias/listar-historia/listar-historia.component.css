@@ -13,6 +13,18 @@
 
 }
 
+.container1{
+  font-family: 'Signika', sans-serif;
+  padding: 30px;
+  margin-top:30px;
+  margin-left: 50px;
+  margin-right: 50px;
+  background-color: #ffffff;
+  border-radius: 25px;
+  text-align: center !important;
+
+}
+
 h1{
   font-family: Signika;
   font-weight: bold;
@@ -40,4 +52,11 @@ mat-form-field{
 table{
   width: 100%;
   border-radius: 50px;
+}
+
+.material-cust-large-button {
+  width: 170px;
+  font-family: Signika;
+  margin-top: 10px;
+  margin-left: 50px;
 }
