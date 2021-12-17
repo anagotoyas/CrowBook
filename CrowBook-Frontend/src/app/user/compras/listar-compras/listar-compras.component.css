@@ -25,10 +25,10 @@ h1{
     display: flex;
 }
 .colu-1{
-    flex: 90%;
+    flex: 89%;
 }
 .colu-2{
-    flex: 10%;
+    flex: 11%;
 }
 
 mat-form-field{

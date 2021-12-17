@@ -11,12 +11,8 @@ export class CompraService {
 
   constructor(private http: HttpClient) { }
 
-  getAllCompras(){
-    return this.http.get<Compra[]>(`${this.apiBase}/compras`);
-  }
-
   getMisCompras(id: number){
-    return this.http.get<Compra[]>(`${this.apiBase}/compras?usuario=${id}`);
+    return this.http.get<Compra[]>(`${this.apiBase}/compras/buscarPorIdUsuario?usuario=${id}`);
   }
 
   crearCompra(compra: Compra){
