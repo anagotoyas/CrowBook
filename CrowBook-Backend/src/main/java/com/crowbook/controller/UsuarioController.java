@@ -47,6 +47,18 @@ public class UsuarioController {
         return new WrapperResponse<>(true,"success",usuario).createResponse();
     }
 
+    @GetMapping("/cantidadCoinsPorIdUsuario")
+    public ResponseEntity<WrapperResponse<Integer>> getCantidadDeCrowcoinsPorIdUsuario(@RequestParam Integer idUsuario){
+        Integer idUduario=usuarioService.getCantidadDeCrowcoinsPorIdUsuario(idUsuario);
+        return new WrapperResponse<>(true, "success", idUduario).createResponse();
+    }
+
+    @GetMapping("/idUsuarioPorIdHistoria")
+    public ResponseEntity<WrapperResponse<Integer>> obtenerIdUsuarioPorIdHistoria(@RequestParam Integer historia){
+        Integer idUduario=usuarioService.obtenerIdUsuarioPorIdHistoria(historia);
+        return new WrapperResponse<>(true, "success", idUduario).createResponse();
+    }
+
     @PostMapping
     public ResponseEntity<WrapperResponse<Usuario>> registrarUsuario(@Valid @RequestBody Usuario usuario) {
         Usuario usuarioNew = usuarioService.registrarUsuario(usuario);

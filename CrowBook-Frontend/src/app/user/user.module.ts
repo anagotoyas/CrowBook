@@ -40,6 +40,9 @@ import { ModificarPerfilComponent } from './perfiles/modificar-perfil/modificar-
 import { FormModificarPerfilComponent } from './shared/form-modificar-perfil/form-modificar-perfil.component';
 import { CrearMembresiaComponent } from './compras/crear-membresia/crear-membresia.component';
 import { FormMembresiaComponent } from './shared/form-membresia/form-membresia.component';
+import { ModalComponent } from './historias/shared/modal/modal.component';
+import { MatDialogModule } from '@angular/material/dialog'; 
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -82,14 +85,18 @@ import { FormMembresiaComponent } from './shared/form-membresia/form-membresia.c
     FormModificarPerfilComponent,
     CrearMembresiaComponent,
     FormMembresiaComponent,
+    ModalComponent,
    
   ],
   imports: [
     CommonModule,
     UserRoutingModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatButtonModule
 
-  ]
+  ],
+  entryComponents: [ModalComponent],
 })
 export class UserModule { }

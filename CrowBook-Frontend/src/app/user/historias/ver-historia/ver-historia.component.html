@@ -16,7 +16,7 @@
         </mat-card-title-group>
         
         <div class="example-button-row" >
-          <button mat-raised-button >Donar</button>  
+          <button mat-raised-button (click)="openModal()" >Donar</button>  
           <button mat-icon-button color="primary">
             <mat-icon (click)="agregarBiblioteca()" >library_add</mat-icon>
           </button>
@@ -95,4 +95,3 @@
     </ul>
   </div>
 </section>
-

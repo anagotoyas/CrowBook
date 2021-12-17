@@ -2,11 +2,11 @@ package com.crowbook.services.impl;
 
 import com.crowbook.model.Historia;
 import com.crowbook.model.Usuario;
+import com.crowbook.repositories.HistoriaRepository;
 import com.crowbook.repositories.UsuarioRepository;
 
 import com.crowbook.services.UsuarioService;
 import com.crowbook.validators.UsuarioValidator;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,14 +16,16 @@ import java.util.List;
 public class UsuarioServiceImpl implements UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
+    private final HistoriaRepository historiaRepository;
 
 
 
 
-    public UsuarioServiceImpl(UsuarioRepository usuarioRepository){
+    public UsuarioServiceImpl(UsuarioRepository usuarioRepository, HistoriaRepository historiaRepository){
         this.usuarioRepository=usuarioRepository;
 
 
+        this.historiaRepository = historiaRepository;
     }
 
     @Transactional
@@ -62,6 +64,19 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 
     }
+    @Override
+    public Integer obtenerIdUsuarioPorIdHistoria(Integer idhistoria) {
+        Historia historia = historiaRepository.findById(idhistoria).orElse(new Historia());
+        Usuario usuariox = usuarioRepository.findById(historia.getUsuario().getIdUsuario()).orElse(new Usuario());
+        return usuariox.getIdUsuario();
+    }
+
+    @Override
+    public Integer getCantidadDeCrowcoinsPorIdUsuario(Integer idUsuario) {
+        Usuario usuarioC = usuarioRepository.findById(idUsuario).orElse(new Usuario());
+        return usuarioC.getCantidadCrowCoins();
+    }
+
     @Override
     public void agregarHistoriaFavorito(Usuario usuario,Historia historia) {
         usuario.getFavorito().add(historia);

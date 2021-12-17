@@ -13,6 +13,8 @@ public interface UsuarioService {
     Usuario modificarUsuario(Usuario usuario);
     List<Usuario> listarUsuario();
     Usuario obtenerUsuarioPorIdUsuario(Integer idUsuario);
+    Integer obtenerIdUsuarioPorIdHistoria(Integer idhistoria);
+    Integer getCantidadDeCrowcoinsPorIdUsuario(Integer idUsuario);
 
     void eliminarUsuario(Integer idUsuario);
      void agregarHistoriaBiblioteca(Usuario usuario,Historia historia);

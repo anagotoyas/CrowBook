@@ -1,0 +1,26 @@
+<div class="mat-typography">
+    <section class="titulo-shop">
+        <h1 class="titlee">Agregar Donacion</h1>
+      </section>
+    <div>
+
+      <form [formGroup]="DonarForm" (ngSubmit)="save()" #frmLibro="ngForm" autocomplete="off">
+        
+        <mat-form-field appearance="outline">
+          <input matInput #cantidadCrowcoinsInput 
+          type="number"
+          placeholder="Cantidad a donar"
+          ngModel maxlength="1" 
+          formControlName="cantidadCoinsDonacion"
+          [(ngModel)]="donacion.cantidadCoinsDonacion">
+        </mat-form-field>
+        <img src="../../../assets/Crowcoin.png" class="miniaturas" alt="libros">
+
+        <div class="btn-sec">
+          <button mat-raised-button type="submit" color="primary" class="ms-2" [disabled]="frmLibro.invalid">Donar</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>

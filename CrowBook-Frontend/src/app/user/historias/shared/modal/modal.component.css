@@ -1,0 +1,38 @@
+.miniaturas{
+    height: 6vh;
+    width: 17%;
+    margin-left: 5%;
+    margin-top: -3%;
+}
+
+.mat-typography{
+    font-family: Signika;
+}
+
+.title{
+    font-family: Signika;
+}
+
+.titulo-shop {
+    justify-content: center;
+    display: flex;
+    margin-top: 50px;
+    align-items: center;
+    
+  }
+  
+  .titlee {
+    font-size: 25px;
+    margin-top: -43px;
+    font-family: Signika;
+    font-weight: bold;
+    background-color: rgba(226, 162, 255, 0.2);
+    
+  }
+
+.btn-sec {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+}

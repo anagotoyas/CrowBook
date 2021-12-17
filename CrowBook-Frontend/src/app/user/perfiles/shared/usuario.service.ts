@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Usuario } from './usuario.model';
+import { Historia } from '../../historias/shared/historia.model';
 
 @Injectable({
   providedIn: 'root'
@@ -32,4 +33,13 @@ export class UsuarioService {
 
   }
 
+  getidUsuarioPorIdHistoria(idHistoria: number){
+    return this.http.get<number>(`${this.apiBase}/usuarios/idUsuarioPorIdHistoria?historia=${idHistoria}`);
+  }
+
+  getCantidadCrowCoins(idUsuario: number){
+    return this.http.get<number>(`${this.apiBase}/usuarios/cantidadCoinsPorIdUsuario?idUsuario=${idUsuario}`);
+  }
+
 }
+
