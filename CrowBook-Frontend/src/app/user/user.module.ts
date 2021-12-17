@@ -44,6 +44,7 @@ import { ModalComponent } from './historias/shared/modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog'; 
 import { MatButtonModule } from '@angular/material/button';
 import { ListarHistoriaCategoriaComponent } from './historias/listar-historia-categoria/listar-historia-categoria.component';
+import { ListarDonacionesComponent } from './listar-donaciones/listar-donaciones.component';
 
 
 
@@ -88,6 +89,7 @@ import { ListarHistoriaCategoriaComponent } from './historias/listar-historia-ca
     FormMembresiaComponent,
     ModalComponent,
     ListarHistoriaCategoriaComponent,
+    ListarDonacionesComponent,
    
   ],
   imports: [

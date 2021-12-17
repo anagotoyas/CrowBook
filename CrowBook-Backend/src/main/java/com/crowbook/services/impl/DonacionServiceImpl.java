@@ -4,6 +4,7 @@ import com.crowbook.model.Donacion;
 import com.crowbook.model.PaqueteCrowCoin;
 import com.crowbook.model.Usuario;
 import com.crowbook.repositories.DonacionRepository;
+import com.crowbook.repositories.UsuarioRepository;
 import com.crowbook.services.DonacionService;
 import com.crowbook.validators.DonacionValidator;
 import org.springframework.stereotype.Service;
@@ -15,9 +16,11 @@ import java.util.List;
 public class DonacionServiceImpl implements DonacionService {
 
     private final DonacionRepository donacionRepository;
+    private final UsuarioRepository usuarioRepository;
 
-    public DonacionServiceImpl(DonacionRepository donacionRepository) {
+    public DonacionServiceImpl(DonacionRepository donacionRepository, UsuarioRepository usuarioRepository) {
         this.donacionRepository = donacionRepository;
+        this.usuarioRepository = usuarioRepository;
     }
 
     @Transactional
@@ -47,5 +50,18 @@ public class DonacionServiceImpl implements DonacionService {
             int coins_rf=coins_r+coins;
             r.setCantidadCrowCoins(coins_rf);
         }
+    }
+
+    @Override
+    public List<Donacion> verMisDonaciones(Integer idEmisor) {
+        Usuario emisor = usuarioRepository.findById(idEmisor).orElse(new Usuario());
+        List <Donacion> donacionesE = buscarDonacionesPorEmisor(emisor);
+        return donacionesE;
+    }
+
+    @Override
+    public List<Donacion> buscarDonacionesPorEmisor(Usuario emisor) {
+        List<Donacion> donaciones = donacionRepository.buscarDonacionesPorEmisor(emisor);
+        return donaciones;
     }
 }

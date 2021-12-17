@@ -13,5 +13,7 @@ public interface DonacionService {
     List<Donacion> listarDonacion();
     Donacion obtenerDonacionPorID(Integer idDonacion);
     void donarCrowCoins (Usuario e, Usuario r, Integer coins);
+    List<Donacion> verMisDonaciones(Integer idEmisor);
+    List<Donacion>  buscarDonacionesPorEmisor(Usuario emisor);
 
 }

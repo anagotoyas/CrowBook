@@ -35,6 +35,12 @@ public class DonacionController {
         return new WrapperResponse<>(true, "success",donacions).createResponse();
     }
 
+    @GetMapping("/misDonaciones")
+    public ResponseEntity<WrapperResponse<List<Donacion>>> verMisDonaciones(@RequestParam Integer idUsuario) {
+        List<Donacion> donacions = donacionService.verMisDonaciones(idUsuario);
+        return new WrapperResponse<>(true, "success",donacions).createResponse();
+    }
+
     @GetMapping("/{idDonacion}")
     public ResponseEntity<WrapperResponse<Donacion>> obtenerDonacionPorIdDonacion(@PathVariable("idDonacion") Integer idDonacion){
         Donacion donacion = donacionService.obtenerDonacionPorID(idDonacion);

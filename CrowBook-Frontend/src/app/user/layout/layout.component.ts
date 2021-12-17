@@ -18,7 +18,8 @@ import { RegistrationService } from 'src/app/registration.service';
   styleUrls: ['./layout.component.css']
 })
 export class LayoutComponent implements OnInit {
-  dataSource: Usuario
+  dataSource: Usuario;
+  user: any;
   private apiBase: string = environment.apiBase;
   nombre: string;
   constructor(private route: ActivatedRoute, private router: Router,

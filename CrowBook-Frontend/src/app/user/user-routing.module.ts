@@ -26,6 +26,7 @@ import { RegistrarUsuarioComponent } from '../registrar/registrar-usuario/regist
 import { ModificarPerfilComponent } from './perfiles/modificar-perfil/modificar-perfil.component';
 import { CrearMembresiaComponent } from './compras/crear-membresia/crear-membresia.component';
 import { ListarHistoriaCategoriaComponent } from './historias/listar-historia-categoria/listar-historia-categoria.component';
+import { ListarDonacionesComponent } from './listar-donaciones/listar-donaciones.component';
 
 const routes: Routes = [
   {
@@ -47,6 +48,12 @@ const routes: Routes = [
         component: ListarHistoriaCategoriaComponent,
       },
       //closeCategoria
+      //ListarDonaciones
+      {
+        path: 'listar-donaciones/:idu',
+        component: ListarDonacionesComponent,
+      },
+      //CloseListarDonaciones
       {
         path: 'historias/crear',
         component: CrearHistoriaComponent,

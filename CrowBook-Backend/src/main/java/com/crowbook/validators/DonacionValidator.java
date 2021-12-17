@@ -27,6 +27,11 @@ public class DonacionValidator {
 
         }
 
+        //if (donacion.getEmisor().getCantidadCrowCoins() > donacion.getCantidadCoinsDonacion()) {
+        //    throw new IncorrectResourceRequestException("La cantidad de crowcoins a donar supera la cantidad que usted tiene");
+
+       // }
+
     }
 
 }

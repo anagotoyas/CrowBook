@@ -1,0 +1,57 @@
+.customWidthClass{
+    flex: 0 0 1000px;
+}
+
+.container2{
+    font-family: 'Signika', sans-serif;
+    padding: 30px;
+    margin-top:30px;
+    margin-left: 50px;
+    margin-right: 50px;
+    background-color: #F3F3F3;
+    border-radius: 25px;
+}
+
+h1{
+    font-family: Signika;
+    font-weight: bold;
+    display: inline-block;
+}
+.icono{
+    padding-left: 30px;
+}
+
+.fila{
+    display: flex;
+}
+.colu-1{
+    flex: 89%;
+}
+.colu-2{
+    flex: 11%;
+}
+
+mat-form-field{
+    width: 100%;
+}
+
+table{
+    width: 95%;
+    border-radius: 50px;
+    margin: auto;
+}
+
+.mis_compras_list {
+    margin-top: 10px;
+    align-items: center;
+}
+
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+    text-align: center;
+    font-size: 15px;
+}
+
+button{
+    font-family: Signika;
+    font-size: 15px;
+}

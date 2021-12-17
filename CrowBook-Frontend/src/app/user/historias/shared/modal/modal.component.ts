@@ -27,7 +27,7 @@ export class ModalComponent implements OnInit {
   //HISTORIA
   Receptor: any;
   idReceptor: any
-//  cantidadCoins: any;//SIN IMPLEMENTAR
+  cantidadCoins: any;
 
 //Jampier x2
   public DonarForm: FormGroup;
@@ -46,10 +46,11 @@ export class ModalComponent implements OnInit {
     //Jampier x2
     ){ }
 
-  ngOnInit(): void {
+  ngOnInit(): void {//:id
 
     this.idReceptor = this.data;
-  //  this.cantidadCoins = this.getCantidadCoins(2);
+   this.getCantidadCoins(Number(sessionStorage.getItem('idUsuario')));
+   console.log(this.getCantidadCoins(Number(sessionStorage.getItem('idUsuario'))))
 
     this.DonarForm = this.formBuilder.group({
       emisor:[
@@ -63,7 +64,8 @@ export class ModalComponent implements OnInit {
         [
           Validators.required,
           Validators.min(1),
-          //Validators.max(this.cantidadCoins),
+          //Validators.max(500),
+          Validators.max(this.cantidadCoins),
         ]
       ]
     })
@@ -76,6 +78,8 @@ export class ModalComponent implements OnInit {
       //this.id4MODAL = data['body'],
       //console.log(params['idx']),
       //console.log(this.id4MODAL)
+      this.cantidadCoins =  data['body']
+      console.log(this.cantidadCoins)
     });
   }
 

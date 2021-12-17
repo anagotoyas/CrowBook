@@ -15,4 +15,9 @@ export class DonacionService {
     return this.http.post<Donacion>(`${this.apiBase}/donacion`, donacion);
   }
 
+  getAllMyDonations(idUsuario: number){
+    return this.http.get<Donacion[]>(`${this.apiBase}/donacion/misDonaciones?idUsuario=${idUsuario}`);
+
+  }
+
 }
